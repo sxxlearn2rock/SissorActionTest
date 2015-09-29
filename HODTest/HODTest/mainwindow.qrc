@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="/">
+    <file>Resources/sissor.png</file>
+    <file>Resources/warning.png</file>
+    <file>Resources/exit.png</file>
+    <file>Resources/open_video.png</file>
+    <file>Resources/start_detect.png</file>
+  </qresource>
+</RCC>
