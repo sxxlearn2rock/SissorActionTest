@@ -34,18 +34,18 @@ private:
 
 	QTimer *mQTimer;
 
-	void displayMat(cv::Mat& image);
-	void delay(int seconds);
-	void displayInputVideo();
+	void displayMat(cv::Mat&, QLabel*, QFrame*);
+	void totalProcess(cv::Mat&);
 
 signals:
 	
 
 private slots:
-	void on_acOpenVideo_triggered();
+	void on_acReadVideo_triggered();
 	void on_acExit_triggered();
 	void on_btnStartDetect_clicked();
 	void displayInputMat();
+	void displayOutputMat();
 
 };
 

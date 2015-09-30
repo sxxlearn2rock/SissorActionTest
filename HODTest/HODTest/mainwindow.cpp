@@ -17,7 +17,9 @@ MainWindow::MainWindow(QWidget *parent, Qt::WFlags flags)
 	ui.setupUi(this);
 	mQTimer = new QTimer();
 
-	connect(mQTimer, SIGNAL(timeout()), this, SLOT(displayInputMat()));			
+	//显式信号槽链接
+	connect(mQTimer, SIGNAL(timeout()), this, SLOT(displayInputMat()));
+	connect(mQTimer, SIGNAL(timeout()), this, SLOT(displayOutputMat()));		
 }
 
 MainWindow::~MainWindow()
@@ -26,7 +28,7 @@ MainWindow::~MainWindow()
 }
 
 
-void MainWindow::on_acOpenVideo_triggered()
+void MainWindow::on_acReadVideo_triggered()
 {
 	QString fileName = QFileDialog::getOpenFileName(this,tr("请选择视频文件"), ".", tr("video file(*.*)"));
 	if( fileName == NULL)  
@@ -44,7 +46,7 @@ void MainWindow::on_acOpenVideo_triggered()
 
 	//读取并显示视频的第一帧图像，表示视频已经成功读取
 	mVideoCapture >> mInputMat;
-	displayMat(mInputMat);
+	displayMat(mInputMat, ui.labelInputFrame, ui.frameInputBox);
 
 	mReady2PalyVideo = true;
 
@@ -59,8 +61,9 @@ void MainWindow::on_acExit_triggered()
 	}
 }
 
-void MainWindow::displayMat(cv::Mat& image)
+void MainWindow::displayMat(cv::Mat& image, QLabel* labelwshow, QFrame* frame2show)
 {
+	//Mat采取的是bgr格式，要将其转化rgb格式的QImage
 	Mat rgb;
 	if(image.channels()==3)
 	{
@@ -78,46 +81,50 @@ void MainWindow::displayMat(cv::Mat& image)
 			image.cols*image.channels(),
 			QImage::Format_RGB888);
 	}
-//	ui.labelInputFrame->clear();
-	ui.labelInputFrame->setPixmap(QPixmap::fromImage(mInputQImage));
-	ui.labelInputFrame->resize(QSize(ui.frameInputBox->frameRect().width(),ui.frameInputBox->frameRect().height()));
+
+	//在主界面的frameInputBox里面显示图片
+	labelwshow->setPixmap(QPixmap::fromImage(mInputQImage));
+	labelwshow->resize(QSize(frame2show->frameRect().width(),frame2show->frameRect().height()));
 
 }
 
 void MainWindow::on_btnStartDetect_clicked()
-{
-	displayInputVideo();
-}
-
-
-void MainWindow::displayInputVideo()
 {
 	if (!mReady2PalyVideo)
 	{
 		mUnexpectedActionHandler.handle(UnexpectedActionHandler::OPEN_FILE_FAILURE);
 		return;
 	}
-	
+
 	double rate = mVideoCapture.get(CV_CAP_PROP_FPS);
 	int delay = 1000/rate;
-	
-	mQTimer->start(delay);
 
+	mQTimer->start(delay);
 }
+
 
 void MainWindow::displayInputMat()
 {
 	if (mVideoCapture.read(mInputMat))
 	{	
-		displayMat(mInputMat);
+		displayMat(mInputMat, ui.labelInputFrame, ui.frameInputBox);
 
 	}else{
+		//停止定时器
 		mQTimer->stop();
-		ui.labelInputFrame->setText(tr("   视频播放结束！"));
+		ui.labelInputFrame->setText(tr("                    视频播放结束！"));
+		//释放视频资源
 		mVideoCapture.release();
 	}
 	
 
+}
+
+void MainWindow::displayOutputMat()
+{
+
+	rectangle(mInputMat, Rect(20,20,200,200), Scalar(32, 102, 255), 2);
+	displayMat(mInputMat, ui.labelOutputFrame, ui.frameOutputBox);
 }
 
 

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Wed Sep 30 10:34:09 2015
+** Created: Wed Sep 30 13:29:49 2015
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -30,13 +30,16 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindowClass
 {
 public:
-    QAction *acOpenVideo;
+    QAction *acReadVideo;
     QAction *acExit;
     QWidget *centralWidget;
     QLabel *label;
     QLabel *labelInputFrame;
     QFrame *frameInputBox;
     QPushButton *btnStartDetect;
+    QLabel *labelOutputFrame;
+    QFrame *frameOutputBox;
+    QLabel *label_2;
     QMenuBar *menuBar;
     QMenu *menu_F;
     QToolBar *mainToolBar;
@@ -47,11 +50,11 @@ public:
         if (MainWindowClass->objectName().isEmpty())
             MainWindowClass->setObjectName(QString::fromUtf8("MainWindowClass"));
         MainWindowClass->resize(960, 624);
-        acOpenVideo = new QAction(MainWindowClass);
-        acOpenVideo->setObjectName(QString::fromUtf8("acOpenVideo"));
+        acReadVideo = new QAction(MainWindowClass);
+        acReadVideo->setObjectName(QString::fromUtf8("acReadVideo"));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/Resources/open_video.png"), QSize(), QIcon::Normal, QIcon::Off);
-        acOpenVideo->setIcon(icon);
+        acReadVideo->setIcon(icon);
         acExit = new QAction(MainWindowClass);
         acExit->setObjectName(QString::fromUtf8("acExit"));
         QIcon icon1;
@@ -68,7 +71,8 @@ public:
         label->setFont(font);
         labelInputFrame = new QLabel(centralWidget);
         labelInputFrame->setObjectName(QString::fromUtf8("labelInputFrame"));
-        labelInputFrame->setGeometry(QRect(20, 40, 71, 16));
+        labelInputFrame->setGeometry(QRect(20, 40, 321, 241));
+        labelInputFrame->setLayoutDirection(Qt::LeftToRight);
         frameInputBox = new QFrame(centralWidget);
         frameInputBox->setObjectName(QString::fromUtf8("frameInputBox"));
         frameInputBox->setGeometry(QRect(20, 40, 320, 240));
@@ -83,6 +87,20 @@ public:
         icon2.addFile(QString::fromUtf8(":/Resources/start_detect.png"), QSize(), QIcon::Normal, QIcon::Off);
         btnStartDetect->setIcon(icon2);
         btnStartDetect->setIconSize(QSize(32, 32));
+        labelOutputFrame = new QLabel(centralWidget);
+        labelOutputFrame->setObjectName(QString::fromUtf8("labelOutputFrame"));
+        labelOutputFrame->setGeometry(QRect(440, 40, 321, 241));
+        frameOutputBox = new QFrame(centralWidget);
+        frameOutputBox->setObjectName(QString::fromUtf8("frameOutputBox"));
+        frameOutputBox->setGeometry(QRect(440, 40, 320, 240));
+        frameOutputBox->setFrameShape(QFrame::Panel);
+        frameOutputBox->setFrameShadow(QFrame::Sunken);
+        frameOutputBox->setLineWidth(3);
+        frameOutputBox->setMidLineWidth(1);
+        label_2 = new QLabel(centralWidget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(440, 20, 81, 16));
+        label_2->setFont(font);
         MainWindowClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindowClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -98,7 +116,7 @@ public:
         MainWindowClass->setStatusBar(statusBar);
 
         menuBar->addAction(menu_F->menuAction());
-        menu_F->addAction(acOpenVideo);
+        menu_F->addAction(acReadVideo);
         menu_F->addSeparator();
         menu_F->addAction(acExit);
 
@@ -110,12 +128,14 @@ public:
     void retranslateUi(QMainWindow *MainWindowClass)
     {
         MainWindowClass->setWindowTitle(QApplication::translate("MainWindowClass", "MainWindow", 0, QApplication::UnicodeUTF8));
-        acOpenVideo->setText(QApplication::translate("MainWindowClass", "\346\211\223\345\274\200\350\247\206\351\242\221(&O)", 0, QApplication::UnicodeUTF8));
-        acOpenVideo->setShortcut(QApplication::translate("MainWindowClass", "Ctrl+O", 0, QApplication::UnicodeUTF8));
+        acReadVideo->setText(QApplication::translate("MainWindowClass", "\350\257\273\345\217\226\350\247\206\351\242\221(&R)", 0, QApplication::UnicodeUTF8));
+        acReadVideo->setShortcut(QApplication::translate("MainWindowClass", "Ctrl+O", 0, QApplication::UnicodeUTF8));
         acExit->setText(QApplication::translate("MainWindowClass", "\351\200\200\345\207\272\347\250\213\345\272\217", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("MainWindowClass", "\345\216\237\345\247\213\350\247\206\351\242\221\357\274\232", 0, QApplication::UnicodeUTF8));
-        labelInputFrame->setText(QApplication::translate("MainWindowClass", "\345\216\237\345\247\213\350\247\206\351\242\221\345\270\247", 0, QApplication::UnicodeUTF8));
+        labelInputFrame->setText(QApplication::translate("MainWindowClass", "                     \345\216\237\345\247\213\350\247\206\351\242\221\345\270\247", 0, QApplication::UnicodeUTF8));
         btnStartDetect->setText(QApplication::translate("MainWindowClass", "\345\274\200\345\247\213\346\243\200\346\265\213", 0, QApplication::UnicodeUTF8));
+        labelOutputFrame->setText(QApplication::translate("MainWindowClass", "                     \350\276\223\345\207\272\350\247\206\351\242\221\345\270\247", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QApplication::translate("MainWindowClass", "\346\243\200\346\265\213\347\273\223\346\236\234\357\274\232", 0, QApplication::UnicodeUTF8));
         menu_F->setTitle(QApplication::translate("MainWindowClass", "\346\226\207\344\273\266(&F)", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
