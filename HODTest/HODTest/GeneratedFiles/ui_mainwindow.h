@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Tue Sep 29 13:54:35 2015
+** Created: Wed Sep 30 10:34:09 2015
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -20,6 +20,7 @@
 #include <QtGui/QMainWindow>
 #include <QtGui/QMenu>
 #include <QtGui/QMenuBar>
+#include <QtGui/QPushButton>
 #include <QtGui/QStatusBar>
 #include <QtGui/QToolBar>
 #include <QtGui/QWidget>
@@ -35,6 +36,7 @@ public:
     QLabel *label;
     QLabel *labelInputFrame;
     QFrame *frameInputBox;
+    QPushButton *btnStartDetect;
     QMenuBar *menuBar;
     QMenu *menu_F;
     QToolBar *mainToolBar;
@@ -74,6 +76,13 @@ public:
         frameInputBox->setFrameShadow(QFrame::Sunken);
         frameInputBox->setLineWidth(3);
         frameInputBox->setMidLineWidth(1);
+        btnStartDetect = new QPushButton(centralWidget);
+        btnStartDetect->setObjectName(QString::fromUtf8("btnStartDetect"));
+        btnStartDetect->setGeometry(QRect(340, 130, 101, 61));
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/Resources/start_detect.png"), QSize(), QIcon::Normal, QIcon::Off);
+        btnStartDetect->setIcon(icon2);
+        btnStartDetect->setIconSize(QSize(32, 32));
         MainWindowClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindowClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -106,6 +115,7 @@ public:
         acExit->setText(QApplication::translate("MainWindowClass", "\351\200\200\345\207\272\347\250\213\345\272\217", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("MainWindowClass", "\345\216\237\345\247\213\350\247\206\351\242\221\357\274\232", 0, QApplication::UnicodeUTF8));
         labelInputFrame->setText(QApplication::translate("MainWindowClass", "\345\216\237\345\247\213\350\247\206\351\242\221\345\270\247", 0, QApplication::UnicodeUTF8));
+        btnStartDetect->setText(QApplication::translate("MainWindowClass", "\345\274\200\345\247\213\346\243\200\346\265\213", 0, QApplication::UnicodeUTF8));
         menu_F->setTitle(QApplication::translate("MainWindowClass", "\346\226\207\344\273\266(&F)", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 

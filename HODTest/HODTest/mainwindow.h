@@ -9,6 +9,7 @@
 
 #include <QtGui/QMainWindow>
 #include <QtGui/QImage>
+#include <QtCore/QTimer>
 
 
 class MainWindow : public QMainWindow
@@ -20,18 +21,31 @@ public:
 	~MainWindow();
 
 private:
+	bool mReady2PalyVideo;
+	bool mStopPlayVideo;
+
 	Ui::MainWindowClass ui;
 	cv::VideoCapture mVideoCapture;
 	UnexpectedActionHandler mUnexpectedActionHandler;
 
 	cv::Mat mInputMat;
+	QImage mInputQImage;
 	cv::Mat mOutputMat;
 
+	QTimer *mQTimer;
+
 	void displayMat(cv::Mat& image);
+	void delay(int seconds);
+	void displayInputVideo();
+
+signals:
+	
 
 private slots:
 	void on_acOpenVideo_triggered();
 	void on_acExit_triggered();
+	void on_btnStartDetect_clicked();
+	void displayInputMat();
 
 };
 
