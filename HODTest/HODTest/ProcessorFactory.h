@@ -1,6 +1,7 @@
 #pragma once
+#include "DenoiseStrategy.h"
 #include "DenoiseProcessor.h"
-#include "DefaultDenoiseProcessor.h"
+#include "strategies.h"
 
 enum DenoiseProcType {DEFAULT};
 

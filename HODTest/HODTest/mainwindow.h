@@ -4,7 +4,7 @@
 #include "UnexpectedActionHandler.h"
 
 #include "ProcessorFactory.h"
-#include "DenoiseProcessor.h"
+#include "DenoiseStrategy.h"
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
@@ -41,10 +41,7 @@ private:
 	QTimer* mQTimer;
 
 
-	//三个核心图像处理器以及其对应工厂
-	DenoiseProcessorFactory* mDenoiseProcessorFactory;
-	//SegmentProcessorFactory* mSegmentProcessorFactory;
-	//RecogniseProcessorFactory* mRecogniseProcessorFactory;
+	//三个核心图像处理器
 	DenoiseProcessor* mDenoiseProcessor;
 	//SegmentProcessor* mSegmentProcessor;
 	//RecogniseProcessor* mRecogniseProcessor;

@@ -17,18 +17,9 @@ MainWindow::MainWindow(QWidget *parent, Qt::WFlags flags)
 	ui.setupUi(this);
 	mQTimer = new QTimer();
 
-	mInputMat = NULL;
-	mDenoiseMat = NULL;
-	mSegmentMat = NULL;
-	mRecogniseMat = NULL;
-	mOutputMat = NULL;
-
-	mDenoiseProcessorFactory = new DenoiseProcessorFactory;
-	//mSegmentProcessorFactory = new SegmentProcessorFactory;
-	//mRecogniseProcessorFactory = new RecogniseProcessorFactory;
-	mDenoiseProcessor = mDenoiseProcessorFactory->createDenoiseProcessor(DEFAULT);
-	//mSegmentProcessor = NULL;
-	//mRecogniseProcessor = NULL;
+	mDenoiseProcessor = DenoiseProcessor::getInstance();
+	mDenoiseProcessor->setDenoiseStrategy(DefaultDenosieStrategy::getInstance());
+	DefaultDenosieStrategy::getInstance()->setArg1(15);
 
 	//ÏÔÊ½ÐÅºÅ²ÛÁ´½Ó
 	connect(mQTimer, SIGNAL(timeout()), this, SLOT(totalProcess()));
@@ -36,7 +27,7 @@ MainWindow::MainWindow(QWidget *parent, Qt::WFlags flags)
 
 MainWindow::~MainWindow()
 {
-
+	delete mDenoiseProcessor;
 }
 
 
@@ -134,7 +125,7 @@ void MainWindow::displayInputMat()
 void MainWindow::displayDenoisedMat()
 {
 
-	mDenoiseProcessor->denoise(mInputMat, mDenoiseMat);
+	mDenoiseProcessor->process(mInputMat, mDenoiseMat);
 	displayMat(mDenoiseMat, ui.labelDenoiseFrame, ui.frameDenoiseBox);
 }
 

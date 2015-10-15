@@ -8,7 +8,7 @@ DenoiseProcessor* DenoiseProcessorFactory::createDenoiseProcessor(DenoiseProcTyp
 	switch(type)
 	{
 	case DEFAULT:
-		denoiseProcessor = DefaultDenosieProcessor::getInstance();
+		denoiseProcessor = new DenoiseProcessor(DefaultDenosieStrategy::getInstance());
 		break;
 	}
 

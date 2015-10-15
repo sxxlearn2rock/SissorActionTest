@@ -39,10 +39,10 @@
     <Filter Include="Source Files\Processors">
       <UniqueIdentifier>{a7169885-2e9a-4291-81fa-c1750f484f57}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Processors\DnosiseProcessors">
+    <Filter Include="Header Files\Processors\DnosiseStrategies">
       <UniqueIdentifier>{74c9afbc-dda9-49db-b958-effede3bcdb3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Processors\DnosiseProcessors">
+    <Filter Include="Source Files\Processors\DnosiseStrategies">
       <UniqueIdentifier>{04798621-7c38-439c-ae7d-5da519016e4e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -65,14 +65,14 @@
     <ClCompile Include="UnexpectedActionHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ProcessorFactory.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="DefaultDenoiseStrategy.cpp">
+      <Filter>Source Files\Processors\DnosiseStrategies</Filter>
     </ClCompile>
-    <ClCompile Include="DefaultDenoiseProcessor.cpp">
-      <Filter>Source Files\Processors\DnosiseProcessors</Filter>
+    <ClCompile Include="DenoiseStrategy.cpp">
+      <Filter>Source Files\Processors</Filter>
     </ClCompile>
     <ClCompile Include="DenoiseProcessor.cpp">
-      <Filter>Source Files\Processors</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -93,14 +93,17 @@
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="ProcessorFactory.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="DefaultDenoiseStrategy.h">
+      <Filter>Header Files\Processors\DnosiseStrategies</Filter>
     </ClInclude>
-    <ClInclude Include="DefaultDenoiseProcessor.h">
-      <Filter>Header Files\Processors\DnosiseProcessors</Filter>
+    <ClInclude Include="DenoiseStrategy.h">
+      <Filter>Header Files\Processors</Filter>
+    </ClInclude>
+    <ClInclude Include="strategies.h">
+      <Filter>Header Files\Processors</Filter>
     </ClInclude>
     <ClInclude Include="DenoiseProcessor.h">
-      <Filter>Header Files\Processors</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
