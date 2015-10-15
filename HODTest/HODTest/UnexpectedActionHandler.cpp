@@ -17,6 +17,7 @@ void UnexpectedActionHandler::handle(Condition c)
 	msgBox.setWindowTitle(QObject::tr("¾¯¸æ£¡"));
 	msgBox.setWindowIcon(QIcon(":/Resources/warning.png"));
 	msgBox.setIcon(QMessageBox::Icon::Critical);
+
 	switch (c)
 	{
 	case NULL_PATH:		

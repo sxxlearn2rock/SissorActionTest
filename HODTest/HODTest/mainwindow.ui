@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>960</width>
-    <height>624</height>
+    <height>641</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -148,6 +148,138 @@
      <string>检测结果：</string>
     </property>
    </widget>
+   <widget class="QLabel" name="labelSegmentFrame">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>330</y>
+      <width>321</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>                     分割后效果帧</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>310</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>分割结果：</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frameSegmentBox">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>330</y>
+      <width>320</width>
+      <height>240</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="lineWidth">
+     <number>3</number>
+    </property>
+    <property name="midLineWidth">
+     <number>1</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelDenoiseFrame">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>330</y>
+      <width>321</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>                  背景抑制后效果帧</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>310</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>背景抑制结果：</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frameDenoiseBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>330</y>
+      <width>320</width>
+      <height>240</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="lineWidth">
+     <number>3</number>
+    </property>
+    <property name="midLineWidth">
+     <number>1</number>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboDenoise">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>300</y>
+      <width>141</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <zorder>labelDenoiseFrame</zorder>
+   <zorder>frameDenoiseBox</zorder>
+   <zorder>frameSegmentBox</zorder>
+   <zorder>label</zorder>
+   <zorder>labelInputFrame</zorder>
+   <zorder>frameInputBox</zorder>
+   <zorder>btnStartDetect</zorder>
+   <zorder>labelOutputFrame</zorder>
+   <zorder>frameOutputBox</zorder>
+   <zorder>label_2</zorder>
+   <zorder>labelSegmentFrame</zorder>
+   <zorder>label_3</zorder>
+   <zorder>label_4</zorder>
+   <zorder>comboDenoise</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

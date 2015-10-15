@@ -17,9 +17,23 @@ MainWindow::MainWindow(QWidget *parent, Qt::WFlags flags)
 	ui.setupUi(this);
 	mQTimer = new QTimer();
 
+	mInputMat = NULL;
+	mDenoiseMat = NULL;
+	mSegmentMat = NULL;
+	mRecogniseMat = NULL;
+	mOutputMat = NULL;
+
+	mDenoiseProcessorFactory = new DenoiseProcessorFactory;
+	mSegmentProcessorFactory = new SegmentProcessorFactory;
+	mRecogniseProcessorFactory = new RecogniseProcessorFactory;
+	mDenoiseProcessor = mDenoiseProcessorFactory->createDenoiseProcessor(DEFAULT);
+	mSegmentProcessor = NULL;
+	mRecogniseProcessor = NULL;
+
 	//显式信号槽链接
-	connect(mQTimer, SIGNAL(timeout()), this, SLOT(displayInputMat()));
-	connect(mQTimer, SIGNAL(timeout()), this, SLOT(displayOutputMat()));		
+	//connect(mQTimer, SIGNAL(timeout()), this, SLOT(displayInputMat()));
+	//connect(mQTimer, SIGNAL(timeout()), this, SLOT(displayOutputMat()));
+	connect(mQTimer, SIGNAL(timeout()), this, SLOT(totalProcess()));
 }
 
 MainWindow::~MainWindow()
@@ -65,25 +79,26 @@ void MainWindow::displayMat(cv::Mat& image, QLabel* labelwshow, QFrame* frame2sh
 {
 	//Mat采取的是bgr格式，要将其转化rgb格式的QImage
 	Mat rgb;
+	QImage qImage;
 	if(image.channels()==3)
 	{
 		//cvt Mat BGR 2 QImage RGB
 		cvtColor(image,rgb,CV_BGR2RGB);
-		mInputQImage =QImage((const unsigned char*)(rgb.data),
+		qImage =QImage((const unsigned char*)(rgb.data),
 			rgb.cols,rgb.rows,
 			rgb.cols*rgb.channels(),
 			QImage::Format_RGB888);
 	}
 	else
 	{
-		mInputQImage =QImage((const unsigned char*)(image.data),
+			qImage =QImage((const unsigned char*)(image.data),
 			image.cols,image.rows,
 			image.cols*image.channels(),
 			QImage::Format_RGB888);
 	}
 
 	//在主界面的frameInputBox里面显示图片
-	labelwshow->setPixmap(QPixmap::fromImage(mInputQImage));
+	labelwshow->setPixmap(QPixmap::fromImage(qImage));
 	labelwshow->resize(QSize(frame2show->frameRect().width(),frame2show->frameRect().height()));
 
 }
@@ -96,10 +111,10 @@ void MainWindow::on_btnStartDetect_clicked()
 		return;
 	}
 
-	double rate = mVideoCapture.get(CV_CAP_PROP_FPS);
-	int delay = 1000/rate;
+	double videoRate = mVideoCapture.get(CV_CAP_PROP_FPS);
+	int delayBetween2Frames = 1000/videoRate;
 
-	mQTimer->start(delay);
+	mQTimer->start(delayBetween2Frames);
 }
 
 
@@ -116,16 +131,32 @@ void MainWindow::displayInputMat()
 		//释放视频资源
 		mVideoCapture.release();
 	}
-	
+}
 
+void MainWindow::displayDenoisedMat()
+{
+
+	mDenoiseProcessor->denoise(mInputMat, mDenoiseMat);
+	displayMat(mDenoiseMat, ui.labelDenoiseFrame, ui.frameDenoiseBox);
 }
 
 void MainWindow::displayOutputMat()
 {
-
-	rectangle(mInputMat, Rect(20,20,200,200), Scalar(32, 102, 255), 2);
-	displayMat(mInputMat, ui.labelOutputFrame, ui.frameOutputBox);
+	mOutputMat = mInputMat;
+	displayMat(mOutputMat, ui.labelOutputFrame, ui.frameOutputBox);
 }
+
+void MainWindow::totalProcess()
+{
+	displayInputMat();
+	displayDenoisedMat();
+	displayOutputMat();
+}
+
+
+
+
+
 
 
 

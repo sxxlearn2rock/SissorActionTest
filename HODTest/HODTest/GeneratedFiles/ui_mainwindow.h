@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Wed Sep 30 13:29:49 2015
+** Created: Wed Oct 14 19:28:26 2015
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -14,6 +14,7 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
+#include <QtGui/QComboBox>
 #include <QtGui/QFrame>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
@@ -40,6 +41,13 @@ public:
     QLabel *labelOutputFrame;
     QFrame *frameOutputBox;
     QLabel *label_2;
+    QLabel *labelSegmentFrame;
+    QLabel *label_3;
+    QFrame *frameSegmentBox;
+    QLabel *labelDenoiseFrame;
+    QLabel *label_4;
+    QFrame *frameDenoiseBox;
+    QComboBox *comboDenoise;
     QMenuBar *menuBar;
     QMenu *menu_F;
     QToolBar *mainToolBar;
@@ -49,7 +57,7 @@ public:
     {
         if (MainWindowClass->objectName().isEmpty())
             MainWindowClass->setObjectName(QString::fromUtf8("MainWindowClass"));
-        MainWindowClass->resize(960, 624);
+        MainWindowClass->resize(960, 641);
         acReadVideo = new QAction(MainWindowClass);
         acReadVideo->setObjectName(QString::fromUtf8("acReadVideo"));
         QIcon icon;
@@ -101,7 +109,52 @@ public:
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setGeometry(QRect(440, 20, 81, 16));
         label_2->setFont(font);
+        labelSegmentFrame = new QLabel(centralWidget);
+        labelSegmentFrame->setObjectName(QString::fromUtf8("labelSegmentFrame"));
+        labelSegmentFrame->setGeometry(QRect(440, 330, 321, 241));
+        label_3 = new QLabel(centralWidget);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setGeometry(QRect(440, 310, 81, 16));
+        label_3->setFont(font);
+        frameSegmentBox = new QFrame(centralWidget);
+        frameSegmentBox->setObjectName(QString::fromUtf8("frameSegmentBox"));
+        frameSegmentBox->setGeometry(QRect(440, 330, 320, 240));
+        frameSegmentBox->setFrameShape(QFrame::Panel);
+        frameSegmentBox->setFrameShadow(QFrame::Sunken);
+        frameSegmentBox->setLineWidth(3);
+        frameSegmentBox->setMidLineWidth(1);
+        labelDenoiseFrame = new QLabel(centralWidget);
+        labelDenoiseFrame->setObjectName(QString::fromUtf8("labelDenoiseFrame"));
+        labelDenoiseFrame->setGeometry(QRect(20, 330, 321, 241));
+        label_4 = new QLabel(centralWidget);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setGeometry(QRect(20, 310, 131, 16));
+        label_4->setFont(font);
+        frameDenoiseBox = new QFrame(centralWidget);
+        frameDenoiseBox->setObjectName(QString::fromUtf8("frameDenoiseBox"));
+        frameDenoiseBox->setGeometry(QRect(20, 330, 320, 240));
+        frameDenoiseBox->setFrameShape(QFrame::Panel);
+        frameDenoiseBox->setFrameShadow(QFrame::Sunken);
+        frameDenoiseBox->setLineWidth(3);
+        frameDenoiseBox->setMidLineWidth(1);
+        comboDenoise = new QComboBox(centralWidget);
+        comboDenoise->setObjectName(QString::fromUtf8("comboDenoise"));
+        comboDenoise->setGeometry(QRect(200, 300, 141, 22));
         MainWindowClass->setCentralWidget(centralWidget);
+        labelDenoiseFrame->raise();
+        frameDenoiseBox->raise();
+        frameSegmentBox->raise();
+        label->raise();
+        labelInputFrame->raise();
+        frameInputBox->raise();
+        btnStartDetect->raise();
+        labelOutputFrame->raise();
+        frameOutputBox->raise();
+        label_2->raise();
+        labelSegmentFrame->raise();
+        label_3->raise();
+        label_4->raise();
+        comboDenoise->raise();
         menuBar = new QMenuBar(MainWindowClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 960, 23));
@@ -136,6 +189,10 @@ public:
         btnStartDetect->setText(QApplication::translate("MainWindowClass", "\345\274\200\345\247\213\346\243\200\346\265\213", 0, QApplication::UnicodeUTF8));
         labelOutputFrame->setText(QApplication::translate("MainWindowClass", "                     \350\276\223\345\207\272\350\247\206\351\242\221\345\270\247", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("MainWindowClass", "\346\243\200\346\265\213\347\273\223\346\236\234\357\274\232", 0, QApplication::UnicodeUTF8));
+        labelSegmentFrame->setText(QApplication::translate("MainWindowClass", "                     \345\210\206\345\211\262\345\220\216\346\225\210\346\236\234\345\270\247", 0, QApplication::UnicodeUTF8));
+        label_3->setText(QApplication::translate("MainWindowClass", "\345\210\206\345\211\262\347\273\223\346\236\234\357\274\232", 0, QApplication::UnicodeUTF8));
+        labelDenoiseFrame->setText(QApplication::translate("MainWindowClass", "                  \350\203\214\346\231\257\346\212\221\345\210\266\345\220\216\346\225\210\346\236\234\345\270\247", 0, QApplication::UnicodeUTF8));
+        label_4->setText(QApplication::translate("MainWindowClass", "\350\203\214\346\231\257\346\212\221\345\210\266\347\273\223\346\236\234\357\274\232", 0, QApplication::UnicodeUTF8));
         menu_F->setTitle(QApplication::translate("MainWindowClass", "\346\226\207\344\273\266(&F)", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
