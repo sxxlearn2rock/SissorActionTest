@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "strategies.h"
 #include <windows.h>
 #include <time.h>
 #include <iostream>
@@ -19,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent, Qt::WFlags flags)
 
 	mDenoiseProcessor = DenoiseProcessor::getInstance();
 	mDenoiseProcessor->setDenoiseStrategy(DefaultDenosieStrategy::getInstance());
-	DefaultDenosieStrategy::getInstance()->setArg1(15);
+//	mDenoiseProcessor->setDenoiseStrategy(TestDenoiseStrategy::getInstance());
 
 	//ÏÔÊ½ÐÅºÅ²ÛÁ´½Ó
 	connect(mQTimer, SIGNAL(timeout()), this, SLOT(totalProcess()));
@@ -140,6 +141,27 @@ void MainWindow::totalProcess()
 	displayInputMat();
 	displayDenoisedMat();
 	displayOutputMat();
+}
+
+void MainWindow::on_comboDenoise_currentIndexChanged()
+{
+	setDenoiseStrategy(ui.comboDenoise->currentIndex());
+}
+
+void MainWindow::setDenoiseStrategy(int index)
+{
+	switch (index)
+	{
+	case 0:
+		mDenoiseProcessor->setDenoiseStrategy(DefaultDenosieStrategy::getInstance());
+		break;
+	case 1:
+		mDenoiseProcessor->setDenoiseStrategy(TestDenoiseStrategy::getInstance());
+		break;
+	default:
+		mDenoiseProcessor->setDenoiseStrategy(DefaultDenosieStrategy::getInstance());
+		break;
+	}
 }
 
 

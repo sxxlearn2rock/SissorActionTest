@@ -96,6 +96,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
     <ClCompile Include="DenoiseStrategy.cpp" />
+    <ClCompile Include="TestDenoiseStrategy.cpp" />
     <ClCompile Include="UnexpectedActionHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +131,7 @@
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h" />
     <ClInclude Include="DenoiseStrategy.h" />
     <ClInclude Include="strategies.h" />
+    <ClInclude Include="TestDenoiseStrategy.h" />
     <CustomBuild Include="UnexpectedActionHandler.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalInputs)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Thu Oct 15 20:03:51 2015
+** Created: Thu Oct 15 21:03:04 2015
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -193,6 +193,11 @@ public:
         label_3->setText(QApplication::translate("MainWindowClass", "\345\210\206\345\211\262\347\273\223\346\236\234\357\274\232", 0, QApplication::UnicodeUTF8));
         labelDenoiseFrame->setText(QApplication::translate("MainWindowClass", "                  \350\203\214\346\231\257\346\212\221\345\210\266\345\220\216\346\225\210\346\236\234\345\270\247", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("MainWindowClass", "\350\203\214\346\231\257\346\212\221\345\210\266\347\273\223\346\236\234\357\274\232", 0, QApplication::UnicodeUTF8));
+        comboDenoise->clear();
+        comboDenoise->insertItems(0, QStringList()
+         << QApplication::translate("MainWindowClass", "\351\273\230\350\256\244\345\216\273\345\231\252\347\256\227\346\263\225", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindowClass", "\346\265\213\350\257\225\345\216\273\345\231\252\347\256\227\346\263\2251", 0, QApplication::UnicodeUTF8)
+        );
         menu_F->setTitle(QApplication::translate("MainWindowClass", "\346\226\207\344\273\266(&F)", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 

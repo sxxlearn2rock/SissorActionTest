@@ -265,6 +265,16 @@
       <height>22</height>
      </rect>
     </property>
+    <item>
+     <property name="text">
+      <string>默认去噪算法</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>测试去噪算法1</string>
+     </property>
+    </item>
    </widget>
    <zorder>labelDenoiseFrame</zorder>
    <zorder>frameDenoiseBox</zorder>

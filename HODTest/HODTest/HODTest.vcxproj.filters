@@ -74,6 +74,9 @@
     <ClCompile Include="DenoiseProcessor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TestDenoiseStrategy.cpp">
+      <Filter>Source Files\Processors\DnosiseStrategies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="mainwindow.h">
@@ -104,6 +107,9 @@
     </ClInclude>
     <ClInclude Include="DenoiseProcessor.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TestDenoiseStrategy.h">
+      <Filter>Header Files\Processors\DnosiseStrategies</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

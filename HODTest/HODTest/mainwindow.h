@@ -46,12 +46,11 @@ private:
 	//SegmentProcessor* mSegmentProcessor;
 	//RecogniseProcessor* mRecogniseProcessor;
 
-
-
 	void displayMat(cv::Mat&, QLabel*, QFrame*);
 	void displayInputMat();
 	void displayDenoisedMat();
 	void displayOutputMat();
+	void setDenoiseStrategy(int index);
 
 signals:
 	
@@ -60,7 +59,8 @@ private slots:
 	void on_acReadVideo_triggered();
 	void on_acExit_triggered();
 	void on_btnStartDetect_clicked();
-
+	
+	void on_comboDenoise_currentIndexChanged();
 	void totalProcess();
 
 

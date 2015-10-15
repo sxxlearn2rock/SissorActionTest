@@ -24,16 +24,16 @@ private:
 		DefaultDenosieStrategy(void) : mArg1(5) {}
 		static DefaultDenosieStrategy* mSingleton;
 
-		class CGarbo   //该私有内嵌类的唯一工作就是在析构函数中删除单例
+		class Cleaner   //该私有内嵌类的唯一工作就是在析构函数中删除单例
 		{  
 		public:  
-			~CGarbo()  
+			~Cleaner()  
 			{  
 				if(DefaultDenosieStrategy::mSingleton)  
 					delete DefaultDenosieStrategy::mSingleton;  
 			}  
 		};  
-		static CGarbo Garbo;  //定义一个静态成员变量，程序结束时，系统会自动调用它的析构函数  
+		static Cleaner cleaner;  //定义一个静态成员变量，程序结束时，系统会自动调用它的析构函数  
 
 		int mArg1;
 };
