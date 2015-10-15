@@ -4,9 +4,7 @@
 #include "UnexpectedActionHandler.h"
 
 #include "ProcessorFactory.h"
-#include "DenoiseProcessors.h"
-#include "SegmentProcessors.h"
-#include "RecogniseProcessors.h"
+#include "DenoiseProcessor.h"
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
@@ -45,11 +43,11 @@ private:
 
 	//三个核心图像处理器以及其对应工厂
 	DenoiseProcessorFactory* mDenoiseProcessorFactory;
-	SegmentProcessorFactory* mSegmentProcessorFactory;
-	RecogniseProcessorFactory* mRecogniseProcessorFactory;
+	//SegmentProcessorFactory* mSegmentProcessorFactory;
+	//RecogniseProcessorFactory* mRecogniseProcessorFactory;
 	DenoiseProcessor* mDenoiseProcessor;
-	SegmentProcessor* mSegmentProcessor;
-	RecogniseProcessor* mRecogniseProcessor;
+	//SegmentProcessor* mSegmentProcessor;
+	//RecogniseProcessor* mRecogniseProcessor;
 
 
 

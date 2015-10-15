@@ -79,6 +79,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DefaultDenoiseProcessor.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_mainwindow.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -93,10 +94,8 @@
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
-    <ClCompile Include="DenoiseProcessors.cpp" />
+    <ClCompile Include="DenoiseProcessor.cpp" />
     <ClCompile Include="ProcessorFactory.cpp" />
-    <ClCompile Include="RecogniseProcessors.cpp" />
-    <ClCompile Include="SegmentProcessors.cpp" />
     <ClCompile Include="UnexpectedActionHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -126,11 +125,10 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DefaultDenoiseProcessor.h" />
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h" />
-    <ClInclude Include="DenoiseProcessors.h" />
+    <ClInclude Include="DenoiseProcessor.h" />
     <ClInclude Include="ProcessorFactory.h" />
-    <ClInclude Include="RecogniseProcessors.h" />
-    <ClInclude Include="SegmentProcessors.h" />
     <CustomBuild Include="UnexpectedActionHandler.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalInputs)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

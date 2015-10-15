@@ -39,6 +39,12 @@
     <Filter Include="Source Files\Processors">
       <UniqueIdentifier>{a7169885-2e9a-4291-81fa-c1750f484f57}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Processors\DnosiseProcessors">
+      <UniqueIdentifier>{74c9afbc-dda9-49db-b958-effede3bcdb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Processors\DnosiseProcessors">
+      <UniqueIdentifier>{04798621-7c38-439c-ae7d-5da519016e4e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -62,13 +68,10 @@
     <ClCompile Include="ProcessorFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DenoiseProcessors.cpp">
-      <Filter>Source Files\Processors</Filter>
+    <ClCompile Include="DefaultDenoiseProcessor.cpp">
+      <Filter>Source Files\Processors\DnosiseProcessors</Filter>
     </ClCompile>
-    <ClCompile Include="SegmentProcessors.cpp">
-      <Filter>Source Files\Processors</Filter>
-    </ClCompile>
-    <ClCompile Include="RecogniseProcessors.cpp">
+    <ClCompile Include="DenoiseProcessor.cpp">
       <Filter>Source Files\Processors</Filter>
     </ClCompile>
   </ItemGroup>
@@ -90,17 +93,14 @@
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="DenoiseProcessors.h">
-      <Filter>Header Files\Processors</Filter>
-    </ClInclude>
-    <ClInclude Include="SegmentProcessors.h">
-      <Filter>Header Files\Processors</Filter>
-    </ClInclude>
-    <ClInclude Include="RecogniseProcessors.h">
-      <Filter>Header Files\Processors</Filter>
-    </ClInclude>
     <ClInclude Include="ProcessorFactory.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultDenoiseProcessor.h">
+      <Filter>Header Files\Processors\DnosiseProcessors</Filter>
+    </ClInclude>
+    <ClInclude Include="DenoiseProcessor.h">
+      <Filter>Header Files\Processors</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

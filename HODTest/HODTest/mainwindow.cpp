@@ -24,15 +24,13 @@ MainWindow::MainWindow(QWidget *parent, Qt::WFlags flags)
 	mOutputMat = NULL;
 
 	mDenoiseProcessorFactory = new DenoiseProcessorFactory;
-	mSegmentProcessorFactory = new SegmentProcessorFactory;
-	mRecogniseProcessorFactory = new RecogniseProcessorFactory;
+	//mSegmentProcessorFactory = new SegmentProcessorFactory;
+	//mRecogniseProcessorFactory = new RecogniseProcessorFactory;
 	mDenoiseProcessor = mDenoiseProcessorFactory->createDenoiseProcessor(DEFAULT);
-	mSegmentProcessor = NULL;
-	mRecogniseProcessor = NULL;
+	//mSegmentProcessor = NULL;
+	//mRecogniseProcessor = NULL;
 
 	//œ‘ Ω–≈∫≈≤€¡¥Ω”
-	//connect(mQTimer, SIGNAL(timeout()), this, SLOT(displayInputMat()));
-	//connect(mQTimer, SIGNAL(timeout()), this, SLOT(displayOutputMat()));
 	connect(mQTimer, SIGNAL(timeout()), this, SLOT(totalProcess()));
 }
 

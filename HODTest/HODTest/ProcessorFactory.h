@@ -1,7 +1,6 @@
 #pragma once
-#include "DenoiseProcessors.h"
-#include "SegmentProcessors.h"
-#include "RecogniseProcessors.h"
+#include "DenoiseProcessor.h"
+#include "DefaultDenoiseProcessor.h"
 
 enum DenoiseProcType {DEFAULT};
 
@@ -12,22 +11,4 @@ public:
 	~DenoiseProcessorFactory(void) {}
 
 	DenoiseProcessor* createDenoiseProcessor(DenoiseProcType type);
-};
-
-class SegmentProcessorFactory
-{
-public:
-	SegmentProcessorFactory(void) {}
-	~SegmentProcessorFactory(void) {}
-
-	SegmentProcessor* createSegmentProcessor();
-};
-
-class RecogniseProcessorFactory
-{
-public:
-	RecogniseProcessorFactory(void) {}
-	~RecogniseProcessorFactory(void) {}
-
-	RecogniseProcessor* createRecogniseProcessor();
 };
