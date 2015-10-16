@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>960</width>
-    <height>641</height>
+    <width>1083</width>
+    <height>663</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>20</y>
+      <y>40</y>
       <width>81</width>
       <height>16</height>
      </rect>
@@ -30,14 +30,14 @@
      </font>
     </property>
     <property name="text">
-     <string>原始视频：</string>
+     <string>原始视频:</string>
     </property>
    </widget>
    <widget class="QLabel" name="labelInputFrame">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>40</y>
+      <y>60</y>
       <width>321</width>
       <height>241</height>
      </rect>
@@ -53,7 +53,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>40</y>
+      <y>60</y>
       <width>320</width>
       <height>240</height>
      </rect>
@@ -71,47 +71,24 @@
      <number>1</number>
     </property>
    </widget>
-   <widget class="QPushButton" name="btnStartDetect">
-    <property name="geometry">
-     <rect>
-      <x>340</x>
-      <y>130</y>
-      <width>101</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>开始检测</string>
-    </property>
-    <property name="icon">
-     <iconset resource="mainwindow.qrc">
-      <normaloff>:/Resources/start_detect.png</normaloff>:/Resources/start_detect.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>32</width>
-      <height>32</height>
-     </size>
-    </property>
-   </widget>
    <widget class="QLabel" name="labelOutputFrame">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>40</y>
+      <x>740</x>
+      <y>330</y>
       <width>321</width>
       <height>241</height>
      </rect>
     </property>
     <property name="text">
-     <string>                     输出视频帧</string>
+     <string/>
     </property>
    </widget>
    <widget class="QFrame" name="frameOutputBox">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>40</y>
+      <x>740</x>
+      <y>330</y>
       <width>320</width>
       <height>240</height>
      </rect>
@@ -132,9 +109,9 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>20</y>
-      <width>81</width>
+      <x>740</x>
+      <y>310</y>
+      <width>121</width>
       <height>16</height>
      </rect>
     </property>
@@ -145,27 +122,27 @@
      </font>
     </property>
     <property name="text">
-     <string>检测结果：</string>
+     <string>融合输出结果:</string>
     </property>
    </widget>
    <widget class="QLabel" name="labelSegmentFrame">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>330</y>
+      <x>740</x>
+      <y>60</y>
       <width>321</width>
       <height>241</height>
      </rect>
     </property>
     <property name="text">
-     <string>                     分割后效果帧</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>310</y>
+      <x>740</x>
+      <y>40</y>
       <width>81</width>
       <height>16</height>
      </rect>
@@ -177,14 +154,14 @@
      </font>
     </property>
     <property name="text">
-     <string>分割结果：</string>
+     <string>分割结果:</string>
     </property>
    </widget>
    <widget class="QFrame" name="frameSegmentBox">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>330</y>
+      <x>740</x>
+      <y>60</y>
       <width>320</width>
       <height>240</height>
      </rect>
@@ -205,21 +182,21 @@
    <widget class="QLabel" name="labelDenoiseFrame">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>330</y>
+      <x>380</x>
+      <y>60</y>
       <width>321</width>
       <height>241</height>
      </rect>
     </property>
     <property name="text">
-     <string>                  背景抑制后效果帧</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>310</y>
+      <x>380</x>
+      <y>40</y>
       <width>131</width>
       <height>16</height>
      </rect>
@@ -231,14 +208,14 @@
      </font>
     </property>
     <property name="text">
-     <string>背景抑制结果：</string>
+     <string>背景抑制结果:</string>
     </property>
    </widget>
    <widget class="QFrame" name="frameDenoiseBox">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>330</y>
+      <x>380</x>
+      <y>60</y>
       <width>320</width>
       <height>240</height>
      </rect>
@@ -259,9 +236,9 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>300</y>
-      <width>186</width>
+      <x>510</x>
+      <y>30</y>
+      <width>187</width>
       <height>25</height>
      </rect>
     </property>
@@ -297,8 +274,8 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>570</x>
-      <y>300</y>
+      <x>870</x>
+      <y>30</y>
       <width>186</width>
       <height>25</height>
      </rect>
@@ -327,28 +304,194 @@
      </item>
     </layout>
    </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>310</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>识别结果:</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frameRecog">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>330</y>
+      <width>320</width>
+      <height>240</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="lineWidth">
+     <number>3</number>
+    </property>
+    <property name="midLineWidth">
+     <number>1</number>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>300</y>
+      <width>187</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QComboBox" name="comboRecog">
+       <item>
+        <property name="text">
+         <string>默认识别算法</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>测试识别算法1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>测试识别算法2</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnConfigRecog">
+       <property name="text">
+        <string>配置参数</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="labelRecog">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>330</y>
+      <width>321</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>310</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>形态学滤波结果:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelMorphFrame">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>330</y>
+      <width>321</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frameMorphBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>330</y>
+      <width>320</width>
+      <height>240</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="lineWidth">
+     <number>3</number>
+    </property>
+    <property name="midLineWidth">
+     <number>1</number>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnConfigMorph">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>300</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>配置参数</string>
+    </property>
+   </widget>
+   <zorder>frameMorphBox</zorder>
+   <zorder>labelRecog</zorder>
+   <zorder>labelMorphFrame</zorder>
+   <zorder>frameOutputBox</zorder>
+   <zorder>frameDenoiseBox</zorder>
+   <zorder>frameRecog</zorder>
    <zorder>layoutWidget</zorder>
    <zorder>layoutWidget</zorder>
    <zorder>labelDenoiseFrame</zorder>
-   <zorder>frameDenoiseBox</zorder>
    <zorder>frameSegmentBox</zorder>
    <zorder>label</zorder>
    <zorder>labelInputFrame</zorder>
    <zorder>frameInputBox</zorder>
-   <zorder>btnStartDetect</zorder>
    <zorder>labelOutputFrame</zorder>
-   <zorder>frameOutputBox</zorder>
    <zorder>label_2</zorder>
    <zorder>labelSegmentFrame</zorder>
    <zorder>label_3</zorder>
    <zorder>label_4</zorder>
+   <zorder>label_5</zorder>
+   <zorder>layoutWidget_2</zorder>
+   <zorder>layoutWidget_3</zorder>
+   <zorder>label_6</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>960</width>
+     <width>1083</width>
      <height>23</height>
     </rect>
    </property>
@@ -360,7 +503,14 @@
     <addaction name="separator"/>
     <addaction name="acExit"/>
    </widget>
+   <widget class="QMenu" name="menu_R">
+    <property name="title">
+     <string>运行(&amp;R)</string>
+    </property>
+    <addaction name="acStartDetect"/>
+   </widget>
    <addaction name="menu_F"/>
+   <addaction name="menu_R"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -390,6 +540,15 @@
    </property>
    <property name="text">
     <string>退出程序</string>
+   </property>
+  </action>
+  <action name="acStartDetect">
+   <property name="icon">
+    <iconset resource="mainwindow.qrc">
+     <normaloff>:/Resources/start_detect.png</normaloff>:/Resources/start_detect.png</iconset>
+   </property>
+   <property name="text">
+    <string>开始检测</string>
    </property>
   </action>
  </widget>

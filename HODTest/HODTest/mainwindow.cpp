@@ -67,6 +67,22 @@ void MainWindow::on_acExit_triggered()
 	}
 }
 
+
+void MainWindow::on_acStartDetect_triggered()
+{
+	if (!mReady2PalyVideo)
+	{
+		mUnexpectedActionHandler.handle(UnexpectedActionHandler::OPEN_FILE_FAILURE);
+		return;
+	}
+
+	double videoRate = mVideoCapture.get(CV_CAP_PROP_FPS);
+	int delayBetween2Frames = 1000/videoRate;
+
+	mQTimer->start(delayBetween2Frames);
+}
+
+
 void MainWindow::displayMat(cv::Mat& image, QLabel* labelwshow, QFrame* frame2show)
 {
 	//Mat采取的是bgr格式，要将其转化rgb格式的QImage
@@ -95,20 +111,6 @@ void MainWindow::displayMat(cv::Mat& image, QLabel* labelwshow, QFrame* frame2sh
 
 }
 
-void MainWindow::on_btnStartDetect_clicked()
-{
-	if (!mReady2PalyVideo)
-	{
-		mUnexpectedActionHandler.handle(UnexpectedActionHandler::OPEN_FILE_FAILURE);
-		return;
-	}
-
-	double videoRate = mVideoCapture.get(CV_CAP_PROP_FPS);
-	int delayBetween2Frames = 1000/videoRate;
-
-	mQTimer->start(delayBetween2Frames);
-}
-
 
 void MainWindow::displayInputMat()
 {
@@ -133,8 +135,9 @@ void MainWindow::displayDenoisedMat()
 
 void MainWindow::displaySegedMat()
 {
-	mSegmentProcessor->process(mDenoiseMat, mSegmentMat, coordinates, rotatedRects);
+	mSegmentProcessor->process(mDenoiseMat, mSegmentMat, mMorpgMat,coordinates, rotatedRects);
 	displayMat(mSegmentMat, ui.labelSegmentFrame, ui.frameSegmentBox);
+	displayMat(mMorpgMat, ui.labelMorphFrame, ui.frameMorphBox);
 }
 
 void MainWindow::displayOutputMat()

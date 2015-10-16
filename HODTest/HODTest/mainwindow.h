@@ -42,6 +42,7 @@ private:
 	Mat mInputMat;
 	Mat mDenoiseMat;
 	Mat mSegmentMat;
+	Mat mMorpgMat;
 	Mat mRecogniseMat;
 	Mat mOutputMat;
 
@@ -73,7 +74,7 @@ signals:
 private slots:
 	void on_acReadVideo_triggered();
 	void on_acExit_triggered();
-	void on_btnStartDetect_clicked();	
+	void on_acStartDetect_triggered();
 	void on_comboDenoise_currentIndexChanged();
 	void on_comboSegment_currentIndexChanged();
 

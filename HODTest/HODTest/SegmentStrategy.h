@@ -30,7 +30,7 @@ public:
 	SegmentStrategy(void) {}
 	~SegmentStrategy(void) {}
 
-	virtual void process(Mat& srcImg, Mat& desImg, vector<Coordinate> coordinates, vector<RotatedRect> rotatedRects) = 0;
+	virtual void process(Mat& srcImg, Mat& segImg,  Mat& desImg, vector<Coordinate> coordinates, vector<RotatedRect> rotatedRects) = 0;
 };
 
 
