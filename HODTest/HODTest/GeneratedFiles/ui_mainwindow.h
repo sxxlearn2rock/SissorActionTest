@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Thu Oct 15 21:03:04 2015
+** Created: Fri Oct 16 11:32:06 2015
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -16,6 +16,7 @@
 #include <QtGui/QButtonGroup>
 #include <QtGui/QComboBox>
 #include <QtGui/QFrame>
+#include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
 #include <QtGui/QMainWindow>
@@ -47,7 +48,14 @@ public:
     QLabel *labelDenoiseFrame;
     QLabel *label_4;
     QFrame *frameDenoiseBox;
+    QWidget *layoutWidget;
+    QHBoxLayout *horizontalLayout;
     QComboBox *comboDenoise;
+    QPushButton *btnConfigDenoise;
+    QWidget *layoutWidget1;
+    QHBoxLayout *horizontalLayout_2;
+    QComboBox *comboSegment;
+    QPushButton *btnConfigSeg;
     QMenuBar *menuBar;
     QMenu *menu_F;
     QToolBar *mainToolBar;
@@ -137,10 +145,45 @@ public:
         frameDenoiseBox->setFrameShadow(QFrame::Sunken);
         frameDenoiseBox->setLineWidth(3);
         frameDenoiseBox->setMidLineWidth(1);
-        comboDenoise = new QComboBox(centralWidget);
+        layoutWidget = new QWidget(centralWidget);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(150, 300, 186, 25));
+        horizontalLayout = new QHBoxLayout(layoutWidget);
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        comboDenoise = new QComboBox(layoutWidget);
         comboDenoise->setObjectName(QString::fromUtf8("comboDenoise"));
-        comboDenoise->setGeometry(QRect(200, 300, 141, 22));
+
+        horizontalLayout->addWidget(comboDenoise);
+
+        btnConfigDenoise = new QPushButton(layoutWidget);
+        btnConfigDenoise->setObjectName(QString::fromUtf8("btnConfigDenoise"));
+
+        horizontalLayout->addWidget(btnConfigDenoise);
+
+        layoutWidget1 = new QWidget(centralWidget);
+        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(570, 300, 186, 25));
+        horizontalLayout_2 = new QHBoxLayout(layoutWidget1);
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        comboSegment = new QComboBox(layoutWidget1);
+        comboSegment->setObjectName(QString::fromUtf8("comboSegment"));
+
+        horizontalLayout_2->addWidget(comboSegment);
+
+        btnConfigSeg = new QPushButton(layoutWidget1);
+        btnConfigSeg->setObjectName(QString::fromUtf8("btnConfigSeg"));
+
+        horizontalLayout_2->addWidget(btnConfigSeg);
+
         MainWindowClass->setCentralWidget(centralWidget);
+        layoutWidget->raise();
+        layoutWidget->raise();
         labelDenoiseFrame->raise();
         frameDenoiseBox->raise();
         frameSegmentBox->raise();
@@ -154,7 +197,6 @@ public:
         labelSegmentFrame->raise();
         label_3->raise();
         label_4->raise();
-        comboDenoise->raise();
         menuBar = new QMenuBar(MainWindowClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 960, 23));
@@ -197,7 +239,15 @@ public:
         comboDenoise->insertItems(0, QStringList()
          << QApplication::translate("MainWindowClass", "\351\273\230\350\256\244\345\216\273\345\231\252\347\256\227\346\263\225", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("MainWindowClass", "\346\265\213\350\257\225\345\216\273\345\231\252\347\256\227\346\263\2251", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindowClass", "\346\265\213\350\257\225\345\216\273\345\231\252\347\256\227\346\263\2252", 0, QApplication::UnicodeUTF8)
         );
+        btnConfigDenoise->setText(QApplication::translate("MainWindowClass", "\351\205\215\347\275\256\345\217\202\346\225\260", 0, QApplication::UnicodeUTF8));
+        comboSegment->clear();
+        comboSegment->insertItems(0, QStringList()
+         << QApplication::translate("MainWindowClass", "\351\273\230\350\256\244\345\210\206\345\211\262\347\256\227\346\263\225", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindowClass", "\346\265\213\350\257\225\345\210\206\345\211\262\347\256\227\346\263\2251", 0, QApplication::UnicodeUTF8)
+        );
+        btnConfigSeg->setText(QApplication::translate("MainWindowClass", "\351\205\215\347\275\256\345\217\202\346\225\260", 0, QApplication::UnicodeUTF8));
         menu_F->setTitle(QApplication::translate("MainWindowClass", "\346\226\207\344\273\266(&F)", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 

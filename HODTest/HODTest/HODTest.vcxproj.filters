@@ -45,6 +45,12 @@
     <Filter Include="Source Files\Processors\DnosiseStrategies">
       <UniqueIdentifier>{04798621-7c38-439c-ae7d-5da519016e4e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Processors\SegmentStrategies">
+      <UniqueIdentifier>{8743100b-62d1-4487-93cf-743cd7d1ab2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Processors\SegmentStrategies">
+      <UniqueIdentifier>{f3bc4058-bdba-44e3-a30e-89fd7cdd995a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -68,14 +74,20 @@
     <ClCompile Include="DefaultDenoiseStrategy.cpp">
       <Filter>Source Files\Processors\DnosiseStrategies</Filter>
     </ClCompile>
-    <ClCompile Include="DenoiseStrategy.cpp">
-      <Filter>Source Files\Processors</Filter>
-    </ClCompile>
     <ClCompile Include="DenoiseProcessor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TestDenoiseStrategy.cpp">
       <Filter>Source Files\Processors\DnosiseStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="TestDenoiseStrategy2.cpp">
+      <Filter>Source Files\Processors\DnosiseStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="SegmentProcessor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultSegmentStrategy.cpp">
+      <Filter>Source Files\Processors\SegmentStrategies</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -110,6 +122,18 @@
     </ClInclude>
     <ClInclude Include="TestDenoiseStrategy.h">
       <Filter>Header Files\Processors\DnosiseStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="TestDenoiseStrategy2.h">
+      <Filter>Header Files\Processors\DnosiseStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="SegmentProcessor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SegmentStrategy.h">
+      <Filter>Header Files\Processors</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultSegmentStrategy.h">
+      <Filter>Header Files\Processors\SegmentStrategies</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -80,6 +80,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DefaultDenoiseStrategy.cpp" />
+    <ClCompile Include="DefaultSegmentStrategy.cpp" />
     <ClCompile Include="DenoiseProcessor.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_mainwindow.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -95,8 +96,9 @@
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
-    <ClCompile Include="DenoiseStrategy.cpp" />
+    <ClCompile Include="SegmentProcessor.cpp" />
     <ClCompile Include="TestDenoiseStrategy.cpp" />
+    <ClCompile Include="TestDenoiseStrategy2.cpp" />
     <ClCompile Include="UnexpectedActionHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -127,11 +129,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DefaultDenoiseStrategy.h" />
+    <ClInclude Include="DefaultSegmentStrategy.h" />
     <ClInclude Include="DenoiseProcessor.h" />
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h" />
     <ClInclude Include="DenoiseStrategy.h" />
+    <ClInclude Include="SegmentProcessor.h" />
+    <ClInclude Include="SegmentStrategy.h" />
     <ClInclude Include="strategies.h" />
     <ClInclude Include="TestDenoiseStrategy.h" />
+    <ClInclude Include="TestDenoiseStrategy2.h" />
     <CustomBuild Include="UnexpectedActionHandler.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalInputs)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

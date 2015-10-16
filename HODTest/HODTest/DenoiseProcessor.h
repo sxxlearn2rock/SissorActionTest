@@ -20,23 +20,23 @@ public:
 		return mSingleton;
 	}
 
-	void setDenoiseStrategy(DenoiseStrategy*denoiseStrategy) { mDenoiseStrategy = denoiseStrategy; }
+	void setDenoiseStrategy(DenoiseStrategy* denoiseStrategy) { mDenoiseStrategy = denoiseStrategy; }
 
 	void process(Mat& inputImg, Mat& outputImg);
 private:
 	DenoiseProcessor(void) {}
 	DenoiseProcessor(DenoiseStrategy* denoiseStrategy) { mDenoiseStrategy = denoiseStrategy; }
 
-	class CGarbo   //该私有内嵌类的唯一工作就是在析构函数中删除单例
+	class Cleaner   //该私有内嵌类的唯一工作就是在析构函数中删除单例
 	{  
 	public:  
-		~CGarbo()  
+		~Cleaner()  
 		{  
 			if(DenoiseProcessor::mSingleton)  
 				delete DenoiseProcessor::mSingleton;  
 		}  
 	};  
-	static CGarbo Garbo;  //定义一个静态成员变量，程序结束时，系统会自动调用它的析构函数  
+	static Cleaner cleaner;  //定义一个静态成员变量，程序结束时，系统会自动调用它的析构函数  
 
 	static DenoiseProcessor* mSingleton;
 	DenoiseStrategy* mDenoiseStrategy;

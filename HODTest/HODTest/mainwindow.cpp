@@ -20,7 +20,9 @@ MainWindow::MainWindow(QWidget *parent, Qt::WFlags flags)
 
 	mDenoiseProcessor = DenoiseProcessor::getInstance();
 	mDenoiseProcessor->setDenoiseStrategy(DefaultDenosieStrategy::getInstance());
-//	mDenoiseProcessor->setDenoiseStrategy(TestDenoiseStrategy::getInstance());
+
+	mSegmentProcessor = SegmentProcessor::getInstance();
+	mSegmentProcessor->setSegmentStrategy(DefaultSegmentStrategy::getInstance());
 
 	//显式信号槽链接
 	connect(mQTimer, SIGNAL(timeout()), this, SLOT(totalProcess()));
@@ -125,14 +127,19 @@ void MainWindow::displayInputMat()
 
 void MainWindow::displayDenoisedMat()
 {
-
 	mDenoiseProcessor->process(mInputMat, mDenoiseMat);
 	displayMat(mDenoiseMat, ui.labelDenoiseFrame, ui.frameDenoiseBox);
 }
 
+void MainWindow::displaySegedMat()
+{
+	mSegmentProcessor->process(mDenoiseMat, mSegmentMat, coordinates, rotatedRects);
+	displayMat(mSegmentMat, ui.labelSegmentFrame, ui.frameSegmentBox);
+}
+
 void MainWindow::displayOutputMat()
 {
-	mOutputMat = mInputMat;
+//	mOutputMat = mInputMat;
 	displayMat(mOutputMat, ui.labelOutputFrame, ui.frameOutputBox);
 }
 
@@ -140,6 +147,7 @@ void MainWindow::totalProcess()
 {
 	displayInputMat();
 	displayDenoisedMat();
+	displaySegedMat();
 	displayOutputMat();
 }
 
@@ -148,6 +156,12 @@ void MainWindow::on_comboDenoise_currentIndexChanged()
 	setDenoiseStrategy(ui.comboDenoise->currentIndex());
 }
 
+void MainWindow::on_comboSegment_currentIndexChanged()
+{
+	setSegmentStrategy(ui.comboSegment->currentIndex());
+}
+
+//去噪算法下拉框更改时，更改去噪策略
 void MainWindow::setDenoiseStrategy(int index)
 {
 	switch (index)
@@ -158,11 +172,32 @@ void MainWindow::setDenoiseStrategy(int index)
 	case 1:
 		mDenoiseProcessor->setDenoiseStrategy(TestDenoiseStrategy::getInstance());
 		break;
+	case 2:
+		mDenoiseProcessor->setDenoiseStrategy(TestDenoiseStrategy2::getInstance());
+		break;
 	default:
 		mDenoiseProcessor->setDenoiseStrategy(DefaultDenosieStrategy::getInstance());
 		break;
 	}
 }
+
+//分割算法下拉框更改时，更改分割策咯
+void MainWindow::setSegmentStrategy(int index)
+{
+	switch (index)
+	{
+	case 0:
+		mSegmentProcessor->setSegmentStrategy(DefaultSegmentStrategy::getInstance());
+		break;
+	default:
+		mSegmentProcessor->setSegmentStrategy(DefaultSegmentStrategy::getInstance());
+		break;
+	}
+}
+
+
+
+
 
 
 

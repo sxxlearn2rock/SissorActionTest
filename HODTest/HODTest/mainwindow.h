@@ -4,7 +4,12 @@
 #include "UnexpectedActionHandler.h"
 
 #include "ProcessorFactory.h"
+#include "DenoiseProcessor.h"
 #include "DenoiseStrategy.h"
+#include "SegmentProcessor.h"
+#include "SegmentStrategy.h"
+
+#include <vector>
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
@@ -14,7 +19,8 @@
 #include <QtGui/QImage>
 #include <QtCore/QTimer>
 
-using cv::Mat; using cv::VideoCapture;
+using std::vector;
+using cv::Mat; using cv::VideoCapture; using cv::RotatedRect;
 
 class MainWindow : public QMainWindow
 {
@@ -32,25 +38,34 @@ private:
 	VideoCapture mVideoCapture;
 	UnexpectedActionHandler mUnexpectedActionHandler;
 
+	//各个阶段的图像
 	Mat mInputMat;
 	Mat mDenoiseMat;
 	Mat mSegmentMat;
 	Mat mRecogniseMat;
 	Mat mOutputMat;
 
+	//定时器，用以固定帧率显示图像，形成视频播放效果
 	QTimer* mQTimer;
-
 
 	//三个核心图像处理器
 	DenoiseProcessor* mDenoiseProcessor;
-	//SegmentProcessor* mSegmentProcessor;
+	SegmentProcessor* mSegmentProcessor;
 	//RecogniseProcessor* mRecogniseProcessor;
+
+	//保存输出目标的质心坐标
+	vector<Coordinate> coordinates;
+	//保存输出目标的外围旋转矩形
+	vector<RotatedRect> rotatedRects;
 
 	void displayMat(cv::Mat&, QLabel*, QFrame*);
 	void displayInputMat();
 	void displayDenoisedMat();
+	void displaySegedMat();
 	void displayOutputMat();
+
 	void setDenoiseStrategy(int index);
+	void setSegmentStrategy(int index);
 
 signals:
 	
@@ -58,11 +73,11 @@ signals:
 private slots:
 	void on_acReadVideo_triggered();
 	void on_acExit_triggered();
-	void on_btnStartDetect_clicked();
-	
+	void on_btnStartDetect_clicked();	
 	void on_comboDenoise_currentIndexChanged();
-	void totalProcess();
+	void on_comboSegment_currentIndexChanged();
 
+	void totalProcess();
 
 };
 

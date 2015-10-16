@@ -256,26 +256,79 @@
      <number>1</number>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboDenoise">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>150</x>
       <y>300</y>
-      <width>141</width>
-      <height>22</height>
+      <width>186</width>
+      <height>25</height>
      </rect>
     </property>
-    <item>
-     <property name="text">
-      <string>默认去噪算法</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>测试去噪算法1</string>
-     </property>
-    </item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QComboBox" name="comboDenoise">
+       <item>
+        <property name="text">
+         <string>默认去噪算法</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>测试去噪算法1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>测试去噪算法2</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnConfigDenoise">
+       <property name="text">
+        <string>配置参数</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>300</y>
+      <width>186</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QComboBox" name="comboSegment">
+       <item>
+        <property name="text">
+         <string>默认分割算法</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>测试分割算法1</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnConfigSeg">
+       <property name="text">
+        <string>配置参数</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <zorder>layoutWidget</zorder>
+   <zorder>layoutWidget</zorder>
    <zorder>labelDenoiseFrame</zorder>
    <zorder>frameDenoiseBox</zorder>
    <zorder>frameSegmentBox</zorder>
@@ -289,7 +342,6 @@
    <zorder>labelSegmentFrame</zorder>
    <zorder>label_3</zorder>
    <zorder>label_4</zorder>
-   <zorder>comboDenoise</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
