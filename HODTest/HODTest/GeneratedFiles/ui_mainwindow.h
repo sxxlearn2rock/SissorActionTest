@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Fri Oct 16 16:01:24 2015
+** Created: Fri Oct 16 17:00:06 2015
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -77,7 +77,7 @@ public:
     {
         if (MainWindowClass->objectName().isEmpty())
             MainWindowClass->setObjectName(QString::fromUtf8("MainWindowClass"));
-        MainWindowClass->resize(1083, 663);
+        MainWindowClass->resize(1083, 622);
         acReadVideo = new QAction(MainWindowClass);
         acReadVideo->setObjectName(QString::fromUtf8("acReadVideo"));
         QIcon icon;
@@ -97,67 +97,67 @@ public:
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         label = new QLabel(centralWidget);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(20, 40, 81, 16));
+        label->setGeometry(QRect(20, 20, 81, 16));
         QFont font;
         font.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
         font.setPointSize(12);
         label->setFont(font);
         labelInputFrame = new QLabel(centralWidget);
         labelInputFrame->setObjectName(QString::fromUtf8("labelInputFrame"));
-        labelInputFrame->setGeometry(QRect(20, 60, 321, 241));
+        labelInputFrame->setGeometry(QRect(20, 40, 321, 241));
         labelInputFrame->setLayoutDirection(Qt::LeftToRight);
         frameInputBox = new QFrame(centralWidget);
         frameInputBox->setObjectName(QString::fromUtf8("frameInputBox"));
-        frameInputBox->setGeometry(QRect(20, 60, 320, 240));
+        frameInputBox->setGeometry(QRect(20, 40, 320, 240));
         frameInputBox->setFrameShape(QFrame::Panel);
         frameInputBox->setFrameShadow(QFrame::Sunken);
         frameInputBox->setLineWidth(3);
         frameInputBox->setMidLineWidth(1);
         labelOutputFrame = new QLabel(centralWidget);
         labelOutputFrame->setObjectName(QString::fromUtf8("labelOutputFrame"));
-        labelOutputFrame->setGeometry(QRect(740, 330, 321, 241));
+        labelOutputFrame->setGeometry(QRect(740, 310, 321, 241));
         frameOutputBox = new QFrame(centralWidget);
         frameOutputBox->setObjectName(QString::fromUtf8("frameOutputBox"));
-        frameOutputBox->setGeometry(QRect(740, 330, 320, 240));
+        frameOutputBox->setGeometry(QRect(740, 310, 320, 240));
         frameOutputBox->setFrameShape(QFrame::Panel);
         frameOutputBox->setFrameShadow(QFrame::Sunken);
         frameOutputBox->setLineWidth(3);
         frameOutputBox->setMidLineWidth(1);
         label_2 = new QLabel(centralWidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(740, 310, 121, 16));
+        label_2->setGeometry(QRect(740, 290, 121, 16));
         label_2->setFont(font);
         labelSegmentFrame = new QLabel(centralWidget);
         labelSegmentFrame->setObjectName(QString::fromUtf8("labelSegmentFrame"));
-        labelSegmentFrame->setGeometry(QRect(740, 60, 321, 241));
+        labelSegmentFrame->setGeometry(QRect(740, 40, 321, 241));
         label_3 = new QLabel(centralWidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(740, 40, 81, 16));
+        label_3->setGeometry(QRect(740, 20, 81, 16));
         label_3->setFont(font);
         frameSegmentBox = new QFrame(centralWidget);
         frameSegmentBox->setObjectName(QString::fromUtf8("frameSegmentBox"));
-        frameSegmentBox->setGeometry(QRect(740, 60, 320, 240));
+        frameSegmentBox->setGeometry(QRect(740, 40, 320, 240));
         frameSegmentBox->setFrameShape(QFrame::Panel);
         frameSegmentBox->setFrameShadow(QFrame::Sunken);
         frameSegmentBox->setLineWidth(3);
         frameSegmentBox->setMidLineWidth(1);
         labelDenoiseFrame = new QLabel(centralWidget);
         labelDenoiseFrame->setObjectName(QString::fromUtf8("labelDenoiseFrame"));
-        labelDenoiseFrame->setGeometry(QRect(380, 60, 321, 241));
+        labelDenoiseFrame->setGeometry(QRect(380, 40, 321, 241));
         label_4 = new QLabel(centralWidget);
         label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setGeometry(QRect(380, 40, 131, 16));
+        label_4->setGeometry(QRect(380, 20, 131, 16));
         label_4->setFont(font);
         frameDenoiseBox = new QFrame(centralWidget);
         frameDenoiseBox->setObjectName(QString::fromUtf8("frameDenoiseBox"));
-        frameDenoiseBox->setGeometry(QRect(380, 60, 320, 240));
+        frameDenoiseBox->setGeometry(QRect(380, 40, 320, 240));
         frameDenoiseBox->setFrameShape(QFrame::Panel);
         frameDenoiseBox->setFrameShadow(QFrame::Sunken);
         frameDenoiseBox->setLineWidth(3);
         frameDenoiseBox->setMidLineWidth(1);
         layoutWidget = new QWidget(centralWidget);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(510, 30, 187, 25));
+        layoutWidget->setGeometry(QRect(510, 10, 187, 25));
         horizontalLayout = new QHBoxLayout(layoutWidget);
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
@@ -175,7 +175,7 @@ public:
 
         layoutWidget1 = new QWidget(centralWidget);
         layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(870, 30, 186, 25));
+        layoutWidget1->setGeometry(QRect(870, 10, 186, 25));
         horizontalLayout_2 = new QHBoxLayout(layoutWidget1);
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -193,18 +193,18 @@ public:
 
         label_5 = new QLabel(centralWidget);
         label_5->setObjectName(QString::fromUtf8("label_5"));
-        label_5->setGeometry(QRect(380, 310, 131, 16));
+        label_5->setGeometry(QRect(380, 290, 131, 16));
         label_5->setFont(font);
         frameRecog = new QFrame(centralWidget);
         frameRecog->setObjectName(QString::fromUtf8("frameRecog"));
-        frameRecog->setGeometry(QRect(380, 330, 320, 240));
+        frameRecog->setGeometry(QRect(380, 310, 320, 240));
         frameRecog->setFrameShape(QFrame::Panel);
         frameRecog->setFrameShadow(QFrame::Sunken);
         frameRecog->setLineWidth(3);
         frameRecog->setMidLineWidth(1);
         layoutWidget_2 = new QWidget(centralWidget);
         layoutWidget_2->setObjectName(QString::fromUtf8("layoutWidget_2"));
-        layoutWidget_2->setGeometry(QRect(510, 300, 187, 25));
+        layoutWidget_2->setGeometry(QRect(510, 280, 187, 25));
         horizontalLayout_3 = new QHBoxLayout(layoutWidget_2);
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setContentsMargins(11, 11, 11, 11);
@@ -222,25 +222,26 @@ public:
 
         labelRecog = new QLabel(centralWidget);
         labelRecog->setObjectName(QString::fromUtf8("labelRecog"));
-        labelRecog->setGeometry(QRect(380, 330, 321, 241));
+        labelRecog->setGeometry(QRect(380, 310, 321, 241));
         label_6 = new QLabel(centralWidget);
         label_6->setObjectName(QString::fromUtf8("label_6"));
-        label_6->setGeometry(QRect(20, 310, 131, 16));
+        label_6->setGeometry(QRect(20, 290, 131, 16));
         label_6->setFont(font);
         labelMorphFrame = new QLabel(centralWidget);
         labelMorphFrame->setObjectName(QString::fromUtf8("labelMorphFrame"));
-        labelMorphFrame->setGeometry(QRect(20, 330, 321, 241));
+        labelMorphFrame->setGeometry(QRect(20, 310, 321, 241));
         frameMorphBox = new QFrame(centralWidget);
         frameMorphBox->setObjectName(QString::fromUtf8("frameMorphBox"));
-        frameMorphBox->setGeometry(QRect(20, 330, 320, 240));
+        frameMorphBox->setGeometry(QRect(20, 310, 320, 240));
         frameMorphBox->setFrameShape(QFrame::Panel);
         frameMorphBox->setFrameShadow(QFrame::Sunken);
         frameMorphBox->setLineWidth(3);
         frameMorphBox->setMidLineWidth(1);
         btnConfigMorph = new QPushButton(centralWidget);
         btnConfigMorph->setObjectName(QString::fromUtf8("btnConfigMorph"));
-        btnConfigMorph->setGeometry(QRect(260, 300, 75, 23));
+        btnConfigMorph->setGeometry(QRect(260, 280, 75, 23));
         MainWindowClass->setCentralWidget(centralWidget);
+        btnConfigMorph->raise();
         frameMorphBox->raise();
         labelRecog->raise();
         labelMorphFrame->raise();
@@ -283,6 +284,7 @@ public:
         menu_F->addSeparator();
         menu_F->addAction(acExit);
         menu_R->addAction(acStartDetect);
+        mainToolBar->addSeparator();
 
         retranslateUi(MainWindowClass);
 
@@ -293,6 +295,9 @@ public:
     {
         MainWindowClass->setWindowTitle(QApplication::translate("MainWindowClass", "MainWindow", 0, QApplication::UnicodeUTF8));
         acReadVideo->setText(QApplication::translate("MainWindowClass", "\350\257\273\345\217\226\350\247\206\351\242\221(&R)", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        acReadVideo->setToolTip(QApplication::translate("MainWindowClass", "\350\257\273\345\217\226\350\247\206\351\242\221\346\226\207\344\273\266", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         acReadVideo->setShortcut(QApplication::translate("MainWindowClass", "Ctrl+O", 0, QApplication::UnicodeUTF8));
         acExit->setText(QApplication::translate("MainWindowClass", "\351\200\200\345\207\272\347\250\213\345\272\217", 0, QApplication::UnicodeUTF8));
         acStartDetect->setText(QApplication::translate("MainWindowClass", "\345\274\200\345\247\213\346\243\200\346\265\213", 0, QApplication::UnicodeUTF8));

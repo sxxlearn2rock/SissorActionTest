@@ -31,6 +31,9 @@ public:
 	~MainWindow();
 
 private:
+	//UI相关的成员变量，以u为前缀
+	QLabel* uStatusLabel;
+
 	bool mReady2PalyVideo;
 	bool mStopPlayVideo;
 
@@ -70,7 +73,6 @@ private:
 
 signals:
 	
-
 private slots:
 	void on_acReadVideo_triggered();
 	void on_acExit_triggered();

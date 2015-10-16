@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1083</width>
-    <height>663</height>
+    <height>622</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>40</y>
+      <y>20</y>
       <width>81</width>
       <height>16</height>
      </rect>
@@ -37,7 +37,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>60</y>
+      <y>40</y>
       <width>321</width>
       <height>241</height>
      </rect>
@@ -53,7 +53,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>60</y>
+      <y>40</y>
       <width>320</width>
       <height>240</height>
      </rect>
@@ -75,7 +75,7 @@
     <property name="geometry">
      <rect>
       <x>740</x>
-      <y>330</y>
+      <y>310</y>
       <width>321</width>
       <height>241</height>
      </rect>
@@ -88,7 +88,7 @@
     <property name="geometry">
      <rect>
       <x>740</x>
-      <y>330</y>
+      <y>310</y>
       <width>320</width>
       <height>240</height>
      </rect>
@@ -110,7 +110,7 @@
     <property name="geometry">
      <rect>
       <x>740</x>
-      <y>310</y>
+      <y>290</y>
       <width>121</width>
       <height>16</height>
      </rect>
@@ -129,7 +129,7 @@
     <property name="geometry">
      <rect>
       <x>740</x>
-      <y>60</y>
+      <y>40</y>
       <width>321</width>
       <height>241</height>
      </rect>
@@ -142,7 +142,7 @@
     <property name="geometry">
      <rect>
       <x>740</x>
-      <y>40</y>
+      <y>20</y>
       <width>81</width>
       <height>16</height>
      </rect>
@@ -161,7 +161,7 @@
     <property name="geometry">
      <rect>
       <x>740</x>
-      <y>60</y>
+      <y>40</y>
       <width>320</width>
       <height>240</height>
      </rect>
@@ -183,7 +183,7 @@
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>60</y>
+      <y>40</y>
       <width>321</width>
       <height>241</height>
      </rect>
@@ -196,7 +196,7 @@
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>40</y>
+      <y>20</y>
       <width>131</width>
       <height>16</height>
      </rect>
@@ -215,7 +215,7 @@
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>60</y>
+      <y>40</y>
       <width>320</width>
       <height>240</height>
      </rect>
@@ -237,7 +237,7 @@
     <property name="geometry">
      <rect>
       <x>510</x>
-      <y>30</y>
+      <y>10</y>
       <width>187</width>
       <height>25</height>
      </rect>
@@ -275,7 +275,7 @@
     <property name="geometry">
      <rect>
       <x>870</x>
-      <y>30</y>
+      <y>10</y>
       <width>186</width>
       <height>25</height>
      </rect>
@@ -308,7 +308,7 @@
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>310</y>
+      <y>290</y>
       <width>131</width>
       <height>16</height>
      </rect>
@@ -327,7 +327,7 @@
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>330</y>
+      <y>310</y>
       <width>320</width>
       <height>240</height>
      </rect>
@@ -349,7 +349,7 @@
     <property name="geometry">
      <rect>
       <x>510</x>
-      <y>300</y>
+      <y>280</y>
       <width>187</width>
       <height>25</height>
      </rect>
@@ -387,7 +387,7 @@
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>330</y>
+      <y>310</y>
       <width>321</width>
       <height>241</height>
      </rect>
@@ -400,7 +400,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>310</y>
+      <y>290</y>
       <width>131</width>
       <height>16</height>
      </rect>
@@ -419,7 +419,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>330</y>
+      <y>310</y>
       <width>321</width>
       <height>241</height>
      </rect>
@@ -432,7 +432,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>330</y>
+      <y>310</y>
       <width>320</width>
       <height>240</height>
      </rect>
@@ -454,7 +454,7 @@
     <property name="geometry">
      <rect>
       <x>260</x>
-      <y>300</y>
+      <y>280</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -463,6 +463,7 @@
      <string>配置参数</string>
     </property>
    </widget>
+   <zorder>btnConfigMorph</zorder>
    <zorder>frameMorphBox</zorder>
    <zorder>labelRecog</zorder>
    <zorder>labelMorphFrame</zorder>
@@ -483,7 +484,6 @@
    <zorder>label_4</zorder>
    <zorder>label_5</zorder>
    <zorder>layoutWidget_2</zorder>
-   <zorder>layoutWidget_3</zorder>
    <zorder>label_6</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -519,6 +519,7 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="separator"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="acReadVideo">
@@ -528,6 +529,9 @@
    </property>
    <property name="text">
     <string>读取视频(&amp;R)</string>
+   </property>
+   <property name="toolTip">
+    <string>读取视频文件</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>

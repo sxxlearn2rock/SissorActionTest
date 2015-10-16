@@ -16,6 +16,18 @@ MainWindow::MainWindow(QWidget *parent, Qt::WFlags flags)
 	: QMainWindow(parent, flags),mReady2PalyVideo(false), mStopPlayVideo(false)
 {
 	ui.setupUi(this);
+	//配置工具栏
+	ui.mainToolBar->addAction(ui.acReadVideo);
+	ui.mainToolBar->addAction(ui.acStartDetect);
+	//配置状态栏
+	uStatusLabel = new QLabel();
+	uStatusLabel->setMinimumSize(uStatusLabel->sizeHint());
+	uStatusLabel->setAlignment(Qt::AlignHCenter);
+	this->statusBar()->addWidget(uStatusLabel);
+	ui.acReadVideo->setStatusTip(tr("打开一个视频文件"));
+	ui.acStartDetect->setStatusTip(tr("开始进行刀具检测"));
+	ui.acExit->setStatusTip(tr("退出程序"));
+
 	mQTimer = new QTimer();
 
 	mDenoiseProcessor = DenoiseProcessor::getInstance();
