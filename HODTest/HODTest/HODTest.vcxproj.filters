@@ -71,16 +71,22 @@
     <ClCompile Include="UnexpectedActionHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DefaultDenoiseStrategy.cpp">
-      <Filter>Source Files\Processors\DnosiseStrategies</Filter>
-    </ClCompile>
     <ClCompile Include="DenoiseProcessor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SegmentProcessor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DefaultSegmentStrategy.cpp">
+    <ClCompile Include="Processors\DenoiseStrategies\LateralInhibition.cpp">
+      <Filter>Source Files\Processors\DnosiseStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="Processors\DenoiseStrategies\Pmdiff2.cpp">
+      <Filter>Source Files\Processors\DnosiseStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="Processors\DenoiseStrategies\DefaultDenoiseStrategy.cpp">
+      <Filter>Source Files\Processors\DnosiseStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="Processors\SegmentStrategies\DefaultSegmentStrategy.cpp">
       <Filter>Source Files\Processors\SegmentStrategies</Filter>
     </ClCompile>
   </ItemGroup>
@@ -102,12 +108,6 @@
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="DefaultDenoiseStrategy.h">
-      <Filter>Header Files\Processors\DnosiseStrategies</Filter>
-    </ClInclude>
-    <ClInclude Include="DenoiseStrategy.h">
-      <Filter>Header Files\Processors</Filter>
-    </ClInclude>
     <ClInclude Include="strategies.h">
       <Filter>Header Files\Processors</Filter>
     </ClInclude>
@@ -120,7 +120,19 @@
     <ClInclude Include="SegmentStrategy.h">
       <Filter>Header Files\Processors</Filter>
     </ClInclude>
-    <ClInclude Include="DefaultSegmentStrategy.h">
+    <ClInclude Include="Processors\DenoiseStrategy.h">
+      <Filter>Header Files\Processors</Filter>
+    </ClInclude>
+    <ClInclude Include="Processors\DenoiseStrategies\LateralInhibition.h">
+      <Filter>Header Files\Processors\DnosiseStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="Processors\DenoiseStrategies\Pmdiff2.h">
+      <Filter>Header Files\Processors\DnosiseStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="Processors\DenoiseStrategies\DefaultDenoiseStrategy.h">
+      <Filter>Header Files\Processors\DnosiseStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="Processors\SegmentStrategies\DefaultSegmentStrategy.h">
       <Filter>Header Files\Processors\SegmentStrategies</Filter>
     </ClInclude>
   </ItemGroup>

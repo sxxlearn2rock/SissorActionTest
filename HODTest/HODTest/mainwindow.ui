@@ -247,17 +247,17 @@
       <widget class="QComboBox" name="comboDenoise">
        <item>
         <property name="text">
-         <string>默认去噪算法</string>
+         <string>灰度化</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>测试去噪算法1</string>
+         <string>侧抑制网络增强</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>测试去噪算法2</string>
+         <string>二维各向异性滤波</string>
         </property>
        </item>
       </widget>

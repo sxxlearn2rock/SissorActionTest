@@ -1,5 +1,5 @@
 #pragma once
-#include "DenoiseStrategy.h"
+#include "./Processors/DenoiseStrategy.h"
 
 //µ¥ÀýÄ£Ê½
 class DefaultDenosieStrategy : public DenoiseStrategy
@@ -19,7 +19,7 @@ public:
 
 	void setArg1(int arg) { mArg1 = arg; }
 
-	void denoise(const Mat& srcImg, Mat& desImg);
+	void denoise( Mat& srcImg, Mat& desImg);
 private:
 		DefaultDenosieStrategy(void) : mArg1(5) {}
 		static DefaultDenosieStrategy* mSingleton;

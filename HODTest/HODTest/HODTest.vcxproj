@@ -79,8 +79,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="DefaultDenoiseStrategy.cpp" />
-    <ClCompile Include="DefaultSegmentStrategy.cpp" />
     <ClCompile Include="DenoiseProcessor.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_mainwindow.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -96,6 +94,10 @@
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
+    <ClCompile Include="Processors\DenoiseStrategies\DefaultDenoiseStrategy.cpp" />
+    <ClCompile Include="Processors\DenoiseStrategies\LateralInhibition.cpp" />
+    <ClCompile Include="Processors\DenoiseStrategies\Pmdiff2.cpp" />
+    <ClCompile Include="Processors\SegmentStrategies\DefaultSegmentStrategy.cpp" />
     <ClCompile Include="SegmentProcessor.cpp" />
     <ClCompile Include="UnexpectedActionHandler.cpp" />
   </ItemGroup>
@@ -126,11 +128,13 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DefaultDenoiseStrategy.h" />
-    <ClInclude Include="DefaultSegmentStrategy.h" />
     <ClInclude Include="DenoiseProcessor.h" />
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h" />
-    <ClInclude Include="DenoiseStrategy.h" />
+    <ClInclude Include="Processors\DenoiseStrategies\DefaultDenoiseStrategy.h" />
+    <ClInclude Include="Processors\DenoiseStrategies\LateralInhibition.h" />
+    <ClInclude Include="Processors\DenoiseStrategies\Pmdiff2.h" />
+    <ClInclude Include="Processors\DenoiseStrategy.h" />
+    <ClInclude Include="Processors\SegmentStrategies\DefaultSegmentStrategy.h" />
     <ClInclude Include="SegmentProcessor.h" />
     <ClInclude Include="SegmentStrategy.h" />
     <ClInclude Include="strategies.h" />

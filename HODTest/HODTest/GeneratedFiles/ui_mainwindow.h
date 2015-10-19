@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Fri Oct 16 17:00:06 2015
+** Created: Mon Oct 19 17:10:05 2015
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -311,9 +311,9 @@ public:
         label_4->setText(QApplication::translate("MainWindowClass", "\350\203\214\346\231\257\346\212\221\345\210\266\347\273\223\346\236\234:", 0, QApplication::UnicodeUTF8));
         comboDenoise->clear();
         comboDenoise->insertItems(0, QStringList()
-         << QApplication::translate("MainWindowClass", "\351\273\230\350\256\244\345\216\273\345\231\252\347\256\227\346\263\225", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindowClass", "\346\265\213\350\257\225\345\216\273\345\231\252\347\256\227\346\263\2251", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindowClass", "\346\265\213\350\257\225\345\216\273\345\231\252\347\256\227\346\263\2252", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindowClass", "\347\201\260\345\272\246\345\214\226", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindowClass", "\344\276\247\346\212\221\345\210\266\347\275\221\347\273\234\345\242\236\345\274\272", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindowClass", "\344\272\214\347\273\264\345\220\204\345\220\221\345\274\202\346\200\247\346\273\244\346\263\242", 0, QApplication::UnicodeUTF8)
         );
         btnConfigDenoise->setText(QApplication::translate("MainWindowClass", "\351\205\215\347\275\256\345\217\202\346\225\260", 0, QApplication::UnicodeUTF8));
         comboSegment->clear();

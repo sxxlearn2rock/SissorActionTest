@@ -13,7 +13,7 @@ using namespace cv;
 
 
 MainWindow::MainWindow(QWidget *parent, Qt::WFlags flags)
-	: QMainWindow(parent, flags),mReady2PalyVideo(false), mStopPlayVideo(false)
+	: QMainWindow(parent, flags),mReady2PalyVideo(false), mStopPlayVideo(false), mIsProcessing(false)
 {
 	ui.setupUi(this);
 	//配置工具栏
@@ -96,7 +96,7 @@ void MainWindow::on_acStartDetect_triggered()
 }
 
 
-void MainWindow::displayMat(cv::Mat& image, QLabel* labelwshow, QFrame* frame2show)
+void MainWindow::displayMat(cv::Mat& image, QLabel* label2show, QFrame* frame2show)
 {
 	//Mat采取的是bgr格式，要将其转化rgb格式的QImage
 	Mat rgb;
@@ -106,21 +106,23 @@ void MainWindow::displayMat(cv::Mat& image, QLabel* labelwshow, QFrame* frame2sh
 		//cvt Mat BGR 2 QImage RGB
 		cvtColor(image,rgb,CV_BGR2RGB);
 		qImage =QImage((const unsigned char*)(rgb.data),
-			rgb.cols,rgb.rows,
+			rgb.cols,
+			rgb.rows,
 			rgb.cols*rgb.channels(),
 			QImage::Format_RGB888);
 	}
 	else
 	{
 			qImage =QImage((const unsigned char*)(image.data),
-			image.cols,image.rows,
+			image.cols,
+			image.rows,
 			image.cols*image.channels(),
-			QImage::Format_RGB888);
+			QImage::Format_Indexed8);		//注意此处需指示为8位灰度图
 	}
 
 	//在主界面的frameInputBox里面显示图片
-	labelwshow->setPixmap(QPixmap::fromImage(qImage));
-	labelwshow->resize(QSize(frame2show->frameRect().width(),frame2show->frameRect().height()));
+	label2show->setPixmap(QPixmap::fromImage(qImage));
+	label2show->resize(QSize(frame2show->frameRect().width(),frame2show->frameRect().height()));
 
 }
 
@@ -161,10 +163,17 @@ void MainWindow::displayOutputMat()
 
 void MainWindow::totalProcess()
 {
-	displayInputMat();
-	displayDenoisedMat();
-	displaySegedMat();
-	displayOutputMat();
+	//若之前帧没有处理完，就跳过该帧
+	if ( !mIsProcessing )
+	{
+		mIsProcessing = true;
+		displayInputMat();
+		displayDenoisedMat();
+		displaySegedMat();
+		displayOutputMat();
+		mIsProcessing = false;
+	}
+
 }
 
 void MainWindow::on_comboDenoise_currentIndexChanged()
@@ -184,6 +193,12 @@ void MainWindow::setDenoiseStrategy(int index)
 	{
 	case 0:
 		mDenoiseProcessor->setDenoiseStrategy(DefaultDenosieStrategy::getInstance());
+		break;
+	case 1:
+		mDenoiseProcessor->setDenoiseStrategy(LateralInhibition::getInstance());
+		break;
+	case 2:
+		mDenoiseProcessor->setDenoiseStrategy(Pmdiff2::getInstance());
 		break;
 	default:
 		mDenoiseProcessor->setDenoiseStrategy(DefaultDenosieStrategy::getInstance());

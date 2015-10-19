@@ -35,6 +35,7 @@ private:
 
 	bool mReady2PalyVideo;
 	bool mStopPlayVideo;
+	bool mIsProcessing;
 
 	Ui::MainWindowClass ui;
 	VideoCapture mVideoCapture;
