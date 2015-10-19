@@ -1,4 +1,4 @@
-#include "./Processors/SegmentStrategies/DefaultSegmentStrategy.h"
+#include "DefaultSegmentStrategy.h"
 DefaultSegmentStrategy* DefaultSegmentStrategy::mSingletion = NULL;
 
 void DefaultSegmentStrategy::process(Mat& srcImg, Mat& desImg, Mat& segImg,

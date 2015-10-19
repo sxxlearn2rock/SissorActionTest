@@ -77,12 +77,6 @@
     <ClCompile Include="DenoiseProcessor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TestDenoiseStrategy.cpp">
-      <Filter>Source Files\Processors\DnosiseStrategies</Filter>
-    </ClCompile>
-    <ClCompile Include="TestDenoiseStrategy2.cpp">
-      <Filter>Source Files\Processors\DnosiseStrategies</Filter>
-    </ClCompile>
     <ClCompile Include="SegmentProcessor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -119,12 +113,6 @@
     </ClInclude>
     <ClInclude Include="DenoiseProcessor.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TestDenoiseStrategy.h">
-      <Filter>Header Files\Processors\DnosiseStrategies</Filter>
-    </ClInclude>
-    <ClInclude Include="TestDenoiseStrategy2.h">
-      <Filter>Header Files\Processors\DnosiseStrategies</Filter>
     </ClInclude>
     <ClInclude Include="SegmentProcessor.h">
       <Filter>Header Files</Filter>

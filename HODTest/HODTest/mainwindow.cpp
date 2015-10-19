@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-#include "strategies.h"
+#include "./Processors/strategies.h"
 #include <windows.h>
 #include <time.h>
 #include <iostream>
@@ -24,6 +24,7 @@ MainWindow::MainWindow(QWidget *parent, Qt::WFlags flags)
 	uStatusLabel->setMinimumSize(uStatusLabel->sizeHint());
 	uStatusLabel->setAlignment(Qt::AlignHCenter);
 	this->statusBar()->addWidget(uStatusLabel);
+	//配置各个部件的状态栏提示信息
 	ui.acReadVideo->setStatusTip(tr("打开一个视频文件"));
 	ui.acStartDetect->setStatusTip(tr("开始进行刀具检测"));
 	ui.acExit->setStatusTip(tr("退出程序"));
@@ -183,12 +184,6 @@ void MainWindow::setDenoiseStrategy(int index)
 	{
 	case 0:
 		mDenoiseProcessor->setDenoiseStrategy(DefaultDenosieStrategy::getInstance());
-		break;
-	case 1:
-		mDenoiseProcessor->setDenoiseStrategy(TestDenoiseStrategy::getInstance());
-		break;
-	case 2:
-		mDenoiseProcessor->setDenoiseStrategy(TestDenoiseStrategy2::getInstance());
 		break;
 	default:
 		mDenoiseProcessor->setDenoiseStrategy(DefaultDenosieStrategy::getInstance());

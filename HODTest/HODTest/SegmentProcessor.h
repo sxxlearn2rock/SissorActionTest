@@ -1,6 +1,6 @@
 #pragma once
-#include "SegmentStrategy.h"
-#include "strategies.h"
+#include "./Processors/SegmentStrategy.h"
+#include "./Processors/strategies.h"
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgproc/imgproc.hpp>

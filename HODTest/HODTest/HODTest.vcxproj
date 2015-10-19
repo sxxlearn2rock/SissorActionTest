@@ -97,8 +97,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
     <ClCompile Include="SegmentProcessor.cpp" />
-    <ClCompile Include="TestDenoiseStrategy.cpp" />
-    <ClCompile Include="TestDenoiseStrategy2.cpp" />
     <ClCompile Include="UnexpectedActionHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -136,8 +134,6 @@
     <ClInclude Include="SegmentProcessor.h" />
     <ClInclude Include="SegmentStrategy.h" />
     <ClInclude Include="strategies.h" />
-    <ClInclude Include="TestDenoiseStrategy.h" />
-    <ClInclude Include="TestDenoiseStrategy2.h" />
     <CustomBuild Include="UnexpectedActionHandler.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalInputs)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

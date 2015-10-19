@@ -1,5 +1,5 @@
 #pragma once
-#include "./Processors/DenoiseStrategy.h"
+#include "DenoiseStrategy.h"
 
 //µ¥ÀýÄ£Ê½
 class DefaultDenosieStrategy : public DenoiseStrategy

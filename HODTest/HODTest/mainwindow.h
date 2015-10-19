@@ -3,11 +3,10 @@
 #include "ui_mainwindow.h"
 #include "UnexpectedActionHandler.h"
 
-#include "ProcessorFactory.h"
 #include "DenoiseProcessor.h"
-#include "DenoiseStrategy.h"
 #include "SegmentProcessor.h"
-#include "SegmentStrategy.h"
+#include "./Processors/DenoiseStrategy.h"
+#include "./Processors/SegmentStrategy.h"
 
 #include <vector>
 
