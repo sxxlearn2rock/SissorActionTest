@@ -252,7 +252,17 @@
        </item>
        <item>
         <property name="text">
-         <string>测试分割算法1</string>
+         <string>OtsuSegment</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>KswSegment</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Ksw2dSegment</string>
         </property>
        </item>
       </widget>

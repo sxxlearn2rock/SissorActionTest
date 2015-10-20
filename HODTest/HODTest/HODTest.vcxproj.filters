@@ -122,6 +122,18 @@
     <ClCompile Include="Processors\DenoiseStrategies\TDLMS.cpp">
       <Filter>Source Files\Processors\DnosiseStrategies</Filter>
     </ClCompile>
+    <ClCompile Include="Processors\SegmentStrategy.cpp">
+      <Filter>Source Files\Processors</Filter>
+    </ClCompile>
+    <ClCompile Include="Processors\SegmentStrategies\OtsuSegment.cpp">
+      <Filter>Source Files\Processors\SegmentStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="Processors\SegmentStrategies\Ksw2dSegment.cpp">
+      <Filter>Source Files\Processors\SegmentStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="Processors\SegmentStrategies\KswSegment.cpp">
+      <Filter>Source Files\Processors\SegmentStrategies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="mainwindow.h">
@@ -146,9 +158,6 @@
     </ClInclude>
     <ClInclude Include="SegmentProcessor.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SegmentStrategy.h">
-      <Filter>Header Files\Processors</Filter>
     </ClInclude>
     <ClInclude Include="Processors\DenoiseStrategy.h">
       <Filter>Header Files\Processors</Filter>
@@ -200,6 +209,18 @@
     </ClInclude>
     <ClInclude Include="Processors\strategies.h">
       <Filter>Header Files\Processors</Filter>
+    </ClInclude>
+    <ClInclude Include="Processors\SegmentStrategy.h">
+      <Filter>Header Files\Processors</Filter>
+    </ClInclude>
+    <ClInclude Include="Processors\SegmentStrategies\OtsuSegment.h">
+      <Filter>Header Files\Processors\SegmentStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="Processors\SegmentStrategies\Ksw2dSegment.h">
+      <Filter>Header Files\Processors\SegmentStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="Processors\SegmentStrategies\KswSegment.h">
+      <Filter>Header Files\Processors\SegmentStrategies</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

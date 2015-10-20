@@ -13,4 +13,7 @@
 #include "./DenoiseStrategies/Pmdiffmy.h"
 #include "./DenoiseStrategies/TDLMS.h"
 
-#include "./Processors/SegmentStrategies/DefaultSegmentStrategy.h"
+#include "./SegmentStrategies/DefaultSegmentStrategy.h"
+#include "./SegmentStrategies/OtsuSegment.h"
+#include "./SegmentStrategies/Ksw2dSegment.h"
+#include "./SegmentStrategies/KswSegment.h"

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Tue Oct 20 10:39:14 2015
+** Created: Tue Oct 20 14:52:05 2015
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -299,7 +299,9 @@ public:
         comboSegment->clear();
         comboSegment->insertItems(0, QStringList()
          << QApplication::translate("MainWindowClass", "\351\273\230\350\256\244\345\210\206\345\211\262\347\256\227\346\263\225", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindowClass", "\346\265\213\350\257\225\345\210\206\345\211\262\347\256\227\346\263\2251", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindowClass", "OtsuSegment", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindowClass", "KswSegment", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindowClass", "Ksw2dSegment", 0, QApplication::UnicodeUTF8)
         );
         btnConfigSeg->setText(QApplication::translate("MainWindowClass", "\351\205\215\347\275\256\345\217\202\346\225\260", 0, QApplication::UnicodeUTF8));
         label_5->setText(QApplication::translate("MainWindowClass", "\350\257\206\345\210\253\347\273\223\346\236\234:", 0, QApplication::UnicodeUTF8));

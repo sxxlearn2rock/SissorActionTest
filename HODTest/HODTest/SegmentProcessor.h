@@ -22,7 +22,8 @@ public:
 
 	void setSegmentStrategy(SegmentStrategy* strategy) { mSegmentStrategy = strategy; }
 
-	void process(Mat& srcImg, Mat& segImg, Mat& desImg, vector<Coordinate> coordinates, vector<RotatedRect> rotatedRects);
+	void process(Mat& srcImg, Mat& segImg, Mat& desImg, 
+		vector<Coordinate> coordinates, vector<RotatedRect> rotatedRects);
 private:
 		SegmentProcessor(void) {}
 		SegmentProcessor(SegmentStrategy* strategy) { mSegmentStrategy = strategy; }

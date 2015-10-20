@@ -3,7 +3,7 @@ class UnexpectedActionHandler
 {
 
 public:
-	enum Condition{NULL_PATH, OPEN_FILE_FAILURE};
+	enum Condition{NULL_PATH, OPEN_FILE_FAILURE };
 	UnexpectedActionHandler(void);
 	~UnexpectedActionHandler(void);
 

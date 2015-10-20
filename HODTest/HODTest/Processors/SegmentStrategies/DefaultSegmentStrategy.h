@@ -15,7 +15,8 @@ public:
 		return mSingletion;
 	}
 
-	void process(Mat& srcImg, Mat& segImg, Mat& desImg, vector<Coordinate> coordinates, vector<RotatedRect> rotatedRects) ;
+	void process(Mat& srcImg, Mat& segImg, Mat& desImg, 
+		vector<Coordinate>& coordinates, vector<RotatedRect>& rotatedRects) ;
 
 private:
 	DefaultSegmentStrategy(void) {}

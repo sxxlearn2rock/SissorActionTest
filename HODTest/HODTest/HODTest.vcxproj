@@ -109,6 +109,10 @@
     <ClCompile Include="Processors\DenoiseStrategies\Pmdiffmy.cpp" />
     <ClCompile Include="Processors\DenoiseStrategies\TDLMS.cpp" />
     <ClCompile Include="Processors\SegmentStrategies\DefaultSegmentStrategy.cpp" />
+    <ClCompile Include="Processors\SegmentStrategies\Ksw2dSegment.cpp" />
+    <ClCompile Include="Processors\SegmentStrategies\KswSegment.cpp" />
+    <ClCompile Include="Processors\SegmentStrategies\OtsuSegment.cpp" />
+    <ClCompile Include="Processors\SegmentStrategy.cpp" />
     <ClCompile Include="SegmentProcessor.cpp" />
     <ClCompile Include="UnexpectedActionHandler.cpp" />
   </ItemGroup>
@@ -157,9 +161,12 @@
     <ClInclude Include="Processors\DenoiseStrategies\TDLMS.h" />
     <ClInclude Include="Processors\DenoiseStrategy.h" />
     <ClInclude Include="Processors\SegmentStrategies\DefaultSegmentStrategy.h" />
+    <ClInclude Include="Processors\SegmentStrategies\Ksw2dSegment.h" />
+    <ClInclude Include="Processors\SegmentStrategies\KswSegment.h" />
+    <ClInclude Include="Processors\SegmentStrategies\OtsuSegment.h" />
+    <ClInclude Include="Processors\SegmentStrategy.h" />
     <ClInclude Include="Processors\strategies.h" />
     <ClInclude Include="SegmentProcessor.h" />
-    <ClInclude Include="SegmentStrategy.h" />
     <CustomBuild Include="UnexpectedActionHandler.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalInputs)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

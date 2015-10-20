@@ -150,7 +150,7 @@ void MainWindow::displayDenoisedMat()
 
 void MainWindow::displaySegedMat()
 {
-	mSegmentProcessor->process(mDenoiseMat, mSegmentMat, mMorpgMat,coordinates, rotatedRects);
+	mSegmentProcessor->process(mDenoiseMat, mSegmentMat, mMorpgMat, coordinates, rotatedRects);
 	displayMat(mSegmentMat, ui.labelSegmentFrame, ui.frameSegmentBox);
 	displayMat(mMorpgMat, ui.labelMorphFrame, ui.frameMorphBox);
 }
@@ -230,8 +230,13 @@ void MainWindow::setSegmentStrategy(int index)
 	switch (index)
 	{
 	case 0:
-		mSegmentProcessor->setSegmentStrategy(DefaultSegmentStrategy::getInstance());
-		break;
+		mSegmentProcessor->setSegmentStrategy(DefaultSegmentStrategy::getInstance());		break;
+	case 1:
+		mSegmentProcessor->setSegmentStrategy(OtsuSegment::getInstance());		break;
+	case 2:
+		mSegmentProcessor->setSegmentStrategy(KswSegment::getInstance());		break;
+	case 3:
+		mSegmentProcessor->setSegmentStrategy(Ksw2dSegment::getInstance());		break;
 	default:
 		mSegmentProcessor->setSegmentStrategy(DefaultSegmentStrategy::getInstance());
 		break;
