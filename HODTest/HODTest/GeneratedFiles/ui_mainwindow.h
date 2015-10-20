@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Tue Oct 20 14:52:05 2015
+** Created: Tue Oct 20 17:34:51 2015
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -53,12 +53,12 @@ public:
     QComboBox *comboSegment;
     QPushButton *btnConfigSeg;
     QLabel *label_5;
-    QFrame *frameRecog;
+    QFrame *frameRecogBox;
     QWidget *layoutWidget_2;
     QHBoxLayout *horizontalLayout_3;
     QComboBox *comboRecog;
     QPushButton *btnConfigRecog;
-    QLabel *labelRecog;
+    QLabel *labelRecogFrame;
     QLabel *label_6;
     QLabel *labelMorphFrame;
     QFrame *frameMorphBox;
@@ -104,6 +104,7 @@ public:
         labelInputFrame->setObjectName(QString::fromUtf8("labelInputFrame"));
         labelInputFrame->setGeometry(QRect(20, 40, 321, 241));
         labelInputFrame->setLayoutDirection(Qt::LeftToRight);
+        labelInputFrame->setAlignment(Qt::AlignCenter);
         frameInputBox = new QFrame(centralWidget);
         frameInputBox->setObjectName(QString::fromUtf8("frameInputBox"));
         frameInputBox->setGeometry(QRect(20, 40, 320, 240));
@@ -114,6 +115,7 @@ public:
         labelOutputFrame = new QLabel(centralWidget);
         labelOutputFrame->setObjectName(QString::fromUtf8("labelOutputFrame"));
         labelOutputFrame->setGeometry(QRect(740, 310, 321, 241));
+        labelOutputFrame->setAlignment(Qt::AlignCenter);
         frameOutputBox = new QFrame(centralWidget);
         frameOutputBox->setObjectName(QString::fromUtf8("frameOutputBox"));
         frameOutputBox->setGeometry(QRect(740, 310, 320, 240));
@@ -128,6 +130,7 @@ public:
         labelSegmentFrame = new QLabel(centralWidget);
         labelSegmentFrame->setObjectName(QString::fromUtf8("labelSegmentFrame"));
         labelSegmentFrame->setGeometry(QRect(740, 40, 321, 241));
+        labelSegmentFrame->setAlignment(Qt::AlignCenter);
         label_3 = new QLabel(centralWidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
         label_3->setGeometry(QRect(740, 20, 81, 16));
@@ -142,6 +145,7 @@ public:
         labelDenoiseFrame = new QLabel(centralWidget);
         labelDenoiseFrame->setObjectName(QString::fromUtf8("labelDenoiseFrame"));
         labelDenoiseFrame->setGeometry(QRect(380, 40, 321, 241));
+        labelDenoiseFrame->setAlignment(Qt::AlignCenter);
         label_4 = new QLabel(centralWidget);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setGeometry(QRect(380, 20, 131, 16));
@@ -175,13 +179,13 @@ public:
         label_5->setObjectName(QString::fromUtf8("label_5"));
         label_5->setGeometry(QRect(380, 290, 131, 16));
         label_5->setFont(font);
-        frameRecog = new QFrame(centralWidget);
-        frameRecog->setObjectName(QString::fromUtf8("frameRecog"));
-        frameRecog->setGeometry(QRect(380, 310, 320, 240));
-        frameRecog->setFrameShape(QFrame::Panel);
-        frameRecog->setFrameShadow(QFrame::Sunken);
-        frameRecog->setLineWidth(3);
-        frameRecog->setMidLineWidth(1);
+        frameRecogBox = new QFrame(centralWidget);
+        frameRecogBox->setObjectName(QString::fromUtf8("frameRecogBox"));
+        frameRecogBox->setGeometry(QRect(380, 310, 320, 240));
+        frameRecogBox->setFrameShape(QFrame::Panel);
+        frameRecogBox->setFrameShadow(QFrame::Sunken);
+        frameRecogBox->setLineWidth(3);
+        frameRecogBox->setMidLineWidth(1);
         layoutWidget_2 = new QWidget(centralWidget);
         layoutWidget_2->setObjectName(QString::fromUtf8("layoutWidget_2"));
         layoutWidget_2->setGeometry(QRect(510, 280, 187, 25));
@@ -200,9 +204,10 @@ public:
 
         horizontalLayout_3->addWidget(btnConfigRecog);
 
-        labelRecog = new QLabel(centralWidget);
-        labelRecog->setObjectName(QString::fromUtf8("labelRecog"));
-        labelRecog->setGeometry(QRect(380, 310, 321, 241));
+        labelRecogFrame = new QLabel(centralWidget);
+        labelRecogFrame->setObjectName(QString::fromUtf8("labelRecogFrame"));
+        labelRecogFrame->setGeometry(QRect(380, 310, 321, 241));
+        labelRecogFrame->setAlignment(Qt::AlignCenter);
         label_6 = new QLabel(centralWidget);
         label_6->setObjectName(QString::fromUtf8("label_6"));
         label_6->setGeometry(QRect(20, 290, 131, 16));
@@ -210,6 +215,7 @@ public:
         labelMorphFrame = new QLabel(centralWidget);
         labelMorphFrame->setObjectName(QString::fromUtf8("labelMorphFrame"));
         labelMorphFrame->setGeometry(QRect(20, 310, 321, 241));
+        labelMorphFrame->setAlignment(Qt::AlignCenter);
         frameMorphBox = new QFrame(centralWidget);
         frameMorphBox->setObjectName(QString::fromUtf8("frameMorphBox"));
         frameMorphBox->setGeometry(QRect(20, 310, 320, 240));
@@ -227,24 +233,24 @@ public:
         btnConfigDenoise->setObjectName(QString::fromUtf8("btnConfigDenoise"));
         btnConfigDenoise->setGeometry(QRect(652, 13, 51, 23));
         MainWindowClass->setCentralWidget(centralWidget);
+        frameRecogBox->raise();
+        labelRecogFrame->raise();
+        frameInputBox->raise();
+        labelInputFrame->raise();
+        frameSegmentBox->raise();
+        labelSegmentFrame->raise();
         comboDenoise->raise();
         btnConfigDenoise->raise();
         btnConfigMorph->raise();
         frameMorphBox->raise();
-        labelRecog->raise();
         labelMorphFrame->raise();
         frameOutputBox->raise();
         frameDenoiseBox->raise();
-        frameRecog->raise();
         layoutWidget->raise();
         labelDenoiseFrame->raise();
-        frameSegmentBox->raise();
         label->raise();
-        labelInputFrame->raise();
-        frameInputBox->raise();
         labelOutputFrame->raise();
         label_2->raise();
-        labelSegmentFrame->raise();
         label_3->raise();
         label_4->raise();
         label_5->raise();
@@ -289,7 +295,7 @@ public:
         acExit->setText(QApplication::translate("MainWindowClass", "\351\200\200\345\207\272\347\250\213\345\272\217", 0, QApplication::UnicodeUTF8));
         acStartDetect->setText(QApplication::translate("MainWindowClass", "\345\274\200\345\247\213\346\243\200\346\265\213", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("MainWindowClass", "\345\216\237\345\247\213\350\247\206\351\242\221:", 0, QApplication::UnicodeUTF8));
-        labelInputFrame->setText(QApplication::translate("MainWindowClass", "                     \345\216\237\345\247\213\350\247\206\351\242\221\345\270\247", 0, QApplication::UnicodeUTF8));
+        labelInputFrame->setText(QString());
         labelOutputFrame->setText(QString());
         label_2->setText(QApplication::translate("MainWindowClass", "\350\236\215\345\220\210\350\276\223\345\207\272\347\273\223\346\236\234:", 0, QApplication::UnicodeUTF8));
         labelSegmentFrame->setText(QString());
@@ -312,7 +318,7 @@ public:
          << QApplication::translate("MainWindowClass", "\346\265\213\350\257\225\350\257\206\345\210\253\347\256\227\346\263\2252", 0, QApplication::UnicodeUTF8)
         );
         btnConfigRecog->setText(QApplication::translate("MainWindowClass", "\351\205\215\347\275\256\345\217\202\346\225\260", 0, QApplication::UnicodeUTF8));
-        labelRecog->setText(QString());
+        labelRecogFrame->setText(QString());
         label_6->setText(QApplication::translate("MainWindowClass", "\345\275\242\346\200\201\345\255\246\346\273\244\346\263\242\347\273\223\346\236\234:", 0, QApplication::UnicodeUTF8));
         labelMorphFrame->setText(QString());
         btnConfigMorph->setText(QApplication::translate("MainWindowClass", "\351\205\215\347\275\256\345\217\202\346\225\260", 0, QApplication::UnicodeUTF8));

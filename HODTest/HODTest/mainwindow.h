@@ -36,6 +36,7 @@ private:
 	bool mReady2PalyVideo;
 	bool mStopPlayVideo;
 	bool mIsProcessing;
+	bool mVideoIsOver;
 
 	Ui::MainWindowClass ui;
 	VideoCapture mVideoCapture;
@@ -45,7 +46,7 @@ private:
 	Mat mInputMat;
 	Mat mDenoiseMat;
 	Mat mSegmentMat;
-	Mat mMorpgMat;
+	Mat mMorphMat;
 	Mat mRecogniseMat;
 	Mat mOutputMat;
 
@@ -67,6 +68,8 @@ private:
 	void displayDenoisedMat();
 	void displaySegedMat();
 	void displayOutputMat();
+	void clearAllFrame();
+	void releaseResource();
 
 	void setDenoiseStrategy(int index);
 	void setSegmentStrategy(int index);

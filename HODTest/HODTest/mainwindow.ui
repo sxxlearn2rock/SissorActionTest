@@ -46,7 +46,10 @@
      <enum>Qt::LeftToRight</enum>
     </property>
     <property name="text">
-     <string>                     原始视频帧</string>
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QFrame" name="frameInputBox">
@@ -82,6 +85,9 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QFrame" name="frameOutputBox">
@@ -137,6 +143,9 @@
     <property name="text">
      <string/>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
@@ -190,6 +199,9 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
@@ -295,7 +307,7 @@
      <string>识别结果:</string>
     </property>
    </widget>
-   <widget class="QFrame" name="frameRecog">
+   <widget class="QFrame" name="frameRecogBox">
     <property name="geometry">
      <rect>
       <x>380</x>
@@ -355,7 +367,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QLabel" name="labelRecog">
+   <widget class="QLabel" name="labelRecogFrame">
     <property name="geometry">
      <rect>
       <x>380</x>
@@ -366,6 +378,9 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_6">
@@ -398,6 +413,9 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QFrame" name="frameMorphBox">
@@ -528,24 +546,24 @@
      <string>config</string>
     </property>
    </widget>
+   <zorder>frameRecogBox</zorder>
+   <zorder>labelRecogFrame</zorder>
+   <zorder>frameInputBox</zorder>
+   <zorder>labelInputFrame</zorder>
+   <zorder>frameSegmentBox</zorder>
+   <zorder>labelSegmentFrame</zorder>
    <zorder>comboDenoise</zorder>
    <zorder>btnConfigDenoise</zorder>
    <zorder>btnConfigMorph</zorder>
    <zorder>frameMorphBox</zorder>
-   <zorder>labelRecog</zorder>
    <zorder>labelMorphFrame</zorder>
    <zorder>frameOutputBox</zorder>
    <zorder>frameDenoiseBox</zorder>
-   <zorder>frameRecog</zorder>
    <zorder>layoutWidget</zorder>
    <zorder>labelDenoiseFrame</zorder>
-   <zorder>frameSegmentBox</zorder>
    <zorder>label</zorder>
-   <zorder>labelInputFrame</zorder>
-   <zorder>frameInputBox</zorder>
    <zorder>labelOutputFrame</zorder>
    <zorder>label_2</zorder>
-   <zorder>labelSegmentFrame</zorder>
    <zorder>label_3</zorder>
    <zorder>label_4</zorder>
    <zorder>label_5</zorder>

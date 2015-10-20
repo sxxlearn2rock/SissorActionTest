@@ -13,7 +13,7 @@ using namespace cv;
 
 
 MainWindow::MainWindow(QWidget *parent, Qt::WFlags flags)
-	: QMainWindow(parent, flags),mReady2PalyVideo(false), mStopPlayVideo(false), mIsProcessing(false)
+	: QMainWindow(parent, flags),mReady2PalyVideo(false), mStopPlayVideo(false), mIsProcessing(false), mVideoIsOver(false)
 {
 	ui.setupUi(this);
 	//配置工具栏
@@ -67,6 +67,7 @@ void MainWindow::on_acReadVideo_triggered()
 	mVideoCapture >> mInputMat;
 	displayMat(mInputMat, ui.labelInputFrame, ui.frameInputBox);
 
+	mVideoIsOver =false;
 	mReady2PalyVideo = true;
 
 }
@@ -134,11 +135,7 @@ void MainWindow::displayInputMat()
 		displayMat(mInputMat, ui.labelInputFrame, ui.frameInputBox);
 
 	}else{
-		//停止定时器
-		mQTimer->stop();
-		ui.labelInputFrame->setText(tr("                    视频播放结束！"));
-		//释放视频资源
-		mVideoCapture.release();
+		mVideoIsOver = true;
 	}
 }
 
@@ -150,9 +147,9 @@ void MainWindow::displayDenoisedMat()
 
 void MainWindow::displaySegedMat()
 {
-	mSegmentProcessor->process(mDenoiseMat, mSegmentMat, mMorpgMat, coordinates, rotatedRects);
+	mSegmentProcessor->process(mDenoiseMat, mSegmentMat, mMorphMat, coordinates, rotatedRects);
 	displayMat(mSegmentMat, ui.labelSegmentFrame, ui.frameSegmentBox);
-	displayMat(mMorpgMat, ui.labelMorphFrame, ui.frameMorphBox);
+	displayMat(mMorphMat, ui.labelMorphFrame, ui.frameMorphBox);
 }
 
 void MainWindow::displayOutputMat()
@@ -165,15 +162,27 @@ void MainWindow::totalProcess()
 {
 	//若之前帧没有处理完，就跳过该帧
 	if ( !mIsProcessing )
-	{
+	{	
 		mIsProcessing = true;
 		displayInputMat();
-		displayDenoisedMat();
-		displaySegedMat();
-		displayOutputMat();
+		if ( !mVideoIsOver )
+		{	
+			displayDenoisedMat();
+			displaySegedMat();
+			displayOutputMat();	
+		}else
+		{
+			//停止定时器
+			mQTimer->stop();
+			mReady2PalyVideo = false;
+			//清理各个窗口
+			clearAllFrame();
+			//释放资源
+			releaseResource();
+			QMessageBox::information(this, tr("通知"), tr("视频播放结束！"));
+		}
 		mIsProcessing = false;
 	}
-
 }
 
 void MainWindow::on_comboDenoise_currentIndexChanged()
@@ -241,6 +250,28 @@ void MainWindow::setSegmentStrategy(int index)
 		mSegmentProcessor->setSegmentStrategy(DefaultSegmentStrategy::getInstance());
 		break;
 	}
+}
+
+void MainWindow::clearAllFrame()
+{
+	ui.labelInputFrame->clear();
+	ui.labelDenoiseFrame->clear();
+	ui.labelSegmentFrame->clear();
+	ui.labelMorphFrame->clear();
+	ui.labelOutputFrame->clear();
+	ui.labelRecogFrame->clear();
+}
+
+void MainWindow::releaseResource()
+{
+	//释放视频资源
+	mVideoCapture.release();
+	//释放各个mat
+	mDenoiseMat.empty();
+	mSegmentMat.empty();
+	mMorphMat.empty();
+	mRecogniseMat.empty();
+	mOutputMat.empty();
 }
 
 
