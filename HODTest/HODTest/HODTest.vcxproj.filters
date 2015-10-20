@@ -89,6 +89,39 @@
     <ClCompile Include="Processors\SegmentStrategies\DefaultSegmentStrategy.cpp">
       <Filter>Source Files\Processors\SegmentStrategies</Filter>
     </ClCompile>
+    <ClCompile Include="Processors\DenoiseStrategies\BaseWeightBGP.cpp">
+      <Filter>Source Files\Processors\DnosiseStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="Processors\DenoiseStrategies\DoublehistEqual.cpp">
+      <Filter>Source Files\Processors\DnosiseStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="Processors\DenoiseStrategies\FD.cpp">
+      <Filter>Source Files\Processors\DnosiseStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="Processors\DenoiseStrategies\LMPM.cpp">
+      <Filter>Source Files\Processors\DnosiseStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="Processors\DenoiseStrategies\LocalMeanContrast.cpp">
+      <Filter>Source Files\Processors\DnosiseStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="Processors\DenoiseStrategies\Localshannon.cpp">
+      <Filter>Source Files\Processors\DnosiseStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="Processors\DenoiseStrategies\Localstd.cpp">
+      <Filter>Source Files\Processors\DnosiseStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="Processors\DenoiseStrategies\MaxMedianFilter.cpp">
+      <Filter>Source Files\Processors\DnosiseStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="Processors\DenoiseStrategies\Pmdiff1.cpp">
+      <Filter>Source Files\Processors\DnosiseStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="Processors\DenoiseStrategies\Pmdiffmy.cpp">
+      <Filter>Source Files\Processors\DnosiseStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="Processors\DenoiseStrategies\TDLMS.cpp">
+      <Filter>Source Files\Processors\DnosiseStrategies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="mainwindow.h">
@@ -107,9 +140,6 @@
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h">
       <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="strategies.h">
-      <Filter>Header Files\Processors</Filter>
     </ClInclude>
     <ClInclude Include="DenoiseProcessor.h">
       <Filter>Header Files</Filter>
@@ -134,6 +164,42 @@
     </ClInclude>
     <ClInclude Include="Processors\SegmentStrategies\DefaultSegmentStrategy.h">
       <Filter>Header Files\Processors\SegmentStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="Processors\DenoiseStrategies\BaseWeightBGP.h">
+      <Filter>Header Files\Processors\DnosiseStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="Processors\DenoiseStrategies\DoublehistEqual.h">
+      <Filter>Header Files\Processors\DnosiseStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="Processors\DenoiseStrategies\FD.h">
+      <Filter>Header Files\Processors\DnosiseStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="Processors\DenoiseStrategies\LMPM.h">
+      <Filter>Header Files\Processors\DnosiseStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="Processors\DenoiseStrategies\LocalMeanContrast.h">
+      <Filter>Header Files\Processors\DnosiseStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="Processors\DenoiseStrategies\Localshannon.h">
+      <Filter>Header Files\Processors\DnosiseStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="Processors\DenoiseStrategies\Localstd.h">
+      <Filter>Header Files\Processors\DnosiseStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="Processors\DenoiseStrategies\MaxMedianFilter.h">
+      <Filter>Header Files\Processors\DnosiseStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="Processors\DenoiseStrategies\Pmdiff1.h">
+      <Filter>Header Files\Processors\DnosiseStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="Processors\DenoiseStrategies\Pmdiffmy.h">
+      <Filter>Header Files\Processors\DnosiseStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="Processors\DenoiseStrategies\TDLMS.h">
+      <Filter>Header Files\Processors\DnosiseStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="Processors\strategies.h">
+      <Filter>Header Files\Processors</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

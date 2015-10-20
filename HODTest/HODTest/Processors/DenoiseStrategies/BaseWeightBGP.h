@@ -1,39 +1,39 @@
 #pragma once
 #include "./Processors/DenoiseStrategy.h"
 
-//单例模式
-class Pmdiff2 : public DenoiseStrategy
+//固定权值背景预测
+class BaseWeightBGP : public DenoiseStrategy
 {
 public:
 
-	~Pmdiff2(void) {}
+	~BaseWeightBGP(void) {}
 
-	static Pmdiff2* getInstance()
+	static BaseWeightBGP* getInstance()
 	{
 		if (mSingleton == NULL)
 		{
-			mSingleton = new Pmdiff2();
+			mSingleton = new BaseWeightBGP();
 		}
 		return mSingleton;
 	}
 
-	//核心处理函数
+
 	void denoise(const Mat& srcImg, Mat& desImg);
+
 private:
-	Pmdiff2(void) {}
-	static Pmdiff2* mSingleton;
+	BaseWeightBGP(void) {}
+	static BaseWeightBGP* mSingleton;
 
 	class Cleaner   //该私有内嵌类的唯一工作就是在析构函数中删除单例
 	{  
 	public:  
 		~Cleaner()  
 		{  
-			if(Pmdiff2::mSingleton)  
-				delete Pmdiff2::mSingleton;  
+			if(BaseWeightBGP::mSingleton)  
+				delete BaseWeightBGP::mSingleton;  
 		}  
 	};  
 	static Cleaner cleaner;  //定义一个静态成员变量，程序结束时，系统会自动调用它的析构函数  
 
-	void pm(unsigned char *image, int height, int width );
-	void imfilter(float *pimgsorce, float *image1, int width, int height, int *moban);
+	void baseweightbgp(unsigned char* image, int height, int width);
 };

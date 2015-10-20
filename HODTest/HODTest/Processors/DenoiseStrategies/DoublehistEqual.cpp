@@ -1,20 +1,20 @@
-#include "./Processors/DenoiseStrategies/Pmdiff2.h"
+#include "./Processors/DenoiseStrategies/DoublehistEqual.h"
 #include "math.h"
 #include "string.h"
 
 //类静态变量必须在.cpp文件里声明
-Pmdiff2*	Pmdiff2::mSingleton = NULL;
+DoublehistEqual*	DoublehistEqual::mSingleton = NULL;
 
-void Pmdiff2::denoise(const Mat& srcImg, Mat& desImg)
+void DoublehistEqual::denoise(const Mat& srcImg, Mat& desImg)
 {
 	unsigned char* cvtImg =  mat2GrayImgPointer(srcImg, desImg);
 
-	pm( cvtImg, desImg.rows, desImg.cols);
+	histEqual2( cvtImg, desImg.rows, desImg.cols);
 	Mat outimage(desImg.rows, desImg.cols,  CV_8UC1, cvtImg);
 	desImg = outimage;
 }
 
-void Pmdiff2::pm( unsigned char *image, int height, int width )
+void DoublehistEqual::histEqual2( unsigned char *image, int height, int width )
 {
 	//初始化各参数
 	double lamba = 0.25;
@@ -180,7 +180,7 @@ void Pmdiff2::pm( unsigned char *image, int height, int width )
 	delete[]deltaSW;
 }
 
-void Pmdiff2::imfilter( float *pimgsorce, float *image1, int width, int height, int *moban )
+void DoublehistEqual::imfilter( float *pimgsorce, float *image1, int width, int height, int *moban )
 {
 	int  lLBytes = ((width * 8) + 31) / 32 * 4;				//保证图像的列宽能够被4整出
 	//首先对图像扩充边缘（边缘扩充0），便于卷积运算
@@ -214,6 +214,5 @@ void Pmdiff2::imfilter( float *pimgsorce, float *image1, int width, int height, 
 	}
 	delete[] buffer;
 }
-
 
 

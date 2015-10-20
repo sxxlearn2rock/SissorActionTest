@@ -1,41 +1,41 @@
 #pragma once
 #include "./Processors/DenoiseStrategy.h"
 
-//单例模式
-class LateralInhibition : public DenoiseStrategy
+//基于局部熵背景抑制
+class Localshannon : public DenoiseStrategy
 {
 public:
 
-	~LateralInhibition(void) {}
+	~Localshannon(void) {}
 
-	static LateralInhibition* getInstance()
+	static Localshannon* getInstance()
 	{
 		if (mSingleton == NULL)
 		{
-			mSingleton = new LateralInhibition();
+			mSingleton = new Localshannon();
 		}
 		return mSingleton;
 	}
 
-
+	//核心处理函数
 	void denoise(const Mat& srcImg, Mat& desImg);
-
 	void setKsize(int ksize) { mKsize = ksize; }
+
 private:
-	LateralInhibition(void) : mKsize(5){}
-	static LateralInhibition* mSingleton;
+	Localshannon(void) : mKsize(5){}
+	static Localshannon* mSingleton;
 
 	class Cleaner   //该私有内嵌类的唯一工作就是在析构函数中删除单例
 	{  
 	public:  
 		~Cleaner()  
 		{  
-			if(LateralInhibition::mSingleton)  
-				delete LateralInhibition::mSingleton;  
+			if(Localshannon::mSingleton)  
+				delete Localshannon::mSingleton;  
 		}  
 	};  
 	static Cleaner cleaner;  //定义一个静态成员变量，程序结束时，系统会自动调用它的析构函数  
 
-	void lateralInhibition(unsigned char* image, int height, int width, int Ksize);
+	void localshannon(unsigned char *image, int width, int height, int LL);
 	int mKsize;
 };

@@ -13,9 +13,9 @@ public:
 	DenoiseStrategy(void) {}
 	~DenoiseStrategy(void) {}
 
-	virtual void denoise( Mat& srcImg, Mat& desImg) = 0;
+	virtual void denoise(const Mat& srcImg, Mat& desImg) = 0;
 protected:
-	unsigned char* mat2GrayImgPointer(Mat& mat, Mat& desMat)
+	unsigned char* mat2GrayImgPointer(const Mat& mat, Mat& desMat)
 	{
 		cv::cvtColor(mat, desMat, CV_BGR2GRAY);
 		int nr = desMat.rows;

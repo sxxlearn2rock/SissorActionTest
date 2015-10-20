@@ -1,39 +1,39 @@
 #pragma once
 #include "./Processors/DenoiseStrategy.h"
 
-//单例模式
-class Pmdiff2 : public DenoiseStrategy
+//分块区域最大化背景抑制
+class LMPM : public DenoiseStrategy
 {
 public:
 
-	~Pmdiff2(void) {}
+	~LMPM(void) {}
 
-	static Pmdiff2* getInstance()
+	static LMPM* getInstance()
 	{
 		if (mSingleton == NULL)
 		{
-			mSingleton = new Pmdiff2();
+			mSingleton = new LMPM();
 		}
 		return mSingleton;
 	}
 
-	//核心处理函数
+
 	void denoise(const Mat& srcImg, Mat& desImg);
+
 private:
-	Pmdiff2(void) {}
-	static Pmdiff2* mSingleton;
+	LMPM(void) {}
+	static LMPM* mSingleton;
 
 	class Cleaner   //该私有内嵌类的唯一工作就是在析构函数中删除单例
 	{  
 	public:  
 		~Cleaner()  
 		{  
-			if(Pmdiff2::mSingleton)  
-				delete Pmdiff2::mSingleton;  
+			if(LMPM::mSingleton)  
+				delete LMPM::mSingleton;  
 		}  
 	};  
 	static Cleaner cleaner;  //定义一个静态成员变量，程序结束时，系统会自动调用它的析构函数  
 
-	void pm(unsigned char *image, int height, int width );
-	void imfilter(float *pimgsorce, float *image1, int width, int height, int *moban);
+	void lmpm(unsigned char* image, int height, int width);
 };

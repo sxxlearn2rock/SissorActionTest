@@ -1,19 +1,19 @@
-#include "./Processors/DenoiseStrategies/LateralInhibition.h"
+#include "./Processors/DenoiseStrategies/Localstd.h"
 #define PI 3.1415926535
 
 //类静态变量必须在.cpp文件里声明
-LateralInhibition*	LateralInhibition::mSingleton = NULL;
+Localstd*	Localstd::mSingleton = NULL;
 
-void LateralInhibition::denoise(const Mat& srcImg, Mat& desImg)
+void Localstd::denoise(const Mat& srcImg, Mat& desImg)
 {
 	unsigned char* cvtImg = mat2GrayImgPointer(srcImg, desImg);
 
-	lateralInhibition( cvtImg, desImg.rows, desImg.cols, mKsize);
+	localstd( cvtImg, desImg.rows, desImg.cols, mKsize);
 	Mat outimage(desImg.rows, desImg.cols,  CV_8UC1, cvtImg);
 	desImg = outimage;
 }
 
-void LateralInhibition::lateralInhibition( unsigned char* image, int height, int width, int Ksize )
+void Localstd::localstd( unsigned char* image, int height, int width, int Ksize )
 {
 	int x, y, i, j;
 	int LineBytes = ((width * 8) + 31) / 32 * 4;  //一行所占的字节数

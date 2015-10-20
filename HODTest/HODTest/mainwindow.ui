@@ -236,44 +236,6 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>510</x>
-      <y>10</y>
-      <width>187</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QComboBox" name="comboDenoise">
-       <item>
-        <property name="text">
-         <string>灰度化</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>侧抑制网络增强</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>二维各向异性滤波</string>
-        </property>
-       </item>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnConfigDenoise">
-       <property name="text">
-        <string>配置参数</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
       <x>870</x>
       <y>10</y>
       <width>186</width>
@@ -463,6 +425,101 @@
      <string>配置参数</string>
     </property>
    </widget>
+   <widget class="QComboBox" name="comboDenoise">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>14</y>
+      <width>161</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>默认(仅灰度化)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>侧抑制网络增强</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>直方图双向增强</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>分形算法</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>最大中值滤波背景抑制</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>固定权值背景预测</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>自适应权值背景预测</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>区域最大化背景预测</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>局部均值对比度背景抑制</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>局部熵背景抑制</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>局部方差背景抑制</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>一维各项异性滤波</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>二维各向异性滤波</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>改进型各项异性滤波</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPushButton" name="btnConfigDenoise">
+    <property name="geometry">
+     <rect>
+      <x>652</x>
+      <y>13</y>
+      <width>51</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>config</string>
+    </property>
+   </widget>
+   <zorder>comboDenoise</zorder>
+   <zorder>btnConfigDenoise</zorder>
    <zorder>btnConfigMorph</zorder>
    <zorder>frameMorphBox</zorder>
    <zorder>labelRecog</zorder>
@@ -470,7 +527,6 @@
    <zorder>frameOutputBox</zorder>
    <zorder>frameDenoiseBox</zorder>
    <zorder>frameRecog</zorder>
-   <zorder>layoutWidget</zorder>
    <zorder>layoutWidget</zorder>
    <zorder>labelDenoiseFrame</zorder>
    <zorder>frameSegmentBox</zorder>

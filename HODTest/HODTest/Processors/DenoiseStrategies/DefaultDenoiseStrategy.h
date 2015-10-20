@@ -19,7 +19,7 @@ public:
 
 	void setArg1(int arg) { mArg1 = arg; }
 
-	void denoise( Mat& srcImg, Mat& desImg);
+	void denoise(const Mat& srcImg, Mat& desImg);
 private:
 		DefaultDenosieStrategy(void) : mArg1(5) {}
 		static DefaultDenosieStrategy* mSingleton;

@@ -1,39 +1,39 @@
 #pragma once
 #include "./Processors/DenoiseStrategy.h"
 
-//单例模式
-class Pmdiff2 : public DenoiseStrategy
+//基于自适应权值背景预测
+class TDLMS : public DenoiseStrategy
 {
 public:
 
-	~Pmdiff2(void) {}
+	~TDLMS(void) {}
 
-	static Pmdiff2* getInstance()
+	static TDLMS* getInstance()
 	{
 		if (mSingleton == NULL)
 		{
-			mSingleton = new Pmdiff2();
+			mSingleton = new TDLMS();
 		}
 		return mSingleton;
 	}
 
-	//核心处理函数
+
 	void denoise(const Mat& srcImg, Mat& desImg);
+
 private:
-	Pmdiff2(void) {}
-	static Pmdiff2* mSingleton;
+	TDLMS(void) {}
+	static TDLMS* mSingleton;
 
 	class Cleaner   //该私有内嵌类的唯一工作就是在析构函数中删除单例
 	{  
 	public:  
 		~Cleaner()  
 		{  
-			if(Pmdiff2::mSingleton)  
-				delete Pmdiff2::mSingleton;  
+			if(TDLMS::mSingleton)  
+				delete TDLMS::mSingleton;  
 		}  
 	};  
 	static Cleaner cleaner;  //定义一个静态成员变量，程序结束时，系统会自动调用它的析构函数  
 
-	void pm(unsigned char *image, int height, int width );
-	void imfilter(float *pimgsorce, float *image1, int width, int height, int *moban);
+	void tdlms(unsigned char* image, int height, int width);
 };

@@ -94,9 +94,20 @@
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
+    <ClCompile Include="Processors\DenoiseStrategies\BaseWeightBGP.cpp" />
     <ClCompile Include="Processors\DenoiseStrategies\DefaultDenoiseStrategy.cpp" />
+    <ClCompile Include="Processors\DenoiseStrategies\DoublehistEqual.cpp" />
+    <ClCompile Include="Processors\DenoiseStrategies\FD.cpp" />
     <ClCompile Include="Processors\DenoiseStrategies\LateralInhibition.cpp" />
+    <ClCompile Include="Processors\DenoiseStrategies\LMPM.cpp" />
+    <ClCompile Include="Processors\DenoiseStrategies\LocalMeanContrast.cpp" />
+    <ClCompile Include="Processors\DenoiseStrategies\Localshannon.cpp" />
+    <ClCompile Include="Processors\DenoiseStrategies\Localstd.cpp" />
+    <ClCompile Include="Processors\DenoiseStrategies\MaxMedianFilter.cpp" />
+    <ClCompile Include="Processors\DenoiseStrategies\Pmdiff1.cpp" />
     <ClCompile Include="Processors\DenoiseStrategies\Pmdiff2.cpp" />
+    <ClCompile Include="Processors\DenoiseStrategies\Pmdiffmy.cpp" />
+    <ClCompile Include="Processors\DenoiseStrategies\TDLMS.cpp" />
     <ClCompile Include="Processors\SegmentStrategies\DefaultSegmentStrategy.cpp" />
     <ClCompile Include="SegmentProcessor.cpp" />
     <ClCompile Include="UnexpectedActionHandler.cpp" />
@@ -130,14 +141,25 @@
   <ItemGroup>
     <ClInclude Include="DenoiseProcessor.h" />
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h" />
+    <ClInclude Include="Processors\DenoiseStrategies\BaseWeightBGP.h" />
     <ClInclude Include="Processors\DenoiseStrategies\DefaultDenoiseStrategy.h" />
+    <ClInclude Include="Processors\DenoiseStrategies\DoublehistEqual.h" />
+    <ClInclude Include="Processors\DenoiseStrategies\FD.h" />
     <ClInclude Include="Processors\DenoiseStrategies\LateralInhibition.h" />
+    <ClInclude Include="Processors\DenoiseStrategies\LMPM.h" />
+    <ClInclude Include="Processors\DenoiseStrategies\LocalMeanContrast.h" />
+    <ClInclude Include="Processors\DenoiseStrategies\Localshannon.h" />
+    <ClInclude Include="Processors\DenoiseStrategies\Localstd.h" />
+    <ClInclude Include="Processors\DenoiseStrategies\MaxMedianFilter.h" />
+    <ClInclude Include="Processors\DenoiseStrategies\Pmdiff1.h" />
     <ClInclude Include="Processors\DenoiseStrategies\Pmdiff2.h" />
+    <ClInclude Include="Processors\DenoiseStrategies\Pmdiffmy.h" />
+    <ClInclude Include="Processors\DenoiseStrategies\TDLMS.h" />
     <ClInclude Include="Processors\DenoiseStrategy.h" />
     <ClInclude Include="Processors\SegmentStrategies\DefaultSegmentStrategy.h" />
+    <ClInclude Include="Processors\strategies.h" />
     <ClInclude Include="SegmentProcessor.h" />
     <ClInclude Include="SegmentStrategy.h" />
-    <ClInclude Include="strategies.h" />
     <CustomBuild Include="UnexpectedActionHandler.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalInputs)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

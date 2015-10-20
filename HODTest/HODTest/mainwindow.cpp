@@ -192,17 +192,35 @@ void MainWindow::setDenoiseStrategy(int index)
 	switch (index)
 	{
 	case 0:
-		mDenoiseProcessor->setDenoiseStrategy(DefaultDenosieStrategy::getInstance());
-		break;
+		mDenoiseProcessor->setDenoiseStrategy(DefaultDenosieStrategy::getInstance());		break;
 	case 1:
-		mDenoiseProcessor->setDenoiseStrategy(LateralInhibition::getInstance());
-		break;
+		mDenoiseProcessor->setDenoiseStrategy(LateralInhibition::getInstance());		break;
 	case 2:
-		mDenoiseProcessor->setDenoiseStrategy(Pmdiff2::getInstance());
-		break;
+		mDenoiseProcessor->setDenoiseStrategy(DoublehistEqual::getInstance());		break;
+	case 3:
+		mDenoiseProcessor->setDenoiseStrategy(FD::getInstance());		break;
+	case 4:
+		mDenoiseProcessor->setDenoiseStrategy(MaxMedianFilter::getInstance());		break;
+	case 5:
+		mDenoiseProcessor->setDenoiseStrategy(BaseWeightBGP::getInstance());		break;
+	case 6:
+		mDenoiseProcessor->setDenoiseStrategy(TDLMS::getInstance());		break;
+	case 7:
+		mDenoiseProcessor->setDenoiseStrategy(LMPM::getInstance());		break;
+	case 8:
+		mDenoiseProcessor->setDenoiseStrategy(LocalMeanContrast::getInstance());		break;
+	case 9:
+		mDenoiseProcessor->setDenoiseStrategy(Localshannon::getInstance());		break;
+	case 10:
+		mDenoiseProcessor->setDenoiseStrategy(Localstd::getInstance());		break;
+	case 11:
+		mDenoiseProcessor->setDenoiseStrategy(Pmdiff1::getInstance());		break;
+	case 12:
+		mDenoiseProcessor->setDenoiseStrategy(Pmdiff2::getInstance());		break;
+	case 13:
+		mDenoiseProcessor->setDenoiseStrategy(Pmdiffmy::getInstance());		break;
 	default:
-		mDenoiseProcessor->setDenoiseStrategy(DefaultDenosieStrategy::getInstance());
-		break;
+		mDenoiseProcessor->setDenoiseStrategy(DefaultDenosieStrategy::getInstance());		break;
 	}
 }
 
