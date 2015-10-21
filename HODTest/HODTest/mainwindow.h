@@ -33,10 +33,11 @@ private:
 	//UI相关的成员变量，以u为前缀
 	QLabel* uStatusLabel;
 
-	bool mReady2PalyVideo;
+	bool mReady2Process;
 	bool mStopPlayVideo;
 	bool mIsProcessing;
 	bool mVideoIsOver;
+	bool mIsVideoMode;
 
 	Ui::MainWindowClass ui;
 	VideoCapture mVideoCapture;
@@ -78,8 +79,10 @@ signals:
 	
 private slots:
 	void on_acReadVideo_triggered();
+	void on_acReadPic_triggered();
 	void on_acExit_triggered();
 	void on_acStartDetect_triggered();
+	void on_acStartDetectPic_triggered();
 	void on_comboDenoise_currentIndexChanged();
 	void on_comboSegment_currentIndexChanged();
 

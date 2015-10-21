@@ -13,12 +13,16 @@ using namespace cv;
 
 
 MainWindow::MainWindow(QWidget *parent, Qt::WFlags flags)
-	: QMainWindow(parent, flags),mReady2PalyVideo(false), mStopPlayVideo(false), mIsProcessing(false), mVideoIsOver(false)
+	: QMainWindow(parent, flags),mReady2Process(false), mStopPlayVideo(false), mIsProcessing(false), mVideoIsOver(false)
+	,mIsVideoMode(true)
 {
 	ui.setupUi(this);
 	//配置工具栏
-	ui.mainToolBar->addAction(ui.acReadVideo);
+	ui.mainToolBar->addAction(ui.acReadVideo);	
 	ui.mainToolBar->addAction(ui.acStartDetect);
+	ui.mainToolBar->addSeparator();
+	ui.mainToolBar->addAction(ui.acReadPic);
+	ui.mainToolBar->addAction(ui.acStartDetectPic);
 	//配置状态栏
 	uStatusLabel = new QLabel();
 	uStatusLabel->setMinimumSize(uStatusLabel->sizeHint());
@@ -43,12 +47,14 @@ MainWindow::MainWindow(QWidget *parent, Qt::WFlags flags)
 
 MainWindow::~MainWindow()
 {
+	releaseResource();
 	delete mDenoiseProcessor;
+	delete mSegmentProcessor;
 }
 
 
 void MainWindow::on_acReadVideo_triggered()
-{
+{	
 	QString fileName = QFileDialog::getOpenFileName(this,tr("请选择视频文件"), ".", tr("video file(*.*)"));
 	if( fileName == NULL)  
 	{  
@@ -56,7 +62,7 @@ void MainWindow::on_acReadVideo_triggered()
 		return;
 	} 
 
-	mVideoCapture.open(fileName.toAscii().data());
+	mVideoCapture.open(fileName.toLocal8Bit().data());
 	if( !mVideoCapture.isOpened() )  
 	{  
 		mUnexpectedActionHandler.handle(UnexpectedActionHandler::OPEN_FILE_FAILURE);
@@ -67,33 +73,70 @@ void MainWindow::on_acReadVideo_triggered()
 	mVideoCapture >> mInputMat;
 	displayMat(mInputMat, ui.labelInputFrame, ui.frameInputBox);
 
+	mIsVideoMode = true;
 	mVideoIsOver =false;
-	mReady2PalyVideo = true;
+	mReady2Process = true;
 
 }
 
-
-void MainWindow::on_acExit_triggered()
+void MainWindow::on_acReadPic_triggered()
 {
-	if (!(QMessageBox::information(this,tr("退出"),tr("真的要退出程序吗？"),tr("是"),tr("否"))))
-	{
-		this->close();
+	
+	QString fileName = QFileDialog::getOpenFileName(this,tr("请选择图片文件"), ".", tr("iamge file(*.*)"));
+	if( fileName == NULL)  
+	{  
+		mUnexpectedActionHandler.handle(UnexpectedActionHandler::NULL_PATH);
+		return;
+	} 
+
+	mInputMat= imread(fileName.toLocal8Bit().data());
+	if( !mInputMat.data )  
+	{  
+		mUnexpectedActionHandler.handle(UnexpectedActionHandler::OPEN_FILE_FAILURE);
+		return;
 	}
+
+	clearAllFrame();
+	displayMat(mInputMat, ui.labelInputFrame, ui.frameInputBox);
+
+	mIsVideoMode = false;
+	mReady2Process = true;
 }
+
 
 
 void MainWindow::on_acStartDetect_triggered()
 {
-	if (!mReady2PalyVideo)
+	if (!mReady2Process)
 	{
 		mUnexpectedActionHandler.handle(UnexpectedActionHandler::OPEN_FILE_FAILURE);
 		return;
 	}
 
-	double videoRate = mVideoCapture.get(CV_CAP_PROP_FPS);
-	int delayBetween2Frames = 1000/videoRate;
+	if (mIsVideoMode)
+	{
+		double videoRate = mVideoCapture.get(CV_CAP_PROP_FPS);
+		int delayBetween2Frames = 1000/videoRate;
 
-	mQTimer->start(delayBetween2Frames);
+		mQTimer->start(delayBetween2Frames);
+	}
+}
+
+
+void MainWindow::on_acStartDetectPic_triggered()
+{
+	if (!mReady2Process)
+	{
+		mUnexpectedActionHandler.handle(UnexpectedActionHandler::OPEN_FILE_FAILURE);
+		return;
+	}
+
+	if (!mIsVideoMode)
+	{
+		displayDenoisedMat();
+		displaySegedMat();
+		displayOutputMat();
+	}
 }
 
 
@@ -161,7 +204,7 @@ void MainWindow::displayOutputMat()
 void MainWindow::totalProcess()
 {
 	//若之前帧没有处理完，就跳过该帧
-	if ( !mIsProcessing )
+	if ( (!mIsProcessing) )
 	{	
 		mIsProcessing = true;
 		displayInputMat();
@@ -174,7 +217,7 @@ void MainWindow::totalProcess()
 		{
 			//停止定时器
 			mQTimer->stop();
-			mReady2PalyVideo = false;
+			mReady2Process = false;
 			//清理各个窗口
 			clearAllFrame();
 			//释放资源
@@ -183,6 +226,7 @@ void MainWindow::totalProcess()
 		}
 		mIsProcessing = false;
 	}
+
 }
 
 void MainWindow::on_comboDenoise_currentIndexChanged()
@@ -265,7 +309,10 @@ void MainWindow::clearAllFrame()
 void MainWindow::releaseResource()
 {
 	//释放视频资源
-	mVideoCapture.release();
+	if (mVideoCapture.isOpened())
+	{
+		mVideoCapture.release();
+	}
 	//释放各个mat
 	mDenoiseMat.empty();
 	mSegmentMat.empty();
@@ -274,6 +321,13 @@ void MainWindow::releaseResource()
 	mOutputMat.empty();
 }
 
+void MainWindow::on_acExit_triggered()
+{
+	if (!(QMessageBox::information(this,tr("退出"),tr("真的要退出程序吗？"),tr("是"),tr("否"))))
+	{
+		this->close();
+	}
+}
 
 
 

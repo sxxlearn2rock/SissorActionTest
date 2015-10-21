@@ -584,6 +584,7 @@
      <string>文件(&amp;F)</string>
     </property>
     <addaction name="acReadVideo"/>
+    <addaction name="acReadPic"/>
     <addaction name="separator"/>
     <addaction name="acExit"/>
    </widget>
@@ -592,6 +593,7 @@
      <string>运行(&amp;R)</string>
     </property>
     <addaction name="acStartDetect"/>
+    <addaction name="acStartDetectPic"/>
    </widget>
    <addaction name="menu_F"/>
    <addaction name="menu_R"/>
@@ -636,7 +638,25 @@
      <normaloff>:/Resources/start_detect.png</normaloff>:/Resources/start_detect.png</iconset>
    </property>
    <property name="text">
-    <string>开始检测</string>
+    <string>开始检测视频</string>
+   </property>
+  </action>
+  <action name="acReadPic">
+   <property name="icon">
+    <iconset resource="mainwindow.qrc">
+     <normaloff>:/Resources/open_picture.png</normaloff>:/Resources/open_picture.png</iconset>
+   </property>
+   <property name="text">
+    <string>读取图片</string>
+   </property>
+  </action>
+  <action name="acStartDetectPic">
+   <property name="icon">
+    <iconset resource="mainwindow.qrc">
+     <normaloff>:/Resources/start_detect_pic.png</normaloff>:/Resources/start_detect_pic.png</iconset>
+   </property>
+   <property name="text">
+    <string>开始检测图片</string>
    </property>
   </action>
  </widget>

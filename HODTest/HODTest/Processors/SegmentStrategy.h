@@ -26,7 +26,7 @@ private:
 class SegmentStrategy
 {
 public:
-	SegmentStrategy(void) : mDilationSize(2), mDilationType(0), mErosionSize(2), mErosionType(0){}
+	SegmentStrategy(void) : mDilationSize(1), mDilationType(0), mErosionSize(1), mErosionType(0){}
 	~SegmentStrategy(void) {}
 
 	virtual void process(Mat& srcImg, Mat& segImg, Mat& desImg, 

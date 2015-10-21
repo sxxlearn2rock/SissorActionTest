@@ -25,7 +25,7 @@ void UnexpectedActionHandler::handle(Condition c)
 		msgBox.exec();
 		break;
 	case OPEN_FILE_FAILURE:		
-		msgBox.setText(QObject::tr("打开视频文件失败！"));  
+		msgBox.setText(QObject::tr("无法打开文件！请检查是否读入了正确文件！"));  
 		msgBox.exec();
 		break;
 	default: break;

@@ -51,7 +51,7 @@ void SegmentStrategy::positionResult( Mat &srcImage, Mat &dstImage, std::vector<
 	{
 		rotatedRects[i].points( rect_points );
 		for( int j = 0; j < 4; j++ )
-		cv::line(dstImage, rect_points[j], rect_points[(j+1)%4], cv::Scalar(255), 1, 8 );		
+		cv::line(dstImage, rect_points[j], rect_points[(j+1)%4], cv::Scalar(124), 1, 8 );		
 	}
 
 	/*std::vector<cv::Rect> boundRect(contours.size());

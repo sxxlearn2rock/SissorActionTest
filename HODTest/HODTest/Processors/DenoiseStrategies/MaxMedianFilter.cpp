@@ -143,7 +143,8 @@ void MaxMedianFilter::maxmedianfilter( unsigned char* image, int height, int wid
 		for (x = 0; x<width; x++)
 		{
 			float temp1;                                   //²îÍ¼
-			temp1 = float(image[lLBytes*y + x] - OutImage[lLBytes*y + x]);  //ÓÃÔ­Ê¼Í¼Ïñ¼õÈ¥±³¾°Í¼Ïñ
+			//			temp1 = float(image[lLBytes*y + x] - OutImage[lLBytes*y + x]);  //ÓÃÔ­Ê¼Í¼Ïñ¼õÈ¥±³¾°Í¼Ïñ
+			temp1 = float( OutImage[lLBytes*y + x] );
 			if (temp1<0.0)
 				temp1 = 0;
 			if (temp1>255.0)

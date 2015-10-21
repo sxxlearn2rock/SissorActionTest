@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Tue Oct 20 17:34:51 2015
+** Created: Wed Oct 21 14:19:57 2015
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -35,6 +35,8 @@ public:
     QAction *acReadVideo;
     QAction *acExit;
     QAction *acStartDetect;
+    QAction *acReadPic;
+    QAction *acStartDetectPic;
     QWidget *centralWidget;
     QLabel *label;
     QLabel *labelInputFrame;
@@ -91,6 +93,16 @@ public:
         QIcon icon2;
         icon2.addFile(QString::fromUtf8(":/Resources/start_detect.png"), QSize(), QIcon::Normal, QIcon::Off);
         acStartDetect->setIcon(icon2);
+        acReadPic = new QAction(MainWindowClass);
+        acReadPic->setObjectName(QString::fromUtf8("acReadPic"));
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8(":/Resources/open_picture.png"), QSize(), QIcon::Normal, QIcon::Off);
+        acReadPic->setIcon(icon3);
+        acStartDetectPic = new QAction(MainWindowClass);
+        acStartDetectPic->setObjectName(QString::fromUtf8("acStartDetectPic"));
+        QIcon icon4;
+        icon4.addFile(QString::fromUtf8(":/Resources/start_detect_pic.png"), QSize(), QIcon::Normal, QIcon::Off);
+        acStartDetectPic->setIcon(icon4);
         centralWidget = new QWidget(MainWindowClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         label = new QLabel(centralWidget);
@@ -274,9 +286,11 @@ public:
         menuBar->addAction(menu_F->menuAction());
         menuBar->addAction(menu_R->menuAction());
         menu_F->addAction(acReadVideo);
+        menu_F->addAction(acReadPic);
         menu_F->addSeparator();
         menu_F->addAction(acExit);
         menu_R->addAction(acStartDetect);
+        menu_R->addAction(acStartDetectPic);
         mainToolBar->addSeparator();
 
         retranslateUi(MainWindowClass);
@@ -293,7 +307,9 @@ public:
 #endif // QT_NO_TOOLTIP
         acReadVideo->setShortcut(QApplication::translate("MainWindowClass", "Ctrl+O", 0, QApplication::UnicodeUTF8));
         acExit->setText(QApplication::translate("MainWindowClass", "\351\200\200\345\207\272\347\250\213\345\272\217", 0, QApplication::UnicodeUTF8));
-        acStartDetect->setText(QApplication::translate("MainWindowClass", "\345\274\200\345\247\213\346\243\200\346\265\213", 0, QApplication::UnicodeUTF8));
+        acStartDetect->setText(QApplication::translate("MainWindowClass", "\345\274\200\345\247\213\346\243\200\346\265\213\350\247\206\351\242\221", 0, QApplication::UnicodeUTF8));
+        acReadPic->setText(QApplication::translate("MainWindowClass", "\350\257\273\345\217\226\345\233\276\347\211\207", 0, QApplication::UnicodeUTF8));
+        acStartDetectPic->setText(QApplication::translate("MainWindowClass", "\345\274\200\345\247\213\346\243\200\346\265\213\345\233\276\347\211\207", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("MainWindowClass", "\345\216\237\345\247\213\350\247\206\351\242\221:", 0, QApplication::UnicodeUTF8));
         labelInputFrame->setText(QString());
         labelOutputFrame->setText(QString());
