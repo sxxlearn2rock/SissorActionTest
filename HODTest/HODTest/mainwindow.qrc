@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="/">
+    <file>Resources/read_frames.png</file>
     <file>Resources/sissor.png</file>
     <file>Resources/warning.png</file>
     <file>Resources/exit.png</file>

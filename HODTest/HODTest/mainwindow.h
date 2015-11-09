@@ -21,6 +21,8 @@
 using std::vector;
 using cv::Mat; using cv::VideoCapture; using cv::RotatedRect;
 
+enum Mode {FRAMES,	VIDEO};
+
 class MainWindow : public QMainWindow
 {
 	Q_OBJECT
@@ -32,6 +34,8 @@ public:
 private:
 	//UI相关的成员变量，以u为前缀
 	QLabel* uStatusLabel;
+
+	Mode mProcessMode;
 
 	bool mReady2PalyVideo;
 	bool mStopPlayVideo;
@@ -77,6 +81,7 @@ private:
 signals:
 	
 private slots:
+	void on_acReadContinuousFrames_triggered();
 	void on_acReadVideo_triggered();
 	void on_acExit_triggered();
 	void on_acStartDetect_triggered();

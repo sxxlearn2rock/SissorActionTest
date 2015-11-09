@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Tue Oct 20 17:34:51 2015
+** Created: Mon Nov 9 15:52:41 2015
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -16,13 +16,11 @@
 #include <QtGui/QButtonGroup>
 #include <QtGui/QComboBox>
 #include <QtGui/QFrame>
-#include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
 #include <QtGui/QMainWindow>
 #include <QtGui/QMenu>
 #include <QtGui/QMenuBar>
-#include <QtGui/QPushButton>
 #include <QtGui/QStatusBar>
 #include <QtGui/QToolBar>
 #include <QtGui/QWidget>
@@ -35,6 +33,8 @@ public:
     QAction *acReadVideo;
     QAction *acExit;
     QAction *acStartDetect;
+    QAction *acReadContinuousFrames;
+    QAction *acDetectContinuousFrames;
     QWidget *centralWidget;
     QLabel *label;
     QLabel *labelInputFrame;
@@ -48,23 +48,15 @@ public:
     QLabel *labelDenoiseFrame;
     QLabel *label_4;
     QFrame *frameDenoiseBox;
-    QWidget *layoutWidget;
-    QHBoxLayout *horizontalLayout_2;
-    QComboBox *comboSegment;
-    QPushButton *btnConfigSeg;
     QLabel *label_5;
     QFrame *frameRecogBox;
-    QWidget *layoutWidget_2;
-    QHBoxLayout *horizontalLayout_3;
-    QComboBox *comboRecog;
-    QPushButton *btnConfigRecog;
     QLabel *labelRecogFrame;
     QLabel *label_6;
     QLabel *labelMorphFrame;
     QFrame *frameMorphBox;
-    QPushButton *btnConfigMorph;
     QComboBox *comboDenoise;
-    QPushButton *btnConfigDenoise;
+    QComboBox *comboSegment;
+    QComboBox *comboRecog;
     QMenuBar *menuBar;
     QMenu *menu_F;
     QMenu *menu_R;
@@ -75,6 +67,7 @@ public:
     {
         if (MainWindowClass->objectName().isEmpty())
             MainWindowClass->setObjectName(QString::fromUtf8("MainWindowClass"));
+        MainWindowClass->setEnabled(true);
         MainWindowClass->resize(1083, 622);
         acReadVideo = new QAction(MainWindowClass);
         acReadVideo->setObjectName(QString::fromUtf8("acReadVideo"));
@@ -91,6 +84,13 @@ public:
         QIcon icon2;
         icon2.addFile(QString::fromUtf8(":/Resources/start_detect.png"), QSize(), QIcon::Normal, QIcon::Off);
         acStartDetect->setIcon(icon2);
+        acReadContinuousFrames = new QAction(MainWindowClass);
+        acReadContinuousFrames->setObjectName(QString::fromUtf8("acReadContinuousFrames"));
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8(":/Resources/read_frames.png"), QSize(), QIcon::Normal, QIcon::Off);
+        acReadContinuousFrames->setIcon(icon3);
+        acDetectContinuousFrames = new QAction(MainWindowClass);
+        acDetectContinuousFrames->setObjectName(QString::fromUtf8("acDetectContinuousFrames"));
         centralWidget = new QWidget(MainWindowClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         label = new QLabel(centralWidget);
@@ -157,24 +157,6 @@ public:
         frameDenoiseBox->setFrameShadow(QFrame::Sunken);
         frameDenoiseBox->setLineWidth(3);
         frameDenoiseBox->setMidLineWidth(1);
-        layoutWidget = new QWidget(centralWidget);
-        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(870, 10, 186, 25));
-        horizontalLayout_2 = new QHBoxLayout(layoutWidget);
-        horizontalLayout_2->setSpacing(6);
-        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        comboSegment = new QComboBox(layoutWidget);
-        comboSegment->setObjectName(QString::fromUtf8("comboSegment"));
-
-        horizontalLayout_2->addWidget(comboSegment);
-
-        btnConfigSeg = new QPushButton(layoutWidget);
-        btnConfigSeg->setObjectName(QString::fromUtf8("btnConfigSeg"));
-
-        horizontalLayout_2->addWidget(btnConfigSeg);
-
         label_5 = new QLabel(centralWidget);
         label_5->setObjectName(QString::fromUtf8("label_5"));
         label_5->setGeometry(QRect(380, 290, 131, 16));
@@ -186,24 +168,6 @@ public:
         frameRecogBox->setFrameShadow(QFrame::Sunken);
         frameRecogBox->setLineWidth(3);
         frameRecogBox->setMidLineWidth(1);
-        layoutWidget_2 = new QWidget(centralWidget);
-        layoutWidget_2->setObjectName(QString::fromUtf8("layoutWidget_2"));
-        layoutWidget_2->setGeometry(QRect(510, 280, 187, 25));
-        horizontalLayout_3 = new QHBoxLayout(layoutWidget_2);
-        horizontalLayout_3->setSpacing(6);
-        horizontalLayout_3->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
-        comboRecog = new QComboBox(layoutWidget_2);
-        comboRecog->setObjectName(QString::fromUtf8("comboRecog"));
-
-        horizontalLayout_3->addWidget(comboRecog);
-
-        btnConfigRecog = new QPushButton(layoutWidget_2);
-        btnConfigRecog->setObjectName(QString::fromUtf8("btnConfigRecog"));
-
-        horizontalLayout_3->addWidget(btnConfigRecog);
-
         labelRecogFrame = new QLabel(centralWidget);
         labelRecogFrame->setObjectName(QString::fromUtf8("labelRecogFrame"));
         labelRecogFrame->setGeometry(QRect(380, 310, 321, 241));
@@ -223,15 +187,15 @@ public:
         frameMorphBox->setFrameShadow(QFrame::Sunken);
         frameMorphBox->setLineWidth(3);
         frameMorphBox->setMidLineWidth(1);
-        btnConfigMorph = new QPushButton(centralWidget);
-        btnConfigMorph->setObjectName(QString::fromUtf8("btnConfigMorph"));
-        btnConfigMorph->setGeometry(QRect(260, 280, 75, 23));
         comboDenoise = new QComboBox(centralWidget);
         comboDenoise->setObjectName(QString::fromUtf8("comboDenoise"));
-        comboDenoise->setGeometry(QRect(490, 14, 161, 20));
-        btnConfigDenoise = new QPushButton(centralWidget);
-        btnConfigDenoise->setObjectName(QString::fromUtf8("btnConfigDenoise"));
-        btnConfigDenoise->setGeometry(QRect(652, 13, 51, 23));
+        comboDenoise->setGeometry(QRect(520, 16, 181, 20));
+        comboSegment = new QComboBox(centralWidget);
+        comboSegment->setObjectName(QString::fromUtf8("comboSegment"));
+        comboSegment->setGeometry(QRect(870, 16, 191, 20));
+        comboRecog = new QComboBox(centralWidget);
+        comboRecog->setObjectName(QString::fromUtf8("comboRecog"));
+        comboRecog->setGeometry(QRect(510, 285, 191, 20));
         MainWindowClass->setCentralWidget(centralWidget);
         frameRecogBox->raise();
         labelRecogFrame->raise();
@@ -240,13 +204,10 @@ public:
         frameSegmentBox->raise();
         labelSegmentFrame->raise();
         comboDenoise->raise();
-        btnConfigDenoise->raise();
-        btnConfigMorph->raise();
         frameMorphBox->raise();
         labelMorphFrame->raise();
         frameOutputBox->raise();
         frameDenoiseBox->raise();
-        layoutWidget->raise();
         labelDenoiseFrame->raise();
         label->raise();
         labelOutputFrame->raise();
@@ -254,7 +215,6 @@ public:
         label_3->raise();
         label_4->raise();
         label_5->raise();
-        layoutWidget_2->raise();
         label_6->raise();
         menuBar = new QMenuBar(MainWindowClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -274,9 +234,11 @@ public:
         menuBar->addAction(menu_F->menuAction());
         menuBar->addAction(menu_R->menuAction());
         menu_F->addAction(acReadVideo);
+        menu_F->addAction(acReadContinuousFrames);
         menu_F->addSeparator();
         menu_F->addAction(acExit);
         menu_R->addAction(acStartDetect);
+        menu_R->addAction(acDetectContinuousFrames);
         mainToolBar->addSeparator();
 
         retranslateUi(MainWindowClass);
@@ -293,7 +255,9 @@ public:
 #endif // QT_NO_TOOLTIP
         acReadVideo->setShortcut(QApplication::translate("MainWindowClass", "Ctrl+O", 0, QApplication::UnicodeUTF8));
         acExit->setText(QApplication::translate("MainWindowClass", "\351\200\200\345\207\272\347\250\213\345\272\217", 0, QApplication::UnicodeUTF8));
-        acStartDetect->setText(QApplication::translate("MainWindowClass", "\345\274\200\345\247\213\346\243\200\346\265\213", 0, QApplication::UnicodeUTF8));
+        acStartDetect->setText(QApplication::translate("MainWindowClass", "\345\274\200\345\247\213\346\243\200\346\265\213\350\247\206\351\242\221", 0, QApplication::UnicodeUTF8));
+        acReadContinuousFrames->setText(QApplication::translate("MainWindowClass", "\350\257\273\345\217\226\350\277\236\347\273\255\345\270\247", 0, QApplication::UnicodeUTF8));
+        acDetectContinuousFrames->setText(QApplication::translate("MainWindowClass", "\345\274\200\345\247\213\346\243\200\346\265\213\350\277\236\347\273\255\345\270\247", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("MainWindowClass", "\345\216\237\345\247\213\350\247\206\351\242\221:", 0, QApplication::UnicodeUTF8));
         labelInputFrame->setText(QString());
         labelOutputFrame->setText(QString());
@@ -302,26 +266,10 @@ public:
         label_3->setText(QApplication::translate("MainWindowClass", "\345\210\206\345\211\262\347\273\223\346\236\234:", 0, QApplication::UnicodeUTF8));
         labelDenoiseFrame->setText(QString());
         label_4->setText(QApplication::translate("MainWindowClass", "\350\203\214\346\231\257\346\212\221\345\210\266\347\273\223\346\236\234:", 0, QApplication::UnicodeUTF8));
-        comboSegment->clear();
-        comboSegment->insertItems(0, QStringList()
-         << QApplication::translate("MainWindowClass", "\351\273\230\350\256\244\345\210\206\345\211\262\347\256\227\346\263\225", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindowClass", "OtsuSegment", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindowClass", "KswSegment", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindowClass", "Ksw2dSegment", 0, QApplication::UnicodeUTF8)
-        );
-        btnConfigSeg->setText(QApplication::translate("MainWindowClass", "\351\205\215\347\275\256\345\217\202\346\225\260", 0, QApplication::UnicodeUTF8));
         label_5->setText(QApplication::translate("MainWindowClass", "\350\257\206\345\210\253\347\273\223\346\236\234:", 0, QApplication::UnicodeUTF8));
-        comboRecog->clear();
-        comboRecog->insertItems(0, QStringList()
-         << QApplication::translate("MainWindowClass", "\351\273\230\350\256\244\350\257\206\345\210\253\347\256\227\346\263\225", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindowClass", "\346\265\213\350\257\225\350\257\206\345\210\253\347\256\227\346\263\2251", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindowClass", "\346\265\213\350\257\225\350\257\206\345\210\253\347\256\227\346\263\2252", 0, QApplication::UnicodeUTF8)
-        );
-        btnConfigRecog->setText(QApplication::translate("MainWindowClass", "\351\205\215\347\275\256\345\217\202\346\225\260", 0, QApplication::UnicodeUTF8));
         labelRecogFrame->setText(QString());
         label_6->setText(QApplication::translate("MainWindowClass", "\345\275\242\346\200\201\345\255\246\346\273\244\346\263\242\347\273\223\346\236\234:", 0, QApplication::UnicodeUTF8));
         labelMorphFrame->setText(QString());
-        btnConfigMorph->setText(QApplication::translate("MainWindowClass", "\351\205\215\347\275\256\345\217\202\346\225\260", 0, QApplication::UnicodeUTF8));
         comboDenoise->clear();
         comboDenoise->insertItems(0, QStringList()
          << QApplication::translate("MainWindowClass", "\351\273\230\350\256\244(\344\273\205\347\201\260\345\272\246\345\214\226)", 0, QApplication::UnicodeUTF8)
@@ -339,7 +287,19 @@ public:
          << QApplication::translate("MainWindowClass", "\344\272\214\347\273\264\345\220\204\345\220\221\345\274\202\346\200\247\346\273\244\346\263\242", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("MainWindowClass", "\346\224\271\350\277\233\345\236\213\345\220\204\351\241\271\345\274\202\346\200\247\346\273\244\346\263\242", 0, QApplication::UnicodeUTF8)
         );
-        btnConfigDenoise->setText(QApplication::translate("MainWindowClass", "config", 0, QApplication::UnicodeUTF8));
+        comboSegment->clear();
+        comboSegment->insertItems(0, QStringList()
+         << QApplication::translate("MainWindowClass", "\351\273\230\350\256\244\345\210\206\345\211\262\347\256\227\346\263\225", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindowClass", "OtsuSegment", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindowClass", "KswSegment", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindowClass", "Ksw2dSegment", 0, QApplication::UnicodeUTF8)
+        );
+        comboRecog->clear();
+        comboRecog->insertItems(0, QStringList()
+         << QApplication::translate("MainWindowClass", "\351\273\230\350\256\244\350\257\206\345\210\253\347\256\227\346\263\225", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindowClass", "\346\265\213\350\257\225\350\257\206\345\210\253\347\256\227\346\263\2251", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindowClass", "\346\265\213\350\257\225\350\257\206\345\210\253\347\256\227\346\263\2252", 0, QApplication::UnicodeUTF8)
+        );
         menu_F->setTitle(QApplication::translate("MainWindowClass", "\346\226\207\344\273\266(&F)", 0, QApplication::UnicodeUTF8));
         menu_R->setTitle(QApplication::translate("MainWindowClass", "\350\277\220\350\241\214(&R)", 0, QApplication::UnicodeUTF8));
     } // retranslateUi

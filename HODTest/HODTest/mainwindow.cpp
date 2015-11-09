@@ -7,6 +7,7 @@
 #include <QtGui/QMessageBox>
 #include <QtGui/QFileDialog>
 #include <QtGui/QLabel>
+#include <QTextCodec>
 #include <qdebug.h>
 
 using namespace cv;
@@ -17,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent, Qt::WFlags flags)
 {
 	ui.setupUi(this);
 	//配置工具栏
+	ui.mainToolBar->addAction(ui.acReadContinuousFrames);
 	ui.mainToolBar->addAction(ui.acReadVideo);
 	ui.mainToolBar->addAction(ui.acStartDetect);
 	//配置状态栏
@@ -67,18 +69,32 @@ void MainWindow::on_acReadVideo_triggered()
 	mVideoCapture >> mInputMat;
 	displayMat(mInputMat, ui.labelInputFrame, ui.frameInputBox);
 
+	mProcessMode = VIDEO;
 	mVideoIsOver =false;
 	mReady2PalyVideo = true;
 
 }
 
 
-void MainWindow::on_acExit_triggered()
+void MainWindow::on_acReadContinuousFrames_triggered()
 {
-	if (!(QMessageBox::information(this,tr("退出"),tr("真的要退出程序吗？"),tr("是"),tr("否"))))
-	{
-		this->close();
+	QString dir = QFileDialog::getExistingDirectory(this, tr("请选择视频帧所在文件夹"),"d:\\SXX\\TestVideos",QFileDialog::ShowDirsOnly);
+	if( dir == NULL)  
+	{  
+		mUnexpectedActionHandler.handle(UnexpectedActionHandler::NULL_PATH);
+		return;
 	}
+
+	QTextCodec *codec = QTextCodec::codecForName("GB18030");  
+
+
+	dir += tr("\\毫米波_1.jpg");
+	  
+	qDebug() << dir;
+ 	Mat img = imread(codec->fromUnicode(dir).data());
+ 	imshow("adf", img);
+
+
 }
 
 
@@ -274,7 +290,13 @@ void MainWindow::releaseResource()
 	mOutputMat.empty();
 }
 
-
+void MainWindow::on_acExit_triggered()
+{
+	if (!(QMessageBox::information(this,tr("退出"),tr("真的要退出程序吗？"),tr("是"),tr("否"))))
+	{
+		this->close();
+	}
+}
 
 
 

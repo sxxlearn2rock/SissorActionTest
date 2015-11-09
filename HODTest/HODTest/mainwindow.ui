@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>MainWindowClass</class>
  <widget class="QMainWindow" name="MainWindowClass">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -245,49 +248,6 @@
      <number>1</number>
     </property>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>870</x>
-      <y>10</y>
-      <width>186</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item>
-      <widget class="QComboBox" name="comboSegment">
-       <item>
-        <property name="text">
-         <string>默认分割算法</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>OtsuSegment</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>KswSegment</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Ksw2dSegment</string>
-        </property>
-       </item>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnConfigSeg">
-       <property name="text">
-        <string>配置参数</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
@@ -328,44 +288,6 @@
     <property name="midLineWidth">
      <number>1</number>
     </property>
-   </widget>
-   <widget class="QWidget" name="layoutWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>510</x>
-      <y>280</y>
-      <width>187</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
-     <item>
-      <widget class="QComboBox" name="comboRecog">
-       <item>
-        <property name="text">
-         <string>默认识别算法</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>测试识别算法1</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>测试识别算法2</string>
-        </property>
-       </item>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnConfigRecog">
-       <property name="text">
-        <string>配置参数</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
    </widget>
    <widget class="QLabel" name="labelRecogFrame">
     <property name="geometry">
@@ -440,25 +362,12 @@
      <number>1</number>
     </property>
    </widget>
-   <widget class="QPushButton" name="btnConfigMorph">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>280</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>配置参数</string>
-    </property>
-   </widget>
    <widget class="QComboBox" name="comboDenoise">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>14</y>
-      <width>161</width>
+      <x>520</x>
+      <y>16</y>
+      <width>181</width>
       <height>20</height>
      </rect>
     </property>
@@ -533,18 +442,60 @@
      </property>
     </item>
    </widget>
-   <widget class="QPushButton" name="btnConfigDenoise">
+   <widget class="QComboBox" name="comboSegment">
     <property name="geometry">
      <rect>
-      <x>652</x>
-      <y>13</y>
-      <width>51</width>
-      <height>23</height>
+      <x>870</x>
+      <y>16</y>
+      <width>191</width>
+      <height>20</height>
      </rect>
     </property>
-    <property name="text">
-     <string>config</string>
+    <item>
+     <property name="text">
+      <string>默认分割算法</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>OtsuSegment</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>KswSegment</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Ksw2dSegment</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="comboRecog">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>285</y>
+      <width>191</width>
+      <height>20</height>
+     </rect>
     </property>
+    <item>
+     <property name="text">
+      <string>默认识别算法</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>测试识别算法1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>测试识别算法2</string>
+     </property>
+    </item>
    </widget>
    <zorder>frameRecogBox</zorder>
    <zorder>labelRecogFrame</zorder>
@@ -553,8 +504,6 @@
    <zorder>frameSegmentBox</zorder>
    <zorder>labelSegmentFrame</zorder>
    <zorder>comboDenoise</zorder>
-   <zorder>btnConfigDenoise</zorder>
-   <zorder>btnConfigMorph</zorder>
    <zorder>frameMorphBox</zorder>
    <zorder>labelMorphFrame</zorder>
    <zorder>frameOutputBox</zorder>
@@ -584,6 +533,7 @@
      <string>文件(&amp;F)</string>
     </property>
     <addaction name="acReadVideo"/>
+    <addaction name="acReadContinuousFrames"/>
     <addaction name="separator"/>
     <addaction name="acExit"/>
    </widget>
@@ -592,6 +542,7 @@
      <string>运行(&amp;R)</string>
     </property>
     <addaction name="acStartDetect"/>
+    <addaction name="acDetectContinuousFrames"/>
    </widget>
    <addaction name="menu_F"/>
    <addaction name="menu_R"/>
@@ -636,7 +587,21 @@
      <normaloff>:/Resources/start_detect.png</normaloff>:/Resources/start_detect.png</iconset>
    </property>
    <property name="text">
-    <string>开始检测</string>
+    <string>开始检测视频</string>
+   </property>
+  </action>
+  <action name="acReadContinuousFrames">
+   <property name="icon">
+    <iconset resource="mainwindow.qrc">
+     <normaloff>:/Resources/read_frames.png</normaloff>:/Resources/read_frames.png</iconset>
+   </property>
+   <property name="text">
+    <string>读取连续帧</string>
+   </property>
+  </action>
+  <action name="acDetectContinuousFrames">
+   <property name="text">
+    <string>开始检测连续帧</string>
    </property>
   </action>
  </widget>

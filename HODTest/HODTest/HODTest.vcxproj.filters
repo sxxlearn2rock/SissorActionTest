@@ -51,6 +51,12 @@
     <Filter Include="Header Files\Processors\SegmentStrategies">
       <UniqueIdentifier>{f3bc4058-bdba-44e3-a30e-89fd7cdd995a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Players">
+      <UniqueIdentifier>{83d8d9c7-717a-47bc-9d12-de6e0e2ef5a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Players">
+      <UniqueIdentifier>{a10b8475-61e4-4321-adb9-c787df5f4a16}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -133,6 +139,12 @@
     </ClCompile>
     <ClCompile Include="Processors\SegmentStrategies\KswSegment.cpp">
       <Filter>Source Files\Processors\SegmentStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="VideoFilePlayer.cpp">
+      <Filter>Source Files\Players</Filter>
+    </ClCompile>
+    <ClCompile Include="ContinuousFramesPlayer.cpp">
+      <Filter>Source Files\Players</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -221,6 +233,15 @@
     </ClInclude>
     <ClInclude Include="Processors\SegmentStrategies\KswSegment.h">
       <Filter>Header Files\Processors\SegmentStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="VideoPalyer.h">
+      <Filter>Header Files\Players</Filter>
+    </ClInclude>
+    <ClInclude Include="VideoFilePlayer.h">
+      <Filter>Header Files\Players</Filter>
+    </ClInclude>
+    <ClInclude Include="ContinuousFramesPlayer.h">
+      <Filter>Header Files\Players</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
