@@ -30,7 +30,7 @@
      </font>
     </property>
     <property name="text">
-     <string>原始视频:</string>
+     <string>原始帧:</string>
     </property>
    </widget>
    <widget class="QLabel" name="labelInputFrame">
@@ -245,49 +245,6 @@
      <number>1</number>
     </property>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>870</x>
-      <y>10</y>
-      <width>186</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item>
-      <widget class="QComboBox" name="comboSegment">
-       <item>
-        <property name="text">
-         <string>默认分割算法</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>OtsuSegment</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>KswSegment</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Ksw2dSegment</string>
-        </property>
-       </item>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnConfigSeg">
-       <property name="text">
-        <string>配置参数</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
@@ -328,44 +285,6 @@
     <property name="midLineWidth">
      <number>1</number>
     </property>
-   </widget>
-   <widget class="QWidget" name="layoutWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>510</x>
-      <y>280</y>
-      <width>187</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
-     <item>
-      <widget class="QComboBox" name="comboRecog">
-       <item>
-        <property name="text">
-         <string>默认识别算法</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>测试识别算法1</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>测试识别算法2</string>
-        </property>
-       </item>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnConfigRecog">
-       <property name="text">
-        <string>配置参数</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
    </widget>
    <widget class="QLabel" name="labelRecogFrame">
     <property name="geometry">
@@ -440,25 +359,12 @@
      <number>1</number>
     </property>
    </widget>
-   <widget class="QPushButton" name="btnConfigMorph">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>280</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>配置参数</string>
-    </property>
-   </widget>
    <widget class="QComboBox" name="comboDenoise">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>14</y>
-      <width>161</width>
+      <x>520</x>
+      <y>15</y>
+      <width>181</width>
       <height>20</height>
      </rect>
     </property>
@@ -474,32 +380,7 @@
     </item>
     <item>
      <property name="text">
-      <string>直方图双向增强</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>分形算法</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
       <string>最大中值滤波背景抑制</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>固定权值背景预测</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>自适应权值背景预测</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>区域最大化背景预测</string>
      </property>
     </item>
     <item>
@@ -507,45 +388,64 @@
       <string>局部均值对比度背景抑制</string>
      </property>
     </item>
-    <item>
-     <property name="text">
-      <string>局部熵背景抑制</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>局部方差背景抑制</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>一维各项异性滤波</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>二维各向异性滤波</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>改进型各项异性滤波</string>
-     </property>
-    </item>
    </widget>
-   <widget class="QPushButton" name="btnConfigDenoise">
+   <widget class="QComboBox" name="comboSegment">
     <property name="geometry">
      <rect>
-      <x>652</x>
-      <y>13</y>
-      <width>51</width>
-      <height>23</height>
+      <x>871</x>
+      <y>15</y>
+      <width>191</width>
+      <height>20</height>
      </rect>
     </property>
-    <property name="text">
-     <string>config</string>
-    </property>
+    <item>
+     <property name="text">
+      <string>默认分割算法</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>OtsuSegment</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>KswSegment</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Ksw2dSegment</string>
+     </property>
+    </item>
    </widget>
+   <widget class="QComboBox" name="comboRecog">
+    <property name="geometry">
+     <rect>
+      <x>511</x>
+      <y>285</y>
+      <width>191</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>默认识别算法</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>测试识别算法1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>测试识别算法2</string>
+     </property>
+    </item>
+   </widget>
+   <zorder>comboSegment</zorder>
+   <zorder>comboRecog</zorder>
    <zorder>frameRecogBox</zorder>
    <zorder>labelRecogFrame</zorder>
    <zorder>frameInputBox</zorder>
@@ -553,13 +453,10 @@
    <zorder>frameSegmentBox</zorder>
    <zorder>labelSegmentFrame</zorder>
    <zorder>comboDenoise</zorder>
-   <zorder>btnConfigDenoise</zorder>
-   <zorder>btnConfigMorph</zorder>
    <zorder>frameMorphBox</zorder>
    <zorder>labelMorphFrame</zorder>
    <zorder>frameOutputBox</zorder>
    <zorder>frameDenoiseBox</zorder>
-   <zorder>layoutWidget</zorder>
    <zorder>labelDenoiseFrame</zorder>
    <zorder>label</zorder>
    <zorder>labelOutputFrame</zorder>
@@ -567,7 +464,6 @@
    <zorder>label_3</zorder>
    <zorder>label_4</zorder>
    <zorder>label_5</zorder>
-   <zorder>layoutWidget_2</zorder>
    <zorder>label_6</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">

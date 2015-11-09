@@ -5,6 +5,7 @@
 #include <QMessageBox>  
 #include <QComboBox>
 #include "ui_moduletest.h"
+#include "configdlg.h"
 
 class ModuleTest : public QMainWindow
 {
@@ -14,25 +15,17 @@ public:
 	ModuleTest(QWidget *parent = 0, Qt::WFlags flags = 0);
 	~ModuleTest();
 
+	void setArg0( int arg ) { mArg0 = arg; }
+
 private:
 	Ui::ModuleTestClass ui;
-	QComboBox *cbo_sex;  
+	ConfigDlg* mConfigDlg;
+
+	int mArg0;
+
 
 private slots:  
-		void on_sel_sex()  
-		{  
-			QString str;  
-			str = "You select ";  
-			QMessageBox::information(this, tr("Info"), str);  
-		}  
-
-		void on_click_sel()  
-		{  
-			QString str;  
-			str = ("You select %1" + cbo_sex->currentText()).arg(cbo_sex->currentIndex());  
-			QMessageBox::information(this, tr("Info"), str);  
-		}  
-
+	void on_btnShowDlg_clicked();
 };
 
 #endif // MODULETEST_H

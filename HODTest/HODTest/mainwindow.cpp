@@ -31,6 +31,8 @@ MainWindow::MainWindow(QWidget *parent, Qt::WFlags flags)
 	//配置各个部件的状态栏提示信息
 	ui.acReadVideo->setStatusTip(tr("打开一个视频文件"));
 	ui.acStartDetect->setStatusTip(tr("开始进行刀具检测"));
+	ui.acReadPic->setStatusTip(tr("打开一个图片文件"));
+	ui.acStartDetectPic->setStatusTip(tr("开始对图片进行检测"));
 	ui.acExit->setStatusTip(tr("退出程序"));
 
 	mQTimer = new QTimer();
@@ -249,29 +251,9 @@ void MainWindow::setDenoiseStrategy(int index)
 	case 1:
 		mDenoiseProcessor->setDenoiseStrategy(LateralInhibition::getInstance());		break;
 	case 2:
-		mDenoiseProcessor->setDenoiseStrategy(DoublehistEqual::getInstance());		break;
-	case 3:
-		mDenoiseProcessor->setDenoiseStrategy(FD::getInstance());		break;
-	case 4:
 		mDenoiseProcessor->setDenoiseStrategy(MaxMedianFilter::getInstance());		break;
-	case 5:
-		mDenoiseProcessor->setDenoiseStrategy(BaseWeightBGP::getInstance());		break;
-	case 6:
-		mDenoiseProcessor->setDenoiseStrategy(TDLMS::getInstance());		break;
-	case 7:
-		mDenoiseProcessor->setDenoiseStrategy(LMPM::getInstance());		break;
-	case 8:
-		mDenoiseProcessor->setDenoiseStrategy(LocalMeanContrast::getInstance());		break;
-	case 9:
-		mDenoiseProcessor->setDenoiseStrategy(Localshannon::getInstance());		break;
-	case 10:
-		mDenoiseProcessor->setDenoiseStrategy(Localstd::getInstance());		break;
-	case 11:
-		mDenoiseProcessor->setDenoiseStrategy(Pmdiff1::getInstance());		break;
-	case 12:
-		mDenoiseProcessor->setDenoiseStrategy(Pmdiff2::getInstance());		break;
-	case 13:
-		mDenoiseProcessor->setDenoiseStrategy(Pmdiffmy::getInstance());		break;
+	case 3:
+		mDenoiseProcessor->setDenoiseStrategy(LocalMeanContrast::getInstance());		break;	
 	default:
 		mDenoiseProcessor->setDenoiseStrategy(DefaultDenosieStrategy::getInstance());		break;
 	}
