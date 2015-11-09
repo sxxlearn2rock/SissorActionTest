@@ -14,7 +14,7 @@ using namespace cv;
 
 
 MainWindow::MainWindow(QWidget *parent, Qt::WFlags flags)
-	: QMainWindow(parent, flags),mReady2PalyVideo(false), mStopPlayVideo(false), mIsProcessing(false), mVideoIsOver(false)
+	: QMainWindow(parent, flags),mReady2PalyVideo(false), mStopPlayVideo(false), mIsProcessing(false)
 {
 	ui.setupUi(this);
 	//配置工具栏
@@ -33,6 +33,7 @@ MainWindow::MainWindow(QWidget *parent, Qt::WFlags flags)
 
 	mQTimer = new QTimer();
 
+	mVideoPlayer = new VideoFilePlayer();
 	mDenoiseProcessor = DenoiseProcessor::getInstance();
 	mDenoiseProcessor->setDenoiseStrategy(DefaultDenosieStrategy::getInstance());
 
@@ -58,21 +59,19 @@ void MainWindow::on_acReadVideo_triggered()
 		return;
 	} 
 
-	mVideoCapture.open(fileName.toAscii().data());
-	if( !mVideoCapture.isOpened() )  
-	{  
+	//使得软件可以读取中文路径
+	if (mVideoPlayer->readVideo(QTextCodec::codecForName("GB18030")->fromUnicode(fileName).data()))
+	{
+		//读取并显示视频的第一帧图像，表示视频已经成功读取
+		mVideoPlayer->getNextFrame(mInputMat);
+		displayMat(mInputMat, ui.labelInputFrame, ui.frameInputBox);
+
+		mProcessMode = VIDEO;
+		mReady2PalyVideo = true;
+	}else
+	{
 		mUnexpectedActionHandler.handle(UnexpectedActionHandler::OPEN_FILE_FAILURE);
-		return;
-	} 
-
-	//读取并显示视频的第一帧图像，表示视频已经成功读取
-	mVideoCapture >> mInputMat;
-	displayMat(mInputMat, ui.labelInputFrame, ui.frameInputBox);
-
-	mProcessMode = VIDEO;
-	mVideoIsOver =false;
-	mReady2PalyVideo = true;
-
+	}
 }
 
 
@@ -94,7 +93,6 @@ void MainWindow::on_acReadContinuousFrames_triggered()
  	Mat img = imread(codec->fromUnicode(dir).data());
  	imshow("adf", img);
 
-
 }
 
 
@@ -106,7 +104,7 @@ void MainWindow::on_acStartDetect_triggered()
 		return;
 	}
 
-	double videoRate = mVideoCapture.get(CV_CAP_PROP_FPS);
+	double videoRate = mVideoPlayer->getVideoRate();
 	int delayBetween2Frames = 1000/videoRate;
 
 	mQTimer->start(delayBetween2Frames);
@@ -140,19 +138,12 @@ void MainWindow::displayMat(cv::Mat& image, QLabel* label2show, QFrame* frame2sh
 	//在主界面的frameInputBox里面显示图片
 	label2show->setPixmap(QPixmap::fromImage(qImage));
 	label2show->resize(QSize(frame2show->frameRect().width(),frame2show->frameRect().height()));
-
 }
 
 
 void MainWindow::displayInputMat()
 {
-	if (mVideoCapture.read(mInputMat))
-	{	
-		displayMat(mInputMat, ui.labelInputFrame, ui.frameInputBox);
-
-	}else{
-		mVideoIsOver = true;
-	}
+	displayMat(mInputMat, ui.labelInputFrame, ui.frameInputBox);
 }
 
 void MainWindow::displayDenoisedMat()
@@ -179,13 +170,17 @@ void MainWindow::totalProcess()
 	//若之前帧没有处理完，就跳过该帧
 	if ( !mIsProcessing )
 	{	
+clock_t t1, t2;	t1 = clock();
 		mIsProcessing = true;
+		mVideoPlayer->getNextFrame(mInputMat);
 		displayInputMat();
-		if ( !mVideoIsOver )
+		if ( !mVideoPlayer->videoIsOver() )
 		{	
+
 			displayDenoisedMat();
 			displaySegedMat();
 			displayOutputMat();	
+
 		}else
 		{
 			//停止定时器
@@ -198,6 +193,8 @@ void MainWindow::totalProcess()
 			QMessageBox::information(this, tr("通知"), tr("视频播放结束！"));
 		}
 		mIsProcessing = false;
+t2 = clock();
+qDebug() << "total:" << (double)(t2-t1) << "ms";
 	}
 }
 
@@ -281,7 +278,7 @@ void MainWindow::clearAllFrame()
 void MainWindow::releaseResource()
 {
 	//释放视频资源
-	mVideoCapture.release();
+	mVideoPlayer->releaseVideo();
 	//释放各个mat
 	mDenoiseMat.empty();
 	mSegmentMat.empty();

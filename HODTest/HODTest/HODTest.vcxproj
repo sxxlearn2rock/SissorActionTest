@@ -71,7 +71,7 @@
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -79,7 +79,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ContinuousFramesPlayer.cpp" />
     <ClCompile Include="DenoiseProcessor.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_mainwindow.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -95,6 +94,8 @@
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
+    <ClCompile Include="Players\ContinuousFramesPlayer.cpp" />
+    <ClCompile Include="Players\VideoFilePlayer.cpp" />
     <ClCompile Include="Processors\DenoiseStrategies\BaseWeightBGP.cpp" />
     <ClCompile Include="Processors\DenoiseStrategies\DefaultDenoiseStrategy.cpp" />
     <ClCompile Include="Processors\DenoiseStrategies\DoublehistEqual.cpp" />
@@ -116,7 +117,6 @@
     <ClCompile Include="Processors\SegmentStrategy.cpp" />
     <ClCompile Include="SegmentProcessor.cpp" />
     <ClCompile Include="UnexpectedActionHandler.cpp" />
-    <ClCompile Include="VideoFilePlayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="mainwindow.h">
@@ -145,9 +145,11 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ContinuousFramesPlayer.h" />
     <ClInclude Include="DenoiseProcessor.h" />
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h" />
+    <ClInclude Include="Players\ContinuousFramesPlayer.h" />
+    <ClInclude Include="Players\VideoFilePlayer.h" />
+    <ClInclude Include="Players\VideoPlayer.h" />
     <ClInclude Include="Processors\DenoiseStrategies\BaseWeightBGP.h" />
     <ClInclude Include="Processors\DenoiseStrategies\DefaultDenoiseStrategy.h" />
     <ClInclude Include="Processors\DenoiseStrategies\DoublehistEqual.h" />
@@ -170,8 +172,6 @@
     <ClInclude Include="Processors\SegmentStrategy.h" />
     <ClInclude Include="Processors\strategies.h" />
     <ClInclude Include="SegmentProcessor.h" />
-    <ClInclude Include="VideoFilePlayer.h" />
-    <ClInclude Include="VideoPalyer.h" />
     <CustomBuild Include="UnexpectedActionHandler.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalInputs)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

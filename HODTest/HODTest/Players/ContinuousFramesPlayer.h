@@ -1,5 +1,5 @@
 #pragma once
-#include "VideoPalyer.h"
+#include "VideoPlayer.h"
 
 //用以播放连续帧的播放器
 class ContinuousFramesPlayer : public VideoPlayer

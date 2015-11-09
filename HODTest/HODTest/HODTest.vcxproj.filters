@@ -140,10 +140,10 @@
     <ClCompile Include="Processors\SegmentStrategies\KswSegment.cpp">
       <Filter>Source Files\Processors\SegmentStrategies</Filter>
     </ClCompile>
-    <ClCompile Include="VideoFilePlayer.cpp">
+    <ClCompile Include="Players\VideoFilePlayer.cpp">
       <Filter>Source Files\Players</Filter>
     </ClCompile>
-    <ClCompile Include="ContinuousFramesPlayer.cpp">
+    <ClCompile Include="Players\ContinuousFramesPlayer.cpp">
       <Filter>Source Files\Players</Filter>
     </ClCompile>
   </ItemGroup>
@@ -234,13 +234,13 @@
     <ClInclude Include="Processors\SegmentStrategies\KswSegment.h">
       <Filter>Header Files\Processors\SegmentStrategies</Filter>
     </ClInclude>
-    <ClInclude Include="VideoPalyer.h">
+    <ClInclude Include="Players\ContinuousFramesPlayer.h">
       <Filter>Header Files\Players</Filter>
     </ClInclude>
-    <ClInclude Include="VideoFilePlayer.h">
+    <ClInclude Include="Players\VideoFilePlayer.h">
       <Filter>Header Files\Players</Filter>
     </ClInclude>
-    <ClInclude Include="ContinuousFramesPlayer.h">
+    <ClInclude Include="Players\VideoPlayer.h">
       <Filter>Header Files\Players</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,4 +1,4 @@
-#include "ContinuousFramesPlayer.h"
+#include "./Players/ContinuousFramesPlayer.h"
 
 
 ContinuousFramesPlayer::ContinuousFramesPlayer(void)

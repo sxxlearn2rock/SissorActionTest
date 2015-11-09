@@ -1,16 +1,28 @@
 #include "./Processors/DenoiseStrategies/MaxMedianFilter.h"
 #define PI 3.1415926535
 
+#include <time.h>
+#include <qDebug>
 //类静态变量必须在.cpp文件里声明
 MaxMedianFilter*	MaxMedianFilter::mSingleton = NULL;
 
 void MaxMedianFilter::denoise(const Mat& srcImg, Mat& desImg)
 {
-	unsigned char* cvtImg = mat2GrayImgPointer(srcImg, desImg);
+//clock_t t1, t2;
+//t1 = clock();
+		unsigned char* cvtImg = mat2GrayImgPointer(srcImg, desImg);
+//t2 = clock();
+//qDebug() << (double)(t2-t1)*1000 << "us" ;
+
 
 	maxmedianfilter( cvtImg, desImg.rows, desImg.cols);
+//clock_t t3, t4;
+//t3 = clock();
 	Mat outimage(desImg.rows, desImg.cols,  CV_8UC1, cvtImg);
 	desImg = outimage;
+//t4 = clock();
+//qDebug() << (double)(t4-t3)*1000 << "us" ;
+
 }
 
 void MaxMedianFilter::maxmedianfilter( unsigned char* image, int height, int width )

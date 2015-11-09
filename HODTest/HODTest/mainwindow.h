@@ -3,6 +3,10 @@
 #include "ui_mainwindow.h"
 #include "UnexpectedActionHandler.h"
 
+#include "./Players/VideoPlayer.h"
+#include "./Players/VideoFilePlayer.h"
+#include "./Players/ContinuousFramesPlayer.h"
+
 #include "DenoiseProcessor.h"
 #include "SegmentProcessor.h"
 #include "./Processors/DenoiseStrategy.h"
@@ -40,10 +44,11 @@ private:
 	bool mReady2PalyVideo;
 	bool mStopPlayVideo;
 	bool mIsProcessing;
-	bool mVideoIsOver;
 
 	Ui::MainWindowClass ui;
-	VideoCapture mVideoCapture;
+//	VideoCapture mVideoCapture;
+	VideoPlayer* mVideoPlayer;
+
 	UnexpectedActionHandler mUnexpectedActionHandler;
 
 	//¸÷¸ö½×¶ÎµÄÍ¼Ïñ

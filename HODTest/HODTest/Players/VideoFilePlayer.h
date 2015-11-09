@@ -1,12 +1,20 @@
 #pragma once
-#include "VideoPalyer.h"
+#include "VideoPlayer.h"
 
 //视频文件播放器，用以播放单独的视频文件
-class VideoFilePlayer : VideoPlayer
+class VideoFilePlayer : public VideoPlayer
 {
 public:
 	VideoFilePlayer(void);
 	~VideoFilePlayer(void);
-	readVideo(const string& filepath)
+
+	bool readVideo(const string& filepath);
+	void getNextFrame(Mat&);
+	double getVideoRate();
+	void releaseVideo();
+	bool videoIsOver();
+private:
+	cv::VideoCapture mVideoCapture;
+	cv::Mat mCurrentMat;
 };
 
