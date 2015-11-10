@@ -33,7 +33,8 @@ MainWindow::MainWindow(QWidget *parent, Qt::WFlags flags)
 
 	mQTimer = new QTimer();
 
-//mVideoPlayer = new VideoFilePlayer();
+mVideoPlayer = new VideoFilePlayer();
+
 	mDenoiseProcessor = DenoiseProcessor::getInstance();
 	mDenoiseProcessor->setDenoiseStrategy(DefaultDenosieStrategy::getInstance());
 
@@ -53,7 +54,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_acReadVideo_triggered()
 {
-	QString filepath = QFileDialog::getOpenFileName(this,tr("请选择视频文件"), ".", tr("video file(*.*)"));
+	QString filepath = QFileDialog::getOpenFileName(this, tr("请选择视频文件"), ".", tr("video file(*.*)"));
 	if( filepath == NULL)  
 	{  
 		mUnexpectedActionHandler.handle(UnexpectedActionHandler::NULL_PATH);
@@ -68,7 +69,7 @@ void MainWindow::on_acReadVideo_triggered()
 void MainWindow::on_acReadContinuousFrames_triggered()
 {
 	QString filepath = QFileDialog::getExistingDirectory(
-		this, tr("请选择视频帧所在文件夹"),"d:\\SXX\\TestVideos",QFileDialog::ShowDirsOnly);
+		this, tr("请选择视频帧所在文件夹"),".",QFileDialog::ShowDirsOnly);
 
 	if( filepath == NULL)  
 	{  
@@ -77,7 +78,6 @@ void MainWindow::on_acReadContinuousFrames_triggered()
 	}
 
 	mVideoPlayer = new ContinuousFramesPlayer();
-//	mVideoPlayer->readVideo(filepath);
 	readVideo(filepath);
 }
 
@@ -193,7 +193,7 @@ clock_t t1, t2;	t1 = clock();
 		}
 		mIsProcessing = false;
 t2 = clock();
-qDebug() << mVideoPlayer->getCurrentFramNo() << ": " << (double)(t2-t1) << "ms";
+//qDebug() << mVideoPlayer->getCurrentFramNo() << ": " << (double)(t2-t1) << "ms";
 	}
 }
 

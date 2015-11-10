@@ -14,6 +14,7 @@ public:
 	double getVideoRate();
 	void releaseVideo();
 private:
+//	long mFrame;
 	cv::VideoCapture mVideoCapture;
 	cv::Mat mCurrentMat;
 };

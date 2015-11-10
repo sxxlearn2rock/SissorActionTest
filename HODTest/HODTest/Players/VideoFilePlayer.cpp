@@ -5,7 +5,7 @@
 #include <QTextCodec>
 #include <QtGui/QFileDialog>
 
-VideoFilePlayer::VideoFilePlayer(void)
+VideoFilePlayer::VideoFilePlayer(void) 
 {
 }
 
@@ -24,7 +24,8 @@ VideoFilePlayer::~VideoFilePlayer(void)
 bool VideoFilePlayer::readVideo(const QString& filepath)
 {
 	//将QString转化为标准string，并且可以识别中文
-	mVideoCapture.open((QTextCodec::codecForName("GB18030")->fromUnicode(filepath).data()));
+	mVideoCapture.open((QTextCodec::codecForName("GB18030")->fromUnicode(filepath.toLocal8Bit()).data()));
+//	mVideoCapture.open(filepath.toLocal8Bit().data());
 	return mVideoCapture.isOpened();
 }
 
@@ -32,7 +33,8 @@ bool VideoFilePlayer::getNextFrame(Mat& frameMat)
 {
 	if (mVideoCapture.read(frameMat))
 	{
-		mCurrentFrameNo++;
+//		mCurrentFrameNo++;
+//		mFrame++;
 //		frameMat = mCurrentMat;
 		return true;
 	}
@@ -46,6 +48,7 @@ double VideoFilePlayer::getVideoRate()
 
 void VideoFilePlayer::releaseVideo()
 {
-	mCurrentFrameNo = 0;
+//	mFrame = 0;
+//	mCurrentFrameNo = 0;
 	mVideoCapture.release();
 }

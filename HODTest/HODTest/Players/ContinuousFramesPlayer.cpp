@@ -4,10 +4,11 @@
 #include <qdebug.h>
 
 
-ContinuousFramesPlayer::ContinuousFramesPlayer(void)
+ContinuousFramesPlayer::ContinuousFramesPlayer(void) : mTotalFrames(0)
 {
 	mPreName = QObject::tr("毫米波_");
 	mExtName = QObject::tr("jpg");
+	filesInfo = new QList<QFileInfo>();
 }
 
 
@@ -53,22 +54,22 @@ bool ContinuousFramesPlayer::getNextFrame(Mat& img)
 	QString filename; 
 
 	//此while循环是为了在有缺失帧的时候能跳过缺失帧播放
-	while (mCurrentFrameNo++ < mTotalFrames)
-	{
-		filename = mCurrentDir + QObject::tr("\\%1%2.%3").arg(mPreName).arg(mCurrentFrameNo).arg(mExtName);
-		temp = cv::imread(QTextCodec::codecForName("GB18030")->fromUnicode(filename).data());
-		if ( temp.data)
-		{
-			img = temp;
-			return true;
-		}
-	}
+// 	while (mCurrentFrameNo++ < mTotalFrames)
+// 	{
+// 		filename = mCurrentDir + QObject::tr("\\%1%2.%3").arg(mPreName).arg(mCurrentFrameNo).arg(mExtName);
+// 		temp = cv::imread(QTextCodec::codecForName("GB18030")->fromUnicode(filename).data());
+// 		if ( temp.data)
+// 		{
+// 			img = temp;
+// 			return true;
+// 		}
+// 	}
 
 	return false;
 }
 
 void ContinuousFramesPlayer::releaseVideo()
 {
-	mCurrentFrameNo = 0;
+//	mCurrentFrameNo = 0;
 }
 

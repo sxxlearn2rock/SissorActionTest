@@ -1,28 +1,16 @@
 #include "./Processors/DenoiseStrategies/MaxMedianFilter.h"
 #define PI 3.1415926535
 
-#include <time.h>
-#include <qDebug>
 //类静态变量必须在.cpp文件里声明
 MaxMedianFilter*	MaxMedianFilter::mSingleton = NULL;
 
 void MaxMedianFilter::denoise(const Mat& srcImg, Mat& desImg)
 {
-//clock_t t1, t2;
-//t1 = clock();
-		unsigned char* cvtImg = mat2GrayImgPointer(srcImg, desImg);
-//t2 = clock();
-//qDebug() << (double)(t2-t1)*1000 << "us" ;
-
+	unsigned char* cvtImg = mat2GrayImgPointer(srcImg, desImg);
 
 	maxmedianfilter( cvtImg, desImg.rows, desImg.cols);
-//clock_t t3, t4;
-//t3 = clock();
 	Mat outimage(desImg.rows, desImg.cols,  CV_8UC1, cvtImg);
 	desImg = outimage;
-//t4 = clock();
-//qDebug() << (double)(t4-t3)*1000 << "us" ;
-
 }
 
 void MaxMedianFilter::maxmedianfilter( unsigned char* image, int height, int width )
@@ -162,8 +150,11 @@ void MaxMedianFilter::maxmedianfilter( unsigned char* image, int height, int wid
 			if (temp1>255.0)
 				temp1 = 255.0;
 			OutImage[lLBytes*y + x] = (unsigned char)temp1;
+			//			image[lLBytes*y + x] = OutImage[lLBytes*y + x];
 		}
 	}
+
+
 
 	float maxT = 1.0;
 	//对结果图像进行归一化，扩大显示的对比度
@@ -176,12 +167,26 @@ void MaxMedianFilter::maxmedianfilter( unsigned char* image, int height, int wid
 		}
 	}
 
-	for (y = 0; y<height; y++)
+	if (maxT>200)
 	{
-		for (x = 0; x<width; x++)
+		for (y = 0; y<height; y++)
 		{
-			image[lLBytes*y + x] = (unsigned char)(OutImage[lLBytes*y + x] * 255 / maxT);//对差值图像进行归一化
+			for (x = 0; x<width; x++)
+			{
+				image[lLBytes*y + x] = (unsigned char)(OutImage[lLBytes*y + x] * 255 / maxT);//对差值图像进行归一化
+			}
+		}
+	}
+	else
+	{
+		for (y = 0; y<height; y++)
+		{
+			for (x = 0; x<width; x++)
+			{
+				image[lLBytes*y + x] = OutImage[lLBytes*y + x];//对差值图像进行归一化
+			}
 		}
 	}
 	delete[] OutImage;
 }
+
