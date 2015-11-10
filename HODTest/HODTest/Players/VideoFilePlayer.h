@@ -8,11 +8,11 @@ public:
 	VideoFilePlayer(void);
 	~VideoFilePlayer(void);
 
-	bool readVideo(const string& filepath);
-	void getNextFrame(Mat&);
+//	bool readVideo(const string& filepath);
+	bool readVideo(const QString& filepath);
+	bool getNextFrame(Mat&);
 	double getVideoRate();
 	void releaseVideo();
-	bool videoIsOver();
 private:
 	cv::VideoCapture mVideoCapture;
 	cv::Mat mCurrentMat;

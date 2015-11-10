@@ -497,6 +497,8 @@
      </property>
     </item>
    </widget>
+   <zorder>comboSegment</zorder>
+   <zorder>comboRecog</zorder>
    <zorder>frameRecogBox</zorder>
    <zorder>labelRecogFrame</zorder>
    <zorder>frameInputBox</zorder>
@@ -508,7 +510,6 @@
    <zorder>labelMorphFrame</zorder>
    <zorder>frameOutputBox</zorder>
    <zorder>frameDenoiseBox</zorder>
-   <zorder>layoutWidget</zorder>
    <zorder>labelDenoiseFrame</zorder>
    <zorder>label</zorder>
    <zorder>labelOutputFrame</zorder>
@@ -516,7 +517,6 @@
    <zorder>label_3</zorder>
    <zorder>label_4</zorder>
    <zorder>label_5</zorder>
-   <zorder>layoutWidget_2</zorder>
    <zorder>label_6</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -532,8 +532,8 @@
     <property name="title">
      <string>文件(&amp;F)</string>
     </property>
-    <addaction name="acReadVideo"/>
     <addaction name="acReadContinuousFrames"/>
+    <addaction name="acReadVideo"/>
     <addaction name="separator"/>
     <addaction name="acExit"/>
    </widget>

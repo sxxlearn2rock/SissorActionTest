@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Mon Nov 9 19:06:58 2015
+** Created: Tue Nov 10 16:19:50 2015
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -197,6 +197,8 @@ public:
         comboRecog->setObjectName(QString::fromUtf8("comboRecog"));
         comboRecog->setGeometry(QRect(510, 285, 191, 20));
         MainWindowClass->setCentralWidget(centralWidget);
+        comboSegment->raise();
+        comboRecog->raise();
         frameRecogBox->raise();
         labelRecogFrame->raise();
         frameInputBox->raise();
@@ -233,8 +235,8 @@ public:
 
         menuBar->addAction(menu_F->menuAction());
         menuBar->addAction(menu_R->menuAction());
-        menu_F->addAction(acReadVideo);
         menu_F->addAction(acReadContinuousFrames);
+        menu_F->addAction(acReadVideo);
         menu_F->addSeparator();
         menu_F->addAction(acExit);
         menu_R->addAction(acStartDetect);

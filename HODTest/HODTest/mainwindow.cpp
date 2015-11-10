@@ -67,8 +67,8 @@ void MainWindow::on_acReadVideo_triggered()
 
 void MainWindow::on_acReadContinuousFrames_triggered()
 {
-QString filepath = QFileDialog::getExistingDirectory(
-	this, tr("请选择视频帧所在文件夹"),"d:\\SXX\\TestVideos",QFileDialog::ShowDirsOnly);
+	QString filepath = QFileDialog::getExistingDirectory(
+		this, tr("请选择视频帧所在文件夹"),"d:\\SXX\\TestVideos",QFileDialog::ShowDirsOnly);
 
 	if( filepath == NULL)  
 	{  
@@ -76,27 +76,16 @@ QString filepath = QFileDialog::getExistingDirectory(
 		return;
 	}
 
-//	QFileInfo fileInfo(filepath);
-	QDir dir(filepath);
-	QStringList filter;
-	QList<QFileInfo> *fileInfo=new QList<QFileInfo>(dir.entryInfoList(filter));
-
-	for (int i = 0; i < fileInfo->size(); ++i)
-	{
-		qDebug() << fileInfo->at(i).fileName();
-	}
-
-
 	mVideoPlayer = new ContinuousFramesPlayer();
-	mVideoPlayer->readVideo(QTextCodec::codecForName("GB18030")->fromUnicode(filepath).data());
-//	readVideo(filepath);
+//	mVideoPlayer->readVideo(filepath);
+	readVideo(filepath);
 }
 
 void MainWindow::readVideo(const QString& filepath)
 {
 
 	//使得软件可以读取中文路径
-	if (mVideoPlayer->readVideo(QTextCodec::codecForName("GB18030")->fromUnicode(filepath).data()))
+	if (mVideoPlayer->readVideo(filepath))
 	{
 		//读取并显示视频的第一帧图像，表示视频已经成功读取
 		mVideoPlayer->getNextFrame(mInputMat);
@@ -184,8 +173,8 @@ void MainWindow::totalProcess()
 	{	
 clock_t t1, t2;	t1 = clock();
 		mIsProcessing = true;
-		mVideoPlayer->getNextFrame(mInputMat);		
-		if ( !mVideoPlayer->videoIsOver() )
+
+		if ( mVideoPlayer->getNextFrame(mInputMat) )
 		{	
 			displayInputMat();
 			displayDenoisedMat();
@@ -204,7 +193,7 @@ clock_t t1, t2;	t1 = clock();
 		}
 		mIsProcessing = false;
 t2 = clock();
-qDebug() << "total:" << (double)(t2-t1) << "ms";
+qDebug() << mVideoPlayer->getCurrentFramNo() << ": " << (double)(t2-t1) << "ms";
 	}
 }
 
