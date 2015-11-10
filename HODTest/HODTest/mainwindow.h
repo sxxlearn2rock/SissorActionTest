@@ -25,8 +25,6 @@
 using std::vector;
 using cv::Mat; using cv::VideoCapture; using cv::RotatedRect;
 
-enum Mode {FRAMES,	VIDEO};
-
 class MainWindow : public QMainWindow
 {
 	Q_OBJECT
@@ -38,8 +36,6 @@ public:
 private:
 	//UI相关的成员变量，以u为前缀
 	QLabel* uStatusLabel;
-
-	Mode mProcessMode;
 
 	bool mReady2PalyVideo;
 	bool mStopPlayVideo;
@@ -72,6 +68,7 @@ private:
 	//保存输出目标的外围旋转矩形
 	vector<RotatedRect> rotatedRects;
 
+	void readVideo(const QString&);
 	void displayMat(cv::Mat&, QLabel*, QFrame*);
 	void displayInputMat();
 	void displayDenoisedMat();

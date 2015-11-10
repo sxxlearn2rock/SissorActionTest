@@ -19,3 +19,4 @@ public:
 	virtual void releaseVideo() = 0;
 	virtual double getVideoRate() { return 24; }
 };
+
